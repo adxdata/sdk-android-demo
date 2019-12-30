@@ -1,0 +1,3 @@
+include ':app'
+//include ':sdk-android-lib'
+//project(':sdk-android-lib').projectDir = new File(settingsDir,'../sdk-android-lib/lib/')
