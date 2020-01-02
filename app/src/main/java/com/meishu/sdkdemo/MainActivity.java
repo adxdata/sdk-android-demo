@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 import com.meishu.sdkdemo.nativead.NativeAdSelectActivity;
@@ -62,9 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PackageManager pm = getPackageManager();
             String packageName = getPackageName();
             PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
-            ApplicationInfo appInfo = pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
             TextView txtVersion = findViewById(R.id.txt_version);
-            txtVersion.setText(String.format("Demo 版本：%s\nSDK 版本：%s", packageInfo.versionName, appInfo.metaData.get("SDK_VERSION_NAME")));
+            txtVersion.setText(String.format("Demo 版本：%s\n美数 SDK 版本：%s\n穿山甲 SDK 版本：%s\n百度 SDK 版本：%s\n广点通 SDK 版本：%s",
+                    packageInfo.versionName, AdSdk.getVersionName(), AdSdk.getCSJVersionName(), AdSdk.getBDVersionName(), AdSdk.getGDTVersionName()));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
