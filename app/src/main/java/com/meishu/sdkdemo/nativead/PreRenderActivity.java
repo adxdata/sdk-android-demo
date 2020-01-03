@@ -38,7 +38,10 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_recycler_list);
         initView();
-        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this, MsAdPatternType.PRE_RENDER);//信息流
+        // 不指定宽度，默认使用屏幕宽度
+        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this, MsAdPatternType.PRE_RENDER);
+        // 手动指定宽度
+//        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this, MsAdPatternType.PRE_RENDER, 200);
         recyclerAdLoader.loadAd();
     }
 
