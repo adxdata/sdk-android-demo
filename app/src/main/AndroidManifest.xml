@@ -51,7 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="SDK_VERSION_NAME" android:value="${SDK_VERSION_NAME}" />
     </application>
 
 </manifest>
