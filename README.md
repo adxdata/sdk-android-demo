@@ -1,7 +1,7 @@
 # 美数广告 SDK
 ### 接入流程
 #### 1.嵌入广告SDK
-将 Meishu_Android_SDK_Demo/libs 中的 Baidu_MobAds_SDK-release.aar、meishu-sdk.aar、open_ad_sdk.aar 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
+将 sdk-android-demo/app/libs 中的 meishu-sdk.aar、open_ad_sdk.aar、Baidu_MobAds_SDK-release.aar、GDTSDK.unionNormal.4.132.1002.aar 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
 
         repositories{
             flatDir{
@@ -10,9 +10,10 @@
         }
 
         dependencies {
-            implementation(name:'Baidu_MobAds_SDK-release',ext:'aar')
-            implementation(name:'meishu-sdk',ext:'aar')
-            implementation(name:'open_ad_sdk',ext:'aar')
+            implementation(name: 'meishu-sdk', ext: 'aar') // 美数
+            implementation(name: 'open_ad_sdk', ext: 'aar') // 穿山甲
+            implementation(name: 'Baidu_MobAds_SDK-release', ext: 'aar') // 百度
+            implementation(name: 'GDTSDK.unionNormal.4.132.1002', ext: 'aar') // 广点通
         }
         
 #### 2.添加SDK依赖库
@@ -27,7 +28,7 @@
         }
 
 #### 3.代码混淆
-如果您需要使用 proguard 混淆代码，需确保不要混淆 SDK 的代码。请把 demo 下的 app/proguard-rules.pro 文件的内容追加到您项目的混淆配置文件中
+如果您需要使用 proguard 混淆代码，需确保不要混淆 SDK 的代码。请把 demo 下的 sdk-android-demo/app/proguard-rules.pro 文件的内容追加到您项目的混淆配置文件中
 
 #### 4.代码接入
 请在您的 Application 初始化 sdk，代码如下
