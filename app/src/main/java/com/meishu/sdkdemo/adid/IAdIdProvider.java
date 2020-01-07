@@ -29,5 +29,7 @@ public interface IAdIdProvider {
     String splash();
     /** banner */
     String banner();
+    /** videoFeed (穿山甲 draw 信息流) */
+    String videoFeed();
     String platformName();
 }

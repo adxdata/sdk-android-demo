@@ -72,6 +72,11 @@ public class GDTIdProvider implements IAdIdProvider {
     }
 
     @Override
+    public String videoFeed() {
+        return "";
+    }
+
+    @Override
     public String platformName() {
         return "广点通";
     }

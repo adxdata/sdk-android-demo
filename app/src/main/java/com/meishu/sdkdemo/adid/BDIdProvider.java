@@ -72,6 +72,11 @@ public class BDIdProvider implements IAdIdProvider {
     }
 
     @Override
+    public String videoFeed() {
+        return "";
+    }
+
+    @Override
     public String platformName() {
         return "百度";
     }
