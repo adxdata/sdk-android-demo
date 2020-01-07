@@ -41,3 +41,5 @@
 #### 5.广告位代码接入
 请参考 demo 代码
 
+目前视频广告需要在 Activity 中的 onResume 和 onPause 调用代码才能实现暂停和恢复，详见 PasterActivity
+穿山甲 Draw视频流广告接入方法见 VideoFeedActivity
