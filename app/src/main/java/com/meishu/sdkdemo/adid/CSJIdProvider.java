@@ -72,6 +72,11 @@ public class CSJIdProvider implements IAdIdProvider {
     }
 
     @Override
+    public String videoFeed() {
+        return "100424305";
+    }
+
+    @Override
     public String platformName() {
         return "穿山甲";
     }

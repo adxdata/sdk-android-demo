@@ -11,6 +11,7 @@ import com.meishu.sdk.core.ad.recycler.RecylcerAdInteractionListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdMediaListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
+import com.meishu.sdk.meishu_ad.nativ.NormalMediaView;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
@@ -92,6 +93,26 @@ public class PasterActivity extends AppCompatActivity implements RecyclerAdListe
     @Override
     public void onAdError() {
         Log.d(TAG, "onAdError: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (adDatas != null) {
+            for (RecyclerAdData adData : adDatas) {
+                ((NormalMediaView) adData.getAdView()).resume();
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (adDatas != null) {
+            for (RecyclerAdData adData : adDatas) {
+                ((NormalMediaView) adData.getAdView()).pause();
+            }
+        }
     }
 
     @Override

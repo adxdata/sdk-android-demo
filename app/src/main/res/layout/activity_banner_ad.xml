@@ -10,6 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bannerContainer"
+        android:text="我是内容" />
     <Button
         android:id="@+id/loadBannerAd"
         android:layout_width="match_parent"

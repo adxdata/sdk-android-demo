@@ -44,6 +44,12 @@
         android:text="原生信息流广告" />
 
     <Button
+        android:id="@+id/videoFeedAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="视频流广告" />
+
+    <Button
         android:id="@+id/rewardVideoAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

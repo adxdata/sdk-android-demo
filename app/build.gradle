@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 4
-    demoVersionName = "1.0.3"
+    demoVersionCode = 5
+    demoVersionName = "1.0.4"
 }
 
 android {
@@ -40,7 +40,8 @@ dependencies {
     implementation(name: 'GDTSDK.unionNormal.4.132.1002', ext: 'aar') // 广点通
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.googlecode.android-query:android-query:0.25.9'
 
