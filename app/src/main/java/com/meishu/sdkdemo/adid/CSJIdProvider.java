@@ -78,6 +78,6 @@ public class CSJIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "穿山甲";
+        return "csj";
     }
 }

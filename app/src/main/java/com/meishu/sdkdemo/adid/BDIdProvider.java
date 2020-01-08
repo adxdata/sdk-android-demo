@@ -78,6 +78,6 @@ public class BDIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "百度";
+        return "bd";
     }
 }

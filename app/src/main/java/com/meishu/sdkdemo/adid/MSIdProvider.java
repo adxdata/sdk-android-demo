@@ -78,6 +78,6 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "美数";
+        return "meishu";
     }
 }
