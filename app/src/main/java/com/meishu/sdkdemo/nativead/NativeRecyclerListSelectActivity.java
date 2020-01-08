@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.meishu.sdk.core.utils.MsAdPatternType;
 import com.meishu.sdkdemo.R;
+import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class NativeRecyclerListSelectActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,6 +46,11 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 startActivity(intent);
                 break;
             case R.id.pre_render:
+                String name = IdProviderFactory.getDefaultProvider().platformName();
+                if (!IdProviderFactory.PLATFORM_BD.equals(name) && !IdProviderFactory.PLATFORM_CSJ.equals(name)) {
+                    Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 intent = new Intent(this, PreRenderActivity.class);
                 startActivity(intent);
                 break;

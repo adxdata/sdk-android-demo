@@ -187,6 +187,7 @@ public class VideoFeedActivity extends AppCompatActivity implements DrawAdListen
             View view = null;
             if (itemData.get(i).type == ItemData.ITEM_TYPE_DATA) {
                 FullScreenVideoView videoView = new FullScreenVideoView(viewHolder.itemView.getContext());
+                videoView.setZOrderOnTop(true);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
                 videoView.setLayoutParams(layoutParams);
                 videoView.setVideoURI(Uri.parse(item.url));

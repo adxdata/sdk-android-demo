@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -15,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
@@ -198,6 +198,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.videoFeedAd:
+                if (!IdProviderFactory.PLATFORM_CSJ.equals(IdProviderFactory.getDefaultProvider().platformName())) {
+                    Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 intent.setClass(this,VideoFeedActivity.class);
                 startActivity(intent);
                 break;
