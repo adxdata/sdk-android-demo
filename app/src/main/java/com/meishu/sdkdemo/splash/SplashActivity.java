@@ -1,6 +1,5 @@
 package com.meishu.sdkdemo.splash;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +7,9 @@ import android.util.Log;
 import android.view.ViewGroup;
 
 import com.meishu.sdk.core.ad.splash.ISplashAd;
-import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdk.core.ad.splash.SplashAdListener;
 import com.meishu.sdk.core.ad.splash.SplashAdLoader;
+import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.MainActivity;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -25,13 +24,6 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        ViewGroup adContainer = findViewById(R.id.splash_container);
-        fetchSplashAD(this, adContainer, IdProviderFactory.getDefaultProvider().splash(), this, 3000);
-    }
-
-    private void fetchSplashAD(Activity activity, ViewGroup adContainer, String posId, SplashAdListener adListener, int fetchDelay) {
-        SplashAdLoader splashAD = new SplashAdLoader(activity, adContainer, posId, adListener, fetchDelay);
-        splashAD.loadAd();
     }
 
     @Override
@@ -84,8 +76,11 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     protected void onResume() {
         Log.d(TAG, "onResume: ");
         super.onResume();
+        ViewGroup adContainer = findViewById(R.id.splash_container);
+        SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, IdProviderFactory.getDefaultProvider().splash(), SplashActivity.this, 3000);
+        splashAdLoader.loadAd();
         if (this.splashAd != null && canJump) {
-            next();
+//            next();
         }
         canJump = true;
     }
