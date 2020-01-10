@@ -50,6 +50,7 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
         ad.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
+                // 点击时可以把广告关掉
                 pasterAdLoader.destroy();
                 Log.d(TAG, "onAdClicked: 广告被点击");
             }
