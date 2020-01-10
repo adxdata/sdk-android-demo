@@ -48,7 +48,8 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String videoImg() {
-        return "100424121";
+//        return "100424121";
+        return video();
     }
 
     @Override

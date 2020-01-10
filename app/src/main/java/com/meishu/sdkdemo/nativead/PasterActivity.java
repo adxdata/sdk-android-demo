@@ -3,81 +3,57 @@ package com.meishu.sdkdemo.nativead;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
-import com.meishu.sdk.core.ad.recycler.RecylcerAdInteractionListener;
-import com.meishu.sdk.core.ad.recycler.RecyclerAdMediaListener;
-import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
-import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
-import com.meishu.sdk.meishu_ad.nativ.NormalMediaView;
+import com.meishu.sdk.core.ad.paster.PasterAd;
+import com.meishu.sdk.core.ad.paster.PasterAdListener;
+import com.meishu.sdk.core.ad.paster.PasterAdLoader;
+import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 视频贴片
  */
-public class PasterActivity extends AppCompatActivity implements RecyclerAdListener {
+public class PasterActivity extends AppCompatActivity implements PasterAdListener {
+
     private static final String TAG = "PasterActivity";
-    private RelativeLayout video_container;
+    private PasterAd pasterAd;
+    private ViewGroup videoContainer;
+    private PasterAdLoader pasterAdLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paster);
-        video_container = findViewById(R.id.video_container);
-        RecyclerAdLoader nativeAD = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().video(), 1,this);//文字类广告，文字内容取信息流广告中的title
-        nativeAD.loadAd();
+        videoContainer = findViewById(R.id.video_container);
+        pasterAdLoader = new PasterAdLoader(this, videoContainer, IdProviderFactory.getDefaultProvider().videoImg(), this);
+        pasterAdLoader.loadAd();
     }
 
-    private List<RecyclerAdData> adDatas;
+    @Override
+    public void onVideoLoaded() {
+        pasterAd.start();
+        Toast.makeText(PasterActivity.this, "开始播放", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
-    public void onAdLoaded(List<RecyclerAdData> adDatas) {
-        this.adDatas = adDatas;
-        if (adDatas != null && adDatas.size() > 0) {
-            this.video_container.setVisibility(View.VISIBLE);
-            RecyclerAdData ad = adDatas.get(0);
-            List<View> clickableViews = new ArrayList<>();
-            clickableViews.add(video_container);
-            ad.bindAdToView(this, video_container, clickableViews, new RecylcerAdInteractionListener() {
-                @Override
-                public void onAdClicked() {
-                    Log.d(TAG, "onAdClicked: 广告被点击");
-                }
-            });
-            ad.bindMediaView(video_container, new RecyclerAdMediaListener() {
-                @Override
-                public void onVideoLoaded() {
-                    Log.d(TAG, "onVideoLoaded: 视频加载成功");
-                }
+    public void onVideoComplete() {
+        Toast.makeText(PasterActivity.this, "视频播放完毕", Toast.LENGTH_SHORT).show();
+        pasterAdLoader.destroy();
+    }
 
-                @Override
-                public void onVideoStart() {
-                    Log.d(TAG, "onVideoStart: 视频开始");
-                }
-
-                @Override
-                public void onVideoPause() {
-                    Log.d(TAG, "onVideoPause: 视频暂停");
-                }
-
-                @Override
-                public void onVideoCompleted() {
-                    Log.d(TAG, "onVideoCompleted: 视频完成");
-                    PasterActivity.this.video_container.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onVideoError() {
-                    Log.d(TAG, "onVideoError: 视频出错");
-                }
-            });
-        }
+    @Override
+    public void onAdLoaded(final PasterAd ad) {
+        pasterAd = ad;
+        ad.setInteractionListener(new InteractionListener() {
+            @Override
+            public void onAdClicked() {
+                pasterAdLoader.destroy();
+                Log.d(TAG, "onAdClicked: 广告被点击");
+            }
+        });
     }
 
     @Override
@@ -98,30 +74,24 @@ public class PasterActivity extends AppCompatActivity implements RecyclerAdListe
     @Override
     protected void onResume() {
         super.onResume();
-        if (adDatas != null) {
-            for (RecyclerAdData adData : adDatas) {
-                ((NormalMediaView) adData.getAdView()).resume();
-            }
+        if (pasterAd != null) {
+            pasterAd.onResume();
         }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (adDatas != null) {
-            for (RecyclerAdData adData : adDatas) {
-                ((NormalMediaView) adData.getAdView()).pause();
-            }
+        if (pasterAd != null) {
+            pasterAd.onPause();
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (this.adDatas != null) {
-            for (RecyclerAdData adData : adDatas) {
-                adData.destroy();
-            }
+        if (pasterAdLoader != null) {
+            pasterAdLoader.destroy();
         }
     }
 }

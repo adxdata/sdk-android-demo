@@ -25,10 +25,10 @@
         android:text="插屏广告" />
 
     <Button
-        android:id="@+id/nativeAD"
+        android:id="@+id/pasterAD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="原生广告" />
+        android:text="视频贴片广告" />
 
     <Button
         android:id="@+id/nativeMediaAD"

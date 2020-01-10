@@ -11,12 +11,12 @@
         android:background="#000000"
         android:layout_width="match_parent"
         android:layout_height="200dp">
-    <TextView
-        android:text="假装有个播放器"
-        android:textColor="#ffffffff"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:text="假装有个播放器"
+            android:textColor="#ffffffff"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <RelativeLayout
             android:id="@+id/video_container"
             android:layout_width="match_parent"

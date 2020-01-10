@@ -19,9 +19,9 @@ import android.widget.Toast;
 import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
-import com.meishu.sdkdemo.nativead.NativeAdSelectActivity;
 import com.meishu.sdkdemo.nativead.NativeRecyclerListSelectActivity;
 import com.meishu.sdkdemo.nativead.NativeVideoActivity;
+import com.meishu.sdkdemo.nativead.PasterActivity;
 import com.meishu.sdkdemo.splash.SplashActivity;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bannerAD.setOnClickListener(this);
         findViewById(R.id.slashAD).setOnClickListener(this);
         findViewById(R.id.interstitialAD).setOnClickListener(this);
-        findViewById(R.id.nativeAD).setOnClickListener(this);
+        findViewById(R.id.pasterAD).setOnClickListener(this);
         findViewById(R.id.nativeMediaAD).setOnClickListener(this);
         findViewById(R.id.nativeRecyclerAD).setOnClickListener(this);
         findViewById(R.id.rewardVideoAd).setOnClickListener(this);
@@ -181,8 +181,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setClass(this, InterstitialAdActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nativeAD:
-                intent.setClass(this, NativeAdSelectActivity.class);
+            case R.id.pasterAD:
+                intent.setClass(this, PasterActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nativeMediaAD:
