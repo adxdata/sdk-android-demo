@@ -3,12 +3,12 @@ package com.meishu.sdkdemo.adid;
 public class MSIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-        return "100424128";
+        return "100424034";
     }
 
     @Override
     public String rewardLandscape() {
-        return "100424127";
+        return "1004468";
     }
 
     @Override
@@ -18,12 +18,12 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String feedThreeImgs() {
-        return "100424129";
+            return "100424039";
     }
 
     @Override
     public String feedImageVertical() {
-        return "100424124";
+        return "100424017";
     }
 
     @Override
@@ -48,8 +48,7 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String videoImg() {
-//        return "100424121";
-        return video();
+        return "100424018";
     }
 
     @Override
@@ -59,12 +58,12 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String insertScreen() {
-        return "100424119";
+        return "100424020";
     }
 
     @Override
     public String splash() {
-        return "100424118";
+        return "100424024";
     }
 
     @Override

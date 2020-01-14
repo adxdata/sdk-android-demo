@@ -1,8 +1,11 @@
 package com.meishu.sdkdemo.nativead;
 
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -27,6 +30,54 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paster);
+
+        findViewById(R.id.btn_rotate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Configuration mConfiguration = v.getResources().getConfiguration(); //获取设置的配置信息
+                int ori = mConfiguration.orientation; //获取屏幕方向
+                if (ori == Configuration.ORIENTATION_LANDSCAPE) {
+                    //横屏
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//强制为竖屏
+                } else if (ori == Configuration.ORIENTATION_PORTRAIT) {
+                    //竖屏
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//强制为横屏
+                }
+            }
+        });
+        findViewById(R.id.btn_resume).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pasterAd != null) {
+                    pasterAd.resume();
+                }
+            }
+        });
+        findViewById(R.id.btn_pause).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pasterAd != null) {
+                    pasterAd.pause();
+                }
+            }
+        });
+        findViewById(R.id.btn_mute).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pasterAd != null) {
+                    pasterAd.mute();
+                }
+            }
+        });
+        findViewById(R.id.btn_unmute).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pasterAd != null) {
+                    pasterAd.unmute();
+                }
+            }
+        });
+
         videoContainer = findViewById(R.id.video_container);
         pasterAdLoader = new PasterAdLoader(this, videoContainer, IdProviderFactory.getDefaultProvider().videoImg(), this);
         pasterAdLoader.loadAd();
@@ -51,7 +102,7 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
             @Override
             public void onAdClicked() {
                 // 点击时可以把广告关掉
-                pasterAdLoader.destroy();
+//                pasterAdLoader.destroy();
                 Log.d(TAG, "onAdClicked: 广告被点击");
             }
         });

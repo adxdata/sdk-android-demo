@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 6
-    demoVersionName = "1.0.5"
+    demoVersionCode = 7
+    demoVersionName = "1.0.6"
 }
 
 android {

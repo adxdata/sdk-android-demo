@@ -28,6 +28,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdLoaded(ISplashAd splashAd) {
+        Log.d(TAG, "onAdExposure: 开屏广告填充");
         this.splashAd = splashAd;
         splashAd.setInteractionListener(new InteractionListener() {
 
