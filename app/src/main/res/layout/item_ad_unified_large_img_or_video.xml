@@ -54,7 +54,8 @@
                 android:id="@+id/img_poster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitXY" />
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter" />
 
             <LinearLayout
                 android:id="@+id/native_3img_ad_container"

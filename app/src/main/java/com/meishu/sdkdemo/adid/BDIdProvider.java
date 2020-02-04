@@ -28,7 +28,7 @@ public class BDIdProvider implements IAdIdProvider {
 
     @Override
     public String feedImageHorizon() {
-        return "100424182";
+        return "100424183";
     }
 
     @Override

@@ -27,8 +27,6 @@ import com.meishu.sdkdemo.splash.SplashActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-//import razerdp.util.SimpleAnimationUtils;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     public static Context context;
