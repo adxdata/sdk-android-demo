@@ -21,14 +21,17 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
         findViewById(R.id.showInterstitailAD).setOnClickListener(this);
     }
 
-    private InterstitialAdLoader interstitialAD;
+    private InterstitialAdLoader interstitialAdLoader;
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.showInterstitailAD:
-                interstitialAD = new InterstitialAdLoader(this, IdProviderFactory.getDefaultProvider().insertScreen(), this);
-                interstitialAD.loadAd();
+                if (interstitialAdLoader != null) {
+                    interstitialAdLoader.destroy();
+                }
+                interstitialAdLoader = new InterstitialAdLoader(this, IdProviderFactory.getDefaultProvider().insertScreen(), this);
+                interstitialAdLoader.loadAd();
                 break;
         }
     }
@@ -62,8 +65,8 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (interstitialAD != null) {
-            interstitialAD.destroy();
+        if (interstitialAdLoader != null) {
+            interstitialAdLoader.destroy();
         }
     }
 }
