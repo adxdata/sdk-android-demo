@@ -38,7 +38,7 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String feedPreRender() {
-        return "";
+        return "100424017";
     }
 
     @Override

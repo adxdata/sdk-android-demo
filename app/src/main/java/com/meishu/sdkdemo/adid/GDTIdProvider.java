@@ -38,7 +38,7 @@ public class GDTIdProvider implements IAdIdProvider {
 
     @Override
     public String feedPreRender() {
-        return "";
+        return "100424321";
     }
 
     @Override
@@ -48,7 +48,7 @@ public class GDTIdProvider implements IAdIdProvider {
 
     @Override
     public String videoImg() {
-        return "100424165";
+        return "100424167";
     }
 
     @Override

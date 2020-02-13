@@ -47,7 +47,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 break;
             case R.id.pre_render:
                 String name = IdProviderFactory.getDefaultProvider().platformName();
-                if (!IdProviderFactory.PLATFORM_BD.equals(name) && !IdProviderFactory.PLATFORM_CSJ.equals(name)) {
+                if (IdProviderFactory.PLATFORM_MS.equals(name)) {
                     Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
