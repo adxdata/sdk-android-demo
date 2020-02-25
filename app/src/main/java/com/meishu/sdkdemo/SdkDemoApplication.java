@@ -25,5 +25,10 @@ public class SdkDemoApplication extends Application {
 
         // 设置请求广告的 secure 参数，一般不需要设置，默认 SECURE_ALL
 //        AdSdk.setSecure(AdSdk.SECURE_HTTP);
+
+        // 设置用户标签，什么时候获取到，什么时候设置就可以了
+//        AdSdk.setAge(18);
+//        AdSdk.setGender(AdSdk.GENDER_MALE);
+//        AdSdk.setKeywords("food,game");
     }
 }
