@@ -39,6 +39,7 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     @Override
     public void onAdLoaded(InterstitialAd interstitialAd) {
         Log.d(TAG, "onAdLoaded: ");
+        interstitialAd.showAd();
         interstitialAd.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
