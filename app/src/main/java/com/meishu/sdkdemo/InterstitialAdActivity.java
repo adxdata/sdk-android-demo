@@ -14,10 +14,13 @@ import com.meishu.sdkdemo.adid.IdProviderFactory;
 public class InterstitialAdActivity extends AppCompatActivity implements View.OnClickListener, InterstitialAdListener {
     private static final String TAG = "InterstitialADActivity";
 
+    private InterstitialAd interstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interstitial_ad);
+        findViewById(R.id.loadInterstitailAD).setOnClickListener(this);
         findViewById(R.id.showInterstitailAD).setOnClickListener(this);
     }
 
@@ -26,12 +29,16 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.showInterstitailAD:
+            case R.id.loadInterstitailAD:
+                findViewById(R.id.showInterstitailAD).setEnabled(false);
                 if (interstitialAdLoader != null) {
                     interstitialAdLoader.destroy();
                 }
                 interstitialAdLoader = new InterstitialAdLoader(this, IdProviderFactory.getDefaultProvider().insertScreen(), this);
                 interstitialAdLoader.loadAd();
+                break;
+            case R.id.showInterstitailAD:
+                interstitialAd.showAd();
                 break;
         }
     }
@@ -39,7 +46,8 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     @Override
     public void onAdLoaded(InterstitialAd interstitialAd) {
         Log.d(TAG, "onAdLoaded: ");
-        interstitialAd.showAd();
+        this.interstitialAd = interstitialAd;
+        findViewById(R.id.showInterstitailAD).setEnabled(true);
         interstitialAd.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
