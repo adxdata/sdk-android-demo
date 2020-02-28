@@ -42,13 +42,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- 原生广告的视频组件 -->
-            <FrameLayout
-                android:id="@+id/api_media_view"
+            <LinearLayout android:id="@+id/layout_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000" />
-
+                android:orientation="vertical"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/button_replay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:text="重播"/>
+                    <Button android:id="@+id/button_mute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="静音"/>
+                    <Button android:id="@+id/button_unmute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不静音"/>
+                </LinearLayout>
+                <!-- 原生广告的视频组件 -->
+                <FrameLayout
+                    android:id="@+id/api_media_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#000" />
+            </LinearLayout>
             <!-- 原生广告的大图 -->
             <ImageView
                 android:id="@+id/img_poster"

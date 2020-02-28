@@ -205,15 +205,14 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
             if (!TextUtils.isEmpty(iconUrl)) {
                 logoAQ.id(R.id.small_img).image(iconUrl, false, true);
             }
-            holder.name.setText(ad.getTitle());
-            holder.desc.setText(ad.getDesc());
-            holder.content.setText(ad.getContent());
-            holder.actionText.setText(ad.getActionText());
-            holder.appName.setText(ad.getAppName());
-            holder.packageName.setText(ad.getPackageName());
-            holder.from.setText(ad.getFrom());
-            holder.fromLogo.setText(ad.getFromLogo());
-            holder.iconTitle.setText(ad.getIconTitle());
+            holder.name.setText("title: " + ad.getTitle());
+            holder.content.setText("content: " + ad.getContent());
+            holder.actionText.setText("action_text: " + ad.getActionText());
+            holder.appName.setText("app_name: " + ad.getAppName());
+            holder.packageName.setText("package_name: " + ad.getPackageName());
+            holder.from.setText("from: " + ad.getFrom());
+            holder.fromLogo.setText("from_logo: " + ad.getFromLogo());
+            holder.iconTitle.setText("icon_title: " + ad.getIconTitle());
             List<View> clickableViews = new ArrayList<>();
             clickableViews.add(holder.container);
             ad.bindAdToView(ImageTextActivity.this, holder.container,

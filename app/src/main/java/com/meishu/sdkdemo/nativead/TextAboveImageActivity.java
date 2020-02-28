@@ -14,19 +14,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.BitmapAjaxCallback;
-import com.meishu.sdk.core.utils.MsAdPatternType;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdMediaListener;
 import com.meishu.sdk.core.ad.recycler.RecylcerAdInteractionListener;
+import com.meishu.sdk.core.utils.MsAdPatternType;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
@@ -333,11 +333,31 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                     @Override
                     public void onVideoCompleted() {
                         Log.d(TAG, "onVideoCompleted: 视频结束");
+                        holder.replay.setEnabled(true);
                     }
 
                     @Override
                     public void onVideoError() {
                         Log.e(TAG, "onVideoError: ", new Exception("视频出错"));
+                    }
+                });
+                holder.replay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ad.replay();
+                        holder.replay.setEnabled(false);
+                    }
+                });
+                holder.mute.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ad.mute();
+                    }
+                });
+                holder.unmute.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ad.unmute();
                     }
                 });
             }
@@ -355,6 +375,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
         holder.img2.setVisibility(View.GONE);
         holder.img3.setVisibility(View.GONE);
         holder.mediaView.setVisibility(View.VISIBLE);
+        holder.layoutVideo.setVisibility(View.VISIBLE);
     }
 
     private void showPoster(CustomHolder holder) {
@@ -404,6 +425,10 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
         public ImageView img2;
         public ImageView img3;
         public ViewGroup container;
+        public ViewGroup layoutVideo;
+        public Button replay;
+        public Button mute;
+        public Button unmute;
         public AQuery logoAQ;
 
         public CustomHolder(View itemView, int adType) {
@@ -420,6 +445,10 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                     title_top = itemView.findViewById(R.id.ad_info_container_top_text_title);
                     desc_top = itemView.findViewById(R.id.ad_info_container_top_text_desc);
                     container = itemView.findViewById(R.id.native_ad_container);
+                    replay = itemView.findViewById(R.id.button_replay);
+                    mute = itemView.findViewById(R.id.button_mute);
+                    unmute = itemView.findViewById(R.id.button_unmute);
+                    layoutVideo = itemView.findViewById(R.id.layout_video);
                     logoAQ = new AQuery(itemView);
 
                 case TYPE_DATA:
