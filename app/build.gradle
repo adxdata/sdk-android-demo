@@ -34,7 +34,7 @@ android {
 
 dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
-    implementation(name: 'meishu-sdk_0.5.14', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.5.15', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-v5.83', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.4.150.1020', ext: 'aar') // 广点通
