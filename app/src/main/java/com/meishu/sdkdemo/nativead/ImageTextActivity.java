@@ -207,6 +207,13 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
             }
             holder.name.setText(ad.getTitle());
             holder.desc.setText(ad.getDesc());
+            holder.content.setText(ad.getContent());
+            holder.actionText.setText(ad.getActionText());
+            holder.appName.setText(ad.getAppName());
+            holder.packageName.setText(ad.getPackageName());
+            holder.from.setText(ad.getFrom());
+            holder.fromLogo.setText(ad.getFromLogo());
+            holder.iconTitle.setText(ad.getIconTitle());
             List<View> clickableViews = new ArrayList<>();
             clickableViews.add(holder.container);
             ad.bindAdToView(ImageTextActivity.this, holder.container,
@@ -230,6 +237,13 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
         public TextView title;
         public TextView name;
         public TextView desc;
+        public TextView content;
+        public TextView actionText;
+        public TextView appName;
+        public TextView packageName;
+        public TextView from;
+        public TextView fromLogo;
+        public TextView iconTitle;
         public ImageView logo;
         public ViewGroup container;
         public AQuery logoAQ;
@@ -241,6 +255,13 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
                     logo = itemView.findViewById(R.id.small_img);
                     name = itemView.findViewById(R.id.text_title);
                     desc = itemView.findViewById(R.id.text_desc);
+                    content = itemView.findViewById(R.id.text_content);
+                    actionText = itemView.findViewById(R.id.text_action_text);
+                    appName = itemView.findViewById(R.id.text_app_name);
+                    packageName = itemView.findViewById(R.id.text_package_name);
+                    from = itemView.findViewById(R.id.text_from);
+                    fromLogo = itemView.findViewById(R.id.text_from_logo);
+                    iconTitle = itemView.findViewById(R.id.text_icon_title);
                     container = itemView.findViewById(R.id.native_ad_container);
                     logoAQ = new AQuery(itemView);
 

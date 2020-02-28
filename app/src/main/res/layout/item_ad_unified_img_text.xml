@@ -1,32 +1,38 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-        <!--左图右文-->
-        <RelativeLayout
-            android:id="@+id/native_ad_container"
+    <!--左图右文-->
+    <RelativeLayout
+        android:id="@+id/native_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+        <!-- 原生广告的小图 -->
+        <ImageView
+            android:id="@+id/small_img"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp">
-            <!-- 原生广告的小图 -->
-            <ImageView
-                android:id="@+id/small_img"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:scaleType="centerCrop"/>
-
+            android:layout_alignTop="@id/small_img"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:layout_toRightOf="@id/small_img"
+            android:layout_marginLeft="6dp"
+            android:orientation="vertical">
             <!-- 原生广告的标题 -->
             <TextView
                 android:id="@+id/text_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/small_img"
-                android:layout_toRightOf="@id/small_img"
-                android:layout_marginLeft="6dp"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:textColor="#e0000000" />
@@ -36,13 +42,58 @@
                 android:id="@+id/text_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/text_title"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_alignParentRight="true"
-                android:layout_toRightOf="@id/small_img"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textColor="#a0000000" />
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/text_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+            <TextView
+                android:id="@+id/text_action_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+            <TextView
+                android:id="@+id/text_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+            <TextView
+                android:id="@+id/text_package_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+            <TextView
+                android:id="@+id/text_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+            <TextView
+                android:id="@+id/text_from_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+            <TextView
+                android:id="@+id/text_icon_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#a0000000" />
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>
