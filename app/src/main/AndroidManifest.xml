@@ -37,6 +37,7 @@
         <activity android:name=".nativead.PreRenderActivity" />
         <activity android:name=".VideoFeedActivity" />
         <activity android:name=".InterstitialAdActivity" />
+        <activity android:name=".InterstitialAdNewActivity" />
         <activity android:name=".splash.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".splash.SplashAdActivity" />

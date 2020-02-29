@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".InterstitialAdActivity">
 
-    <Button
-        android:id="@+id/loadInterstitailAD"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="加载插屏广告" />
+        android:text="这是另一个 Activity" />
 
-    <Button
-        android:id="@+id/showInterstitailAD"
+    <Button android:id="@+id/show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
         android:text="展示插屏广告" />
 
-    <Button
-        android:id="@+id/openNewActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="打开另一个Activity展示"/>
+<!--    <Button android:id="@+id/show_error"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="展示错误插屏广告" />-->
 
 </LinearLayout>

@@ -1,14 +1,15 @@
 package com.meishu.sdkdemo;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import com.meishu.sdk.core.ad.interstitial.InterstitialAd;
-import com.meishu.sdk.core.loader.InteractionListener;
-import com.meishu.sdk.core.ad.interstitial.InterstitialAdLoader;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAdListener;
+import com.meishu.sdk.core.ad.interstitial.InterstitialAdLoader;
+import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class InterstitialAdActivity extends AppCompatActivity implements View.OnClickListener, InterstitialAdListener {
@@ -22,6 +23,7 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_interstitial_ad);
         findViewById(R.id.loadInterstitailAD).setOnClickListener(this);
         findViewById(R.id.showInterstitailAD).setOnClickListener(this);
+        findViewById(R.id.openNewActivity).setOnClickListener(this);
     }
 
     private InterstitialAdLoader interstitialAdLoader;
@@ -31,6 +33,7 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
         switch (v.getId()) {
             case R.id.loadInterstitailAD:
                 findViewById(R.id.showInterstitailAD).setEnabled(false);
+                findViewById(R.id.openNewActivity).setEnabled(false);
                 if (interstitialAdLoader != null) {
                     interstitialAdLoader.destroy();
                 }
@@ -40,14 +43,21 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
             case R.id.showInterstitailAD:
                 interstitialAd.showAd();
                 break;
+            case R.id.openNewActivity:
+                Intent intent = new Intent(this, InterstitialAdNewActivity.class);
+                InterstitialAdNewActivity.setInterstitialAd(interstitialAd);
+                startActivity(intent);
+                break;
         }
     }
 
     @Override
     public void onAdLoaded(InterstitialAd interstitialAd) {
+
         Log.d(TAG, "onAdLoaded: ");
         this.interstitialAd = interstitialAd;
         findViewById(R.id.showInterstitailAD).setEnabled(true);
+        findViewById(R.id.openNewActivity).setEnabled(true);
         interstitialAd.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
