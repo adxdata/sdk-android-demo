@@ -17,6 +17,20 @@
         android:id="@+id/load_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="加载视频" />
+        android:text="加载两个视频" />
+
+    <Button
+        android:id="@+id/show1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="展示1" />
+
+    <Button
+        android:id="@+id/show2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="展示2" />
 
 </LinearLayout>

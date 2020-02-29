@@ -11,6 +11,7 @@ import com.meishu.sdk.core.ad.reward.RewardVideoAd;
 import com.meishu.sdk.core.ad.reward.RewardVideoAdListener;
 import com.meishu.sdk.core.ad.reward.RewardVideoLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
+import com.meishu.sdk.core.utils.LogUtil;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
@@ -20,7 +21,8 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
     private static final String TAG = "RewardVideoActivity";
 
     private RewardVideoAd ad;
-    private String posId = "300002";
+    private RewardVideoAd ad2;
+    private RewardVideoLoader rewardVideoLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +31,17 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.change_orientation).setOnClickListener(this);
         findViewById(R.id.load_video).setOnClickListener(this);
 
+        String posId;
         int currentOrientation = getResources().getConfiguration().orientation;
         if (currentOrientation == ORIENTATION_PORTRAIT) {
             posId = IdProviderFactory.getDefaultProvider().rewardPortrait();
         } else if (currentOrientation == ORIENTATION_LANDSCAPE) {
             posId = IdProviderFactory.getDefaultProvider().rewardLandscape();
+        } else {
+            LogUtil.e(TAG, "orientation error");
+            return;
         }
+        rewardVideoLoader = new RewardVideoLoader(this, posId, this);
     }
 
 
@@ -51,15 +58,37 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
                 }
                 break;
             case R.id.load_video:
-                RewardVideoLoader loader = new RewardVideoLoader(this, posId, this);
-                loader.loadAd();
+                this.ad = null;
+                this.ad2 = null;
+                rewardVideoLoader.loadAd();
+                rewardVideoLoader.loadAd();
                 break;
         }
     }
 
     @Override
     public void onAdLoaded(RewardVideoAd ad) {
-        this.ad = ad;
+        if (this.ad == null) {
+            this.ad = ad;
+            View show1 = findViewById(R.id.show1);
+            show1.setEnabled(true);
+            show1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RewardVideoActivity.this.ad.showAd();
+                }
+            });
+        } else {
+            this.ad2 = ad;
+            View show2 = findViewById(R.id.show2);
+            show2.setEnabled(true);
+            show2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RewardVideoActivity.this.ad2.showAd();
+                }
+            });
+        }
         ad.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
@@ -72,7 +101,6 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
                 Log.d(TAG, "onVideoCompleted: ");
             }
         });
-        ad.showAd();
     }
 
     @Override
