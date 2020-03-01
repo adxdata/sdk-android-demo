@@ -36,4 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="预渲染（穿山甲模板渲染、百度优选等）" />
+
+    <Button
+        android:id="@+id/single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单独加载" />
 </LinearLayout>

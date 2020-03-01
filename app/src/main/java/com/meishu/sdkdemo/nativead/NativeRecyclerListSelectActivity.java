@@ -21,6 +21,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
         findViewById(R.id.large_img_or_video).setOnClickListener(this);
         findViewById(R.id.three_img).setOnClickListener(this);
         findViewById(R.id.pre_render).setOnClickListener(this);
+        findViewById(R.id.single).setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +55,9 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 intent = new Intent(this, PreRenderActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.single:
+                intent = new Intent(this, SingleRecyclerActivity.class);
+                startActivity(intent);
         }
     }
 }
