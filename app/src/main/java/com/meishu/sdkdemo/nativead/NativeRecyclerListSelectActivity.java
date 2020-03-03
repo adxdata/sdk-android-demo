@@ -27,6 +27,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
     @Override
     public void onClick(View v) {
         Intent intent;
+        String name = IdProviderFactory.getDefaultProvider().platformName();
         switch (v.getId()) {
             case R.id.img_text_button:
                 intent = new Intent(this, ImageTextButtonActivity.class);
@@ -47,15 +48,18 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 startActivity(intent);
                 break;
             case R.id.pre_render:
-                String name = IdProviderFactory.getDefaultProvider().platformName();
                 if (IdProviderFactory.PLATFORM_MS.equals(name)) {
-                    Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 intent = new Intent(this, PreRenderActivity.class);
                 startActivity(intent);
                 break;
             case R.id.single:
+                if (!IdProviderFactory.PLATFORM_MS.equals(name)) {
+                    Toast.makeText(this, "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 intent = new Intent(this, SingleRecyclerActivity.class);
                 startActivity(intent);
         }

@@ -20,35 +20,31 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# 加载美数广告必须添加
+# 美数
 -keep class com.meishu.sdk.** { *; }
 
-#加载广点通广告必须添加
-## 嵌入广点通sdk时必须添加
+# 广点通
 -keep class com.qq.e.** {
     public protected *;
 }
-
-## 嵌入广点通sdk时必须添加
 -keep class android.support.v4.**{ *;}
-## 如果使用了tbs版本的sdk需要进行以下配置
 -keep class com.tencent.smtt.** { *; }
 -dontwarn dalvik.**
 -dontwarn com.tencent.smtt.**
 
-#加载穿山甲广告必须添加
+# 穿山甲
 -keep class com.bytedance.sdk.openadsdk.** { *; }
 -keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
-
+-keep class com.pgl.sys.ces.* {*;}
 -keep class com.ss.** { *; }
 
-# 百度广告sdk混淆
+# 百度
 -keepclassmembers class * extends android.app.Activity {
- public void *(android.view.View);
+    public void *(android.view.View);
 }
 -keepclassmembers enum * {
- public static **[] values();
- public static ** valueOf(java.lang.String);
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
 }
 -keep class com.baidu.mobads.** { *; }
 -keep class com.baidu.mobad.** { *; }

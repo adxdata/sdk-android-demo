@@ -14,11 +14,18 @@
         android:text="加载插屏广告" />
 
     <Button
-        android:id="@+id/showInterstitailAD"
+        android:id="@+id/showInterstitailAD1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:text="展示插屏广告" />
+        android:text="展示插屏广告1" />
+
+    <Button
+        android:id="@+id/showInterstitailAD2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="展示插屏广告2" />
 
     <Button
         android:id="@+id/openNewActivity"

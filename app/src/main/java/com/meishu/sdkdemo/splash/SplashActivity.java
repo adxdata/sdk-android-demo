@@ -24,11 +24,14 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ViewGroup adContainer = findViewById(R.id.splash_container);
+        SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, IdProviderFactory.getDefaultProvider().splash(), SplashActivity.this, 3000);
+        splashAdLoader.loadAd();
     }
 
     @Override
     public void onAdLoaded(ISplashAd splashAd) {
-        Log.d(TAG, "onAdExposure: 开屏广告填充");
+        Log.d(TAG, "onAdLoaded: 开屏广告填充");
         this.splashAd = splashAd;
         splashAd.setInteractionListener(new InteractionListener() {
 
@@ -69,7 +72,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     }
 
     private void next() {
-        this.startActivity(new Intent(this, MainActivity.class));
+        // 此处打开需要的 activity 即可
         this.finish();
     }
 
@@ -77,9 +80,6 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     protected void onResume() {
         Log.d(TAG, "onResume: ");
         super.onResume();
-        ViewGroup adContainer = findViewById(R.id.splash_container);
-        SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, IdProviderFactory.getDefaultProvider().splash(), SplashActivity.this, 3000);
-        splashAdLoader.loadAd();
         if (this.splashAd != null && canJump) {
 //            next();
         }

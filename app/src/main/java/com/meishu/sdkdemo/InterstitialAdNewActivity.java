@@ -9,10 +9,15 @@ import com.meishu.sdk.core.ad.interstitial.InterstitialAd;
 
 public class InterstitialAdNewActivity extends AppCompatActivity {
 
-    private static InterstitialAd interstitialAd;
+    private static InterstitialAd interstitialAd1;
+    private static InterstitialAd interstitialAd2;
 
-    public static void setInterstitialAd(InterstitialAd interstitialAd) {
-        InterstitialAdNewActivity.interstitialAd = interstitialAd;
+    public static void setInterstitialAd1(InterstitialAd interstitialAd) {
+        InterstitialAdNewActivity.interstitialAd1 = interstitialAd;
+    }
+
+    public static void setInterstitialAd2(InterstitialAd interstitialAd) {
+        InterstitialAdNewActivity.interstitialAd2 = interstitialAd;
     }
 
     @Override
@@ -20,11 +25,19 @@ public class InterstitialAdNewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interstitial_ad_new);
 
-        findViewById(R.id.show).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.show1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd != null) {
-                    interstitialAd.showAd(InterstitialAdNewActivity.this);
+                if (interstitialAd1 != null) {
+                    interstitialAd1.showAd(InterstitialAdNewActivity.this);
+                }
+            }
+        });
+        findViewById(R.id.show2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (interstitialAd2 != null) {
+                    interstitialAd2.showAd(InterstitialAdNewActivity.this);
                 }
             }
         });
@@ -41,6 +54,7 @@ public class InterstitialAdNewActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        interstitialAd = null;
+        interstitialAd1 = null;
+        interstitialAd2 = null;
     }
 }

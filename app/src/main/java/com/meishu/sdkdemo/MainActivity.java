@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    public void showPopupWindow(Activity context, View parent){
 //        LayoutInflater inflater = (LayoutInflater)
 //                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        final View vPopupWindow=inflater.inflate(R.layout.interstitial_ad_layout, null, false);
+//        final View vPopupWindow=inflater.inflate(R.layout.meishu_interstitial_ad_layout, null, false);
 //        final PopupWindow pw= new PopupWindow(vPopupWindow, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,false);
 //
 //        //Cancel按钮及其处理事件
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //    public void showPopupWindow(Activity context, View parent) {
 //        LayoutInflater inflater = LayoutInflater.from(context);
-//        final View vPopupWindow = inflater.inflate(R.layout.interstitial_ad_layout, null);
+//        final View vPopupWindow = inflater.inflate(R.layout.meishu_interstitial_ad_layout, null);
 //        //Cancel按钮及其处理事件
 //        View btnCancel = vPopupWindow.findViewById(R.id.popupwindow_cancel);
 //        btnCancel.setOnClickListener(new View.OnClickListener() {

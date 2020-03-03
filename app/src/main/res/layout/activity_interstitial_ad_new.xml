@@ -11,10 +11,15 @@
         android:layout_height="wrap_content"
         android:text="这是另一个 Activity" />
 
-    <Button android:id="@+id/show"
+    <Button android:id="@+id/show1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="展示插屏广告" />
+        android:text="展示插屏广告1" />
+
+    <Button android:id="@+id/show2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="展示插屏广告2" />
 
 <!--    <Button android:id="@+id/show_error"-->
 <!--        android:layout_width="match_parent"-->
