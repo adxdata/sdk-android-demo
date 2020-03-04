@@ -110,10 +110,34 @@ dependencies {
 <!-- 广点通 end -->
 ```
 
-#### 4.代码混淆
+#### 4.oaid
+sdk 内置了 oaid 获取的功能，必须添加 oaid 包，版本最好大于等于 1.0.13，不然可能会出现崩溃情况
+
+需要在 assets 文件夹中添加文件 supplierconfig.json，这样才能正确获取到 oaid，开发者可以调用 AdSdk.getOaid() 来直接获取 oaid，如果您获取不到正确的 oaid，请检查接入方式
+
+文件内容如下：
+```json
+{
+  "supplier":{
+    "vivo":{
+      "appid":""
+    },
+    "xiaomi":{
+    },
+    "huawei":{
+    },
+    "oppo":{
+    }
+  }
+}
+```
+
+更多 oaid 相关请访问移动安全联盟 MSA 官网 https://msa-alliance.cn/col.jsp?id=120
+
+#### 5.代码混淆
 如果您需要使用 proguard 混淆代码，需确保不要混淆 SDK 的代码。请把 demo 下的 sdk-android-demo/app/proguard-rules.pro 文件的内容追加到您项目的混淆配置文件中，文件中包含了美数、穿山甲、百度、广点通的混淆
 
-#### 5.代码接入
+#### 6.代码接入
 请在您的 Application 初始化 sdk，代码如下，更多选项及设置详见 demo 代码
 ```java
 // 一定要在 Application 中初始化 sdk，否则无法正常使用sdk
@@ -129,7 +153,7 @@ AdSdk.setAge(18);
 AdSdk.setGender(AdSdk.GENDER_MALE);
 AdSdk.setKeywords("food,game");
 ```
-#### 6.广告位代码接入
+#### 7.广告位代码接入
 请参考 demo 代码
 
 * 目前贴片视频广告需要在 Activity 中的 onResume 和 onPause 调用代码才能实现暂停和恢复，详见 PasterActivity
