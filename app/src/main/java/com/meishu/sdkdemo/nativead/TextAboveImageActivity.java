@@ -59,7 +59,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                 posId = IdProviderFactory.getDefaultProvider().feedThreeImgs();
                 break;
         }
-        recyclerAdLoader = new RecyclerAdLoader(this, posId, 2,this);//信息流
+        recyclerAdLoader = new RecyclerAdLoader(this, posId, 2,this, MsAdPatternType.IMAGE, 0, false);//信息流
         recyclerAdLoader.loadAd();
     }
 
@@ -297,7 +297,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
                 }
             }
-            ad.bindAdToView(TextAboveImageActivity.this, holder.container,
+            ad.bindAdToView(holder.container.getContext(), holder.container,
                     clickableViews, new RecylcerAdInteractionListener() {
                         @Override
                         public void onAdClicked() {
