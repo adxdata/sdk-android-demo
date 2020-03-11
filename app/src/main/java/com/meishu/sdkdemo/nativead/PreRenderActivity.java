@@ -15,11 +15,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
-import com.meishu.sdk.core.utils.MsAdPatternType;
+import com.meishu.sdk.core.ad.prerender.PreRenderAdLoader;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
 import com.meishu.sdk.core.ad.recycler.RecylcerAdInteractionListener;
+import com.meishu.sdk.core.utils.MsAdPatternType;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
@@ -39,9 +40,7 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
         setContentView(R.layout.activity_native_recycler_list);
         initView();
         // 不指定宽度，默认使用屏幕宽度
-        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this, MsAdPatternType.PRE_RENDER);
-        // 手动指定宽度
-//        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this, MsAdPatternType.PRE_RENDER, 200);
+        recyclerAdLoader = new PreRenderAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this);
         recyclerAdLoader.loadAd();
     }
 
