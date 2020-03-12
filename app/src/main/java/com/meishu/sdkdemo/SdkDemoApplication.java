@@ -15,7 +15,7 @@ public class SdkDemoApplication extends Application {
         //一定要在Application中初始化sdk，否则无法正常使用sdk
         //appId是在美数注册的appId
         //testModeEnabled表示是否开启测试模式，测试模式无法用于生产环境
-        AdSdk.init(this, "101629", true);
+        AdSdk.init(this, "101629", true, true);
 
         // 设置下载提示类型，默认不提示 AdSdk.DOWNLOAD_MODE_DIRECTLY
         AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
