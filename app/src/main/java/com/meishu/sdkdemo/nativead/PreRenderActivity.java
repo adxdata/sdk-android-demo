@@ -32,7 +32,7 @@ import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 public class PreRenderActivity extends AppCompatActivity implements RecyclerAdListener {
     private static final String TAG = "PreRenderActivity";
-    private RecyclerAdLoader recyclerAdLoader;
+    private PreRenderAdLoader preRenderAdLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,8 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
         setContentView(R.layout.activity_native_recycler_list);
         initView();
         // 不指定宽度，默认使用屏幕宽度
-        recyclerAdLoader = new PreRenderAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this);
-        recyclerAdLoader.loadAd();
+        preRenderAdLoader = new PreRenderAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this);
+        preRenderAdLoader.loadAd();
     }
 
     private CustomAdapter mAdapter;
@@ -66,7 +66,7 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
 
                 if (!mIsLoading && newState == SCROLL_STATE_IDLE && !recyclerView.canScrollVertically(1)) {
                     mIsLoading = true;
-                    PreRenderActivity.this.recyclerAdLoader.loadAd();
+                    PreRenderActivity.this.preRenderAdLoader.loadAd();
                 }
 
             }
