@@ -63,7 +63,8 @@ public class GDTIdProvider implements IAdIdProvider {
 
     @Override
     public String splash() {
-        return "100424162";
+//        return "100424162";
+        return "1110333666"; // 试试
     }
 
     @Override

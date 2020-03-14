@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo;
+package com.meishu.sdkdemo.adactivity.rewardvideo;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import com.meishu.sdk.core.ad.reward.RewardVideoAdListener;
 import com.meishu.sdk.core.ad.reward.RewardVideoLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdk.core.utils.LogUtil;
+import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;

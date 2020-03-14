@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo;
+package com.meishu.sdkdemo.adactivity.banner;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import com.meishu.sdk.core.ad.banner.BannerAdListener;
 import com.meishu.sdk.core.ad.banner.BannerAdLoader;
 import com.meishu.sdk.core.ad.banner.IBannerAd;
 import com.meishu.sdk.core.loader.InteractionListener;
+import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class BannerAdActivity extends AppCompatActivity implements View.OnClickListener, BannerAdListener {

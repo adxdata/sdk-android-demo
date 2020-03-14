@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo.nativead;
+package com.meishu.sdkdemo.adactivity.feed;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

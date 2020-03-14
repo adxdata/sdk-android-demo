@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo;
+package com.meishu.sdkdemo.adactivity.draw;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ import com.meishu.sdk.core.ad.draw.DrawAdListener;
 import com.meishu.sdk.core.ad.draw.DrawAdLoader;
 import com.meishu.sdk.core.ad.draw.IDrawAd;
 import com.meishu.sdk.core.utils.LogUtil;
+import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 import com.meishu.sdkdemo.view.FullScreenVideoView;
 

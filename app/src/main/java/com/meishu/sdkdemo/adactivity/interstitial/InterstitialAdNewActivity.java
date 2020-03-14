@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo;
+package com.meishu.sdkdemo.adactivity.interstitial;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.meishu.sdk.core.ad.interstitial.InterstitialAd;
+import com.meishu.sdkdemo.R;
 
 public class InterstitialAdNewActivity extends AppCompatActivity {
 

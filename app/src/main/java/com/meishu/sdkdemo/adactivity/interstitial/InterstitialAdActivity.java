@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo;
+package com.meishu.sdkdemo.adactivity.interstitial;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import com.meishu.sdk.core.ad.interstitial.InterstitialAd;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAdListener;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAdLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
+import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class InterstitialAdActivity extends AppCompatActivity implements View.OnClickListener {

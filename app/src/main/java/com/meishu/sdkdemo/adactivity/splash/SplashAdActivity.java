@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo.splash;
+package com.meishu.sdkdemo.adactivity.splash;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

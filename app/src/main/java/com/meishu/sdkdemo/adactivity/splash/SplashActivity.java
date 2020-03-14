@@ -1,6 +1,5 @@
-package com.meishu.sdkdemo.splash;
+package com.meishu.sdkdemo.adactivity.splash;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,7 +9,6 @@ import com.meishu.sdk.core.ad.splash.ISplashAd;
 import com.meishu.sdk.core.ad.splash.SplashAdListener;
 import com.meishu.sdk.core.ad.splash.SplashAdLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
-import com.meishu.sdkdemo.MainActivity;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 

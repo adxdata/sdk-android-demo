@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo.nativead;
+package com.meishu.sdkdemo.adactivity.paster;
 
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;

@@ -1,4 +1,4 @@
-package com.meishu.sdkdemo;
+package com.meishu.sdkdemo.adactivity;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -18,11 +18,16 @@ import android.widget.Toast;
 
 import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
+import com.meishu.sdkdemo.R;
+import com.meishu.sdkdemo.adactivity.banner.BannerAdActivity;
+import com.meishu.sdkdemo.adactivity.draw.VideoFeedActivity;
+import com.meishu.sdkdemo.adactivity.feed.NativeRecyclerListSelectActivity;
+import com.meishu.sdkdemo.adactivity.feed.NativeVideoActivity;
+import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
+import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
+import com.meishu.sdkdemo.adactivity.rewardvideo.RewardVideoActivity;
+import com.meishu.sdkdemo.adactivity.splash.SplashActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
-import com.meishu.sdkdemo.nativead.NativeRecyclerListSelectActivity;
-import com.meishu.sdkdemo.nativead.NativeVideoActivity;
-import com.meishu.sdkdemo.nativead.PasterActivity;
-import com.meishu.sdkdemo.splash.SplashActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -192,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.rewardVideoAd:
-                intent.setClass(this,RewardVideoActivity.class);
+                intent.setClass(this, RewardVideoActivity.class);
                 startActivity(intent);
                 break;
             case R.id.videoFeedAd:
@@ -200,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                intent.setClass(this,VideoFeedActivity.class);
+                intent.setClass(this, VideoFeedActivity.class);
                 startActivity(intent);
                 break;
             case R.id.open_popupwindow:

@@ -1,10 +1,11 @@
-package com.meishu.sdkdemo.nativead;
+package com.meishu.sdkdemo.adactivity.feed;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
 import com.meishu.sdkdemo.R;
 
 public class NativeAdSelectActivity extends AppCompatActivity implements View.OnClickListener {

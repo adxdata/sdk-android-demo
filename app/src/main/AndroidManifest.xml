@@ -25,37 +25,41 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".nativead.PasterActivity"></activity>
-        <activity android:name=".RewardVideoActivity" />
-        <activity android:name=".nativead.NativeRecyclerListSelectActivity" />
-        <activity android:name=".nativead.ImageTextButtonActivity" />
-        <activity android:name=".nativead.ImageTextActivity" />
-        <activity android:name=".nativead.TextAboveImageActivity" />
-        <activity android:name=".nativead.NativeVideoActivity" />
-        <activity android:name=".nativead.ImageNotInRecyclerActivity" />
-        <activity android:name=".nativead.NativeAdSelectActivity" />
-        <activity android:name=".nativead.PreRenderActivity" />
-        <activity android:name=".nativead.SingleRecyclerActivity" />
-        <activity android:name=".VideoFeedActivity" />
-        <activity android:name=".InterstitialAdActivity" />
-        <activity android:name=".InterstitialAdNewActivity" />
-        <activity android:name=".splash.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".splash.SplashAdActivity" />
-        <activity android:name=".BannerAdActivity">
-            <intent-filter>
-                <action android:name="meishu.intent.action.BANNER" />
 
+        <activity android:name=".adactivity.paster.PasterActivity" />
+        <activity android:name=".adactivity.rewardvideo.RewardVideoActivity" />
+        <activity android:name=".adactivity.feed.NativeRecyclerListSelectActivity" />
+        <activity android:name=".adactivity.feed.ImageTextButtonActivity" />
+        <activity android:name=".adactivity.feed.ImageTextActivity" />
+        <activity android:name=".adactivity.feed.TextAboveImageActivity" />
+        <activity android:name=".adactivity.feed.NativeVideoActivity" />
+        <activity android:name=".adactivity.feed.ImageNotInRecyclerActivity" />
+        <activity android:name=".adactivity.feed.NativeAdSelectActivity" />
+        <activity android:name=".adactivity.feed.PreRenderActivity" />
+        <activity android:name=".adactivity.feed.SingleRecyclerActivity" />
+        <activity android:name=".adactivity.draw.VideoFeedActivity" />
+        <activity android:name=".adactivity.interstitial.InterstitialAdActivity" />
+        <activity android:name=".adactivity.interstitial.InterstitialAdNewActivity" />
+        <activity android:name=".adactivity.splash.SplashActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".adactivity.splash.SplashAdActivity" />
+        <activity android:name=".adactivity.banner.BannerAdActivity" />
+        <activity android:name=".adactivity.DeeplinkActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="meishudemo" android:host="deeplink" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".adactivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- 美数 begin -->
         <provider
             android:name="com.meishu.sdk.core.service.MeishuFileProvider"
