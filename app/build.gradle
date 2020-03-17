@@ -34,10 +34,10 @@ android {
 
 dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
-    implementation(name: 'meishu-sdk_0.5.48_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.0_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-v5.83', ext: 'aar') // 百度
-    implementation(name: 'GDTSDK.unionNormal.4.150.1020', ext: 'aar') // 广点通
+    implementation(name: 'GDTSDK.unionNormal.4.176.1046', ext: 'aar') // 广点通
     implementation(name: 'msa_mdid_1.0.13', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
