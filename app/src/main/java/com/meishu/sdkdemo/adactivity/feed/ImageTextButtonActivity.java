@@ -210,8 +210,8 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
             holder.name.setText(ad.getTitle());
             holder.desc.setText(ad.getDesc());
             List<View> clickableViews = new ArrayList<>();
-            clickableViews.add(holder.download);
-            clickableViews.add(holder.container);
+            clickableViews.add(holder.downloadLayout);
+            clickableViews.add(holder.downloadButton);
             ad.bindAdToView(ImageTextButtonActivity.this, holder.container,
                     clickableViews, new RecylcerAdInteractionListener() {
                         @Override
@@ -228,7 +228,7 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
             } else {
                 buttonText = "下载";
             }
-            holder.download.setText(buttonText);
+            holder.downloadButton.setText(buttonText);
 
         }
 
@@ -244,7 +244,8 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
         public TextView name;
         public TextView desc;
         public ImageView logo;
-        public Button download;
+        public ViewGroup downloadLayout;
+        public Button downloadButton;
         public ViewGroup container;
         public AQuery logoAQ;
 
@@ -255,7 +256,8 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
                     logo = itemView.findViewById(R.id.small_img);
                     name = itemView.findViewById(R.id.text_title);
                     desc = itemView.findViewById(R.id.text_desc);
-                    download = itemView.findViewById(R.id.btn_download);
+                    downloadLayout = itemView.findViewById(R.id.layout_download);
+                    downloadButton = itemView.findViewById(R.id.btn_download);
                     container = itemView.findViewById(R.id.native_ad_container);
                     logoAQ = new AQuery(itemView);
 
