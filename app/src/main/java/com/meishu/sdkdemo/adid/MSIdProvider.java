@@ -22,7 +22,7 @@ public class MSIdProvider implements IAdIdProvider {
     @Override
     public String feedThreeImgs() {
         //信息流-三图
-        return "73646b0101001991";
+        return "73646b0104001991";
     }
 
     @Override
