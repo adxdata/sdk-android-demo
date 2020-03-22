@@ -3,6 +3,7 @@ package com.meishu.sdkdemo.adactivity.feed;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,13 @@ public class SingleRecyclerActivity extends AppCompatActivity implements Recycle
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_recycler);
-        adLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedImageVertical(), 1, this);
+
+        String pid  = getIntent().getStringExtra("alternativePlaceId");
+        if (TextUtils.isEmpty(pid)) {
+            pid = IdProviderFactory.getDefaultProvider().feedImageVertical();
+        }
+
+        adLoader = new RecyclerAdLoader(this, pid, 1, this);
         findViewById(R.id.button_load).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

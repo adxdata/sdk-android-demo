@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +42,13 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_recycler_list);
         initView();
-        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedImageHorizon(), 2,this);//信息流
+
+        String pid  = getIntent().getStringExtra("alternativePlaceId");
+        if (TextUtils.isEmpty(pid)) {
+            pid = IdProviderFactory.getDefaultProvider().feedImageHorizon();
+        }
+
+        recyclerAdLoader = new RecyclerAdLoader(this, pid, 2,this);//信息流
         recyclerAdLoader.loadAd();
     }
 

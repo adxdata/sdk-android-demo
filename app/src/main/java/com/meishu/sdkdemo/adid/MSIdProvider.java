@@ -3,91 +3,92 @@ package com.meishu.sdkdemo.adid;
 public class MSIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-//        return "1007377";
-        return "300006";
+        //激励视频-竖版
+        return "73646b0799001991";
     }
 
     @Override
     public String rewardLandscape() {
-        return "1004468";
+        //激励视频-横版
+        return "73646b0799001991";
     }
 
     @Override
     public String feedVideo() {
+        //未调用
         return "100424126";
     }
 
     @Override
     public String feedThreeImgs() {
-            return "100424039";
+        //信息流-三图
+        return "73646b0101001991";
     }
 
     @Override
     public String feedImageVertical() {
-//        return "1007377"; // 测试 logo
-//        return "1007610"; // 正式 deeplink + 下载
-//        return "1007382"; // 正式 知心天气下载
-//        return "1007601"; // 正式 京东视频 横版
-//        return "300009"; // 测试
-        return "987654001"; // 测试 详情
-//        return "100424017";
-//        return "100424034";
-//        return "100424123"; // 测试 新客户问题
+        //信息流-大图 上文下图
+        return "73646b0101001991";
     }
 
     @Override
     public String feedImageHorizon() {
-        return "100424123";
-//        return "100424034";
+        //信息流-小图 左图右文
+        return "73646b0103001991";
     }
 
     @Override
     public String feedImageHorizonDesc() {
+        //未调用
         return "100424125";
     }
 
     @Override
     public String feedPreRender() {
-        return "100424017";
+        //信息流-模板渲染
+        return "73646b0299001991";
     }
 
     @Override
     public String video() {
+        //未调用
         return "100424122";
     }
 
     @Override
     public String videoImg() {
-        return "100424034";
-//        return "100424018";
+        //贴片
+        //return "73646b0699001991";  //素材随机
+        return "73646b0602001991";  //视频
     }
 
     @Override
     public String image() {
+        //未调用 NativeAdSelectActivity -> ImageNotInRecyclerActivity
         return "100424120";
     }
 
     @Override
     public String insertScreen() {
-//        return "100424020";
-        return "1007377";
+        //插屏
+        return "73646b0599001991";
     }
 
     @Override
     public String splash() {
-//        return "100424024";
-//        return "1007377";
-        return "100424162"; // 掌通家园
+        //开屏
+        return "73646b0499001991";
     }
 
     @Override
     public String banner() {
-//        return "100424117";
-        return "1007377";
+        //BANNER
+        return "73646b0399001991";
     }
 
     @Override
     public String videoFeed() {
+        //DRAW信息流
         return "";
     }
 

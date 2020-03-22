@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +39,14 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_recycler_list);
         initView();
+
+        String pid  = getIntent().getStringExtra("alternativePlaceId");
+        if (TextUtils.isEmpty(pid)) {
+            pid = IdProviderFactory.getDefaultProvider().feedPreRender();
+        }
+
         // 不指定宽度，默认使用屏幕宽度
-        preRenderAdLoader = new PreRenderAdLoader(this, IdProviderFactory.getDefaultProvider().feedPreRender(), 2,this);
+        preRenderAdLoader = new PreRenderAdLoader(this, pid, 2,this);
         preRenderAdLoader.loadAd();
     }
 

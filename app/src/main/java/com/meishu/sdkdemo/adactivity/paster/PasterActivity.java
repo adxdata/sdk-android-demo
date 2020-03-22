@@ -1,19 +1,25 @@
 package com.meishu.sdkdemo.adactivity.paster;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.meishu.sdk.core.ad.paster.PasterAd;
 import com.meishu.sdk.core.ad.paster.PasterAdListener;
 import com.meishu.sdk.core.ad.paster.PasterAdLoader;
+import com.meishu.sdk.core.ad.splash.SplashAdLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
+import com.meishu.sdkdemo.adactivity.splash.SplashActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 /**
@@ -78,9 +84,25 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
             }
         });
 
-        videoContainer = findViewById(R.id.video_container);
-        pasterAdLoader = new PasterAdLoader(this, videoContainer, IdProviderFactory.getDefaultProvider().videoImg(), this);
-        pasterAdLoader.loadAd();
+        ((EditText) findViewById(R.id.alternativePasterAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().videoImg());
+        findViewById(R.id.loadPasterAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                }
+
+                String pid  = ((EditText) findViewById(R.id.alternativePasterAdPlaceID)).getText().toString().trim();
+                if (TextUtils.isEmpty(pid)) {
+                    pid = IdProviderFactory.getDefaultProvider().splash();
+                }
+
+                videoContainer = findViewById(R.id.video_container);
+                pasterAdLoader = new PasterAdLoader(PasterActivity.this, videoContainer, pid, PasterActivity.this);
+                pasterAdLoader.loadAd();
+            }
+        });
     }
 
     @Override
