@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.meishu.meishu_sdk_demo"
         minSdkVersion 17
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
         versionName getProject().ext.demoVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
