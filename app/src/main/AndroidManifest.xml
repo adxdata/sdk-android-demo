@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:name=".SdkDemoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -41,7 +42,7 @@
         <activity android:name=".adactivity.interstitial.InterstitialAdActivity" />
         <activity android:name=".adactivity.interstitial.InterstitialAdNewActivity" />
         <activity android:name=".adactivity.splash.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".adactivity.splash.SplashAdActivity" />
         <activity android:name=".adactivity.banner.BannerAdActivity" />
         <activity android:name=".adactivity.DeeplinkActivity"

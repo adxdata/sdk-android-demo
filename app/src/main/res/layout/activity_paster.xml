@@ -22,42 +22,73 @@
             android:layout_height="match_parent"/>
     </RelativeLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
 
-        <Button android:id="@+id/btn_rotate"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="转屏" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="广告位ID：" />
+            <EditText
+                android:id="@+id/alternativePasterAdPlaceID"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
 
-        <Button android:id="@+id/btn_resume"
+        <Button
+            android:id="@+id/loadPasterAd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="继续" />
+            android:text="加载广告"/>
 
-        <Button android:id="@+id/btn_pause"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="暂停" />
+            android:orientation="horizontal">
 
-        <Button android:id="@+id/btn_mute"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="静音" />
+            <Button android:id="@+id/btn_rotate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="转屏" />
 
-        <Button android:id="@+id/btn_unmute"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="不静音" />
+            <Button android:id="@+id/btn_resume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="继续" />
 
+            <Button android:id="@+id/btn_pause"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="暂停" />
+
+            <Button android:id="@+id/btn_mute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="静音" />
+
+            <Button android:id="@+id/btn_unmute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="不静音" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

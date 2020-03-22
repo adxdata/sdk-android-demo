@@ -59,6 +59,12 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                 posId = IdProviderFactory.getDefaultProvider().feedThreeImgs();
                 break;
         }
+
+        String pid  = getIntent().getStringExtra("alternativePlaceId");
+        if (!TextUtils.isEmpty(pid)) {
+            posId   = pid;
+        }
+
 //        recyclerAdLoader = new RecyclerAdLoader(this, posId, 2,this, MsAdPatternType.IMAGE, 0, true);//信息流
         recyclerAdLoader = new RecyclerAdLoader(this, posId, 2,this, true);//信息流
         recyclerAdLoader.loadAd();

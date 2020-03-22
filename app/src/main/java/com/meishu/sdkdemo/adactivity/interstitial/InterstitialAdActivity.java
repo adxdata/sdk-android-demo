@@ -1,10 +1,14 @@
 package com.meishu.sdkdemo.adactivity.interstitial;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.meishu.sdk.core.ad.interstitial.InterstitialAd;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAdListener;
@@ -23,6 +27,9 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interstitial_ad);
+
+        ((EditText) findViewById(R.id.alternativeInterstitailADPlaceID)).setText(IdProviderFactory.getDefaultProvider().insertScreen());
+
         findViewById(R.id.loadInterstitailAD).setOnClickListener(this);
         findViewById(R.id.showInterstitailAD1).setOnClickListener(this);
         findViewById(R.id.showInterstitailAD2).setOnClickListener(this);
@@ -45,7 +52,18 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
                 if (interstitialAdLoader2 != null) {
                     interstitialAdLoader2.destroy();
                 }
-                interstitialAdLoader1 = new InterstitialAdLoader(this, IdProviderFactory.getDefaultProvider().insertScreen(), interstitialAdListener1);
+
+                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                }
+
+                String pid  = ((EditText) findViewById(R.id.alternativeInterstitailADPlaceID)).getText().toString().trim();
+                if (TextUtils.isEmpty(pid)) {
+                    pid = IdProviderFactory.getDefaultProvider().insertScreen();
+                }
+
+                interstitialAdLoader1 = new InterstitialAdLoader(this, pid, interstitialAdListener1);
                 interstitialAdLoader1.loadAd();
                 break;
             case R.id.showInterstitailAD1:

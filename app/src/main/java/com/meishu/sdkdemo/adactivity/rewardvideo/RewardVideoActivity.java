@@ -1,10 +1,14 @@
 package com.meishu.sdkdemo.adactivity.rewardvideo;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.meishu.sdk.core.ad.reward.RewardAdMediaListener;
 import com.meishu.sdk.core.ad.reward.RewardVideoAd;
@@ -42,6 +46,8 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
             LogUtil.e(TAG, "orientation error");
             return;
         }
+
+        ((EditText) findViewById(R.id.alternativeRewardVideoAdPlaceID)).setText(posId);
         rewardVideoLoader = new RewardVideoLoader(this, posId, this);
     }
 
@@ -61,6 +67,23 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
             case R.id.load_video:
                 this.ad = null;
                 this.ad2 = null;
+
+                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                }
+                String pid  = ((EditText) findViewById(R.id.alternativeRewardVideoAdPlaceID)).getText().toString().trim();
+                if (TextUtils.isEmpty(pid)) {
+                    return;
+                }
+
+                if (null == rewardVideoLoader) {
+                    rewardVideoLoader   = new RewardVideoLoader(this, pid, this);
+                } else if (!rewardVideoLoader.getPosId().equals(pid)) {
+                    rewardVideoLoader.destroy();
+                    rewardVideoLoader   = new RewardVideoLoader(this, pid, this);
+                }
+
                 rewardVideoLoader.loadAd();
                 rewardVideoLoader.loadAd();
                 break;

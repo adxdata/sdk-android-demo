@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.meishu.sdk.core.utils.MsAdPatternType;
@@ -22,6 +23,13 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
         findViewById(R.id.three_img).setOnClickListener(this);
         findViewById(R.id.pre_render).setOnClickListener(this);
         findViewById(R.id.single).setOnClickListener(this);
+
+        ((EditText) findViewById(R.id.alternativeImageTextButtonAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageHorizon());
+        ((EditText) findViewById(R.id.alternativeImageTextAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageHorizon());
+        ((EditText) findViewById(R.id.alternativeLargeImageVideoAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageVertical());
+        ((EditText) findViewById(R.id.alternativeThreeImageAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedThreeImgs());
+        ((EditText) findViewById(R.id.alternativePreRenderAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedPreRender());
+        ((EditText) findViewById(R.id.alternativeSingleAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageVertical());
     }
 
     @Override
@@ -31,20 +39,24 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
         switch (v.getId()) {
             case R.id.img_text_button:
                 intent = new Intent(this, ImageTextButtonActivity.class);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeImageTextButtonAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
                 break;
             case R.id.img_text:
                 intent = new Intent(this, ImageTextActivity.class);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeImageTextAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
                 break;
             case R.id.large_img_or_video:
                 intent = new Intent(this, TextAboveImageActivity.class);
                 intent.putExtra(TextAboveImageActivity.EXTRA_PATTERN, MsAdPatternType.LARGE_IMAGE);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeLargeImageVideoAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
                 break;
             case R.id.three_img:
                 intent = new Intent(this, TextAboveImageActivity.class);
                 intent.putExtra(TextAboveImageActivity.EXTRA_PATTERN, MsAdPatternType.THREE_IMAGE);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeThreeImageAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
                 break;
             case R.id.pre_render:
@@ -53,6 +65,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                     return;
                 }
                 intent = new Intent(this, PreRenderActivity.class);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativePreRenderAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
                 break;
             case R.id.single:
@@ -61,6 +74,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                     return;
                 }
                 intent = new Intent(this, SingleRecyclerActivity.class);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeSingleAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
         }
     }

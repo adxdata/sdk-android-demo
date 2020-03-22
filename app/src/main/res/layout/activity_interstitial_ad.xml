@@ -7,31 +7,54 @@
     android:orientation="vertical"
     tools:context=".adactivity.interstitial.InterstitialAdActivity">
 
-    <Button
-        android:id="@+id/loadInterstitailAD"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="加载插屏广告" />
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="广告位ID：" />
+            <EditText
+                android:id="@+id/alternativeInterstitailADPlaceID"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/showInterstitailAD1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="展示插屏广告1" />
+        <Button
+            android:id="@+id/loadInterstitailAD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载广告" />
 
-    <Button
-        android:id="@+id/showInterstitailAD2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="展示插屏广告2" />
+        <Button
+            android:id="@+id/showInterstitailAD1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="展示插屏广告1" />
 
-    <Button
-        android:id="@+id/openNewActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="打开另一个Activity展示"/>
+        <Button
+            android:id="@+id/showInterstitailAD2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="展示插屏广告2" />
 
+        <Button
+            android:id="@+id/openNewActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="打开另一个Activity展示"/>
+    </LinearLayout>
 </LinearLayout>
