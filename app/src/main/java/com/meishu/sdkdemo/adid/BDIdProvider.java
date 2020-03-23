@@ -47,7 +47,7 @@ public class BDIdProvider implements IAdIdProvider {
     }
 
     @Override
-    public String videoImg() {
+    public String paster() {
         return "100424180";
     }
 

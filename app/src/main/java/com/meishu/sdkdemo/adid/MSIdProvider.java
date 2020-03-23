@@ -3,8 +3,7 @@ package com.meishu.sdkdemo.adid;
 public class MSIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-//        return "1007377";
-        return "300006";
+        return "100424018";
     }
 
     @Override
@@ -24,21 +23,12 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String feedImageVertical() {
-//        return "1007377"; // 测试 logo
-//        return "1007610"; // 正式 deeplink + 下载
-//        return "1007382"; // 正式 知心天气下载
-//        return "1007601"; // 正式 京东视频 横版
-//        return "300009"; // 测试
-        return "987654001"; // 测试 详情
-//        return "100424017";
-//        return "100424034";
-//        return "100424123"; // 测试 新客户问题
+        return "100424017";
     }
 
     @Override
     public String feedImageHorizon() {
         return "100424123";
-//        return "100424034";
     }
 
     @Override
@@ -57,9 +47,8 @@ public class MSIdProvider implements IAdIdProvider {
     }
 
     @Override
-    public String videoImg() {
+    public String paster() {
         return "100424034";
-//        return "100424018";
     }
 
     @Override
@@ -69,21 +58,17 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String insertScreen() {
-//        return "100424020";
-        return "1007377";
+        return "100424020";
     }
 
     @Override
     public String splash() {
-//        return "100424024";
-//        return "1007377";
-        return "100424162"; // 掌通家园
+       return "100424024";
     }
 
     @Override
     public String banner() {
-//        return "100424117";
-        return "1007377";
+        return "100424117";
     }
 
     @Override

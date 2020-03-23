@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/small_img"
             android:layout_marginLeft="6dp"
-            android:layout_toLeftOf="@id/btn_download"
+            android:layout_toLeftOf="@id/layout_download"
             android:layout_toRightOf="@id/small_img"
             android:ellipsize="end"
             android:singleLine="true"

@@ -47,7 +47,7 @@ public class CSJIdProvider implements IAdIdProvider {
     }
 
     @Override
-    public String videoImg() {
+    public String paster() {
         return "100424150";
     }
 

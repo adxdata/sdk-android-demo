@@ -79,7 +79,7 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
         });
 
         videoContainer = findViewById(R.id.video_container);
-        pasterAdLoader = new PasterAdLoader(this, videoContainer, IdProviderFactory.getDefaultProvider().videoImg(), this);
+        pasterAdLoader = new PasterAdLoader(this, videoContainer, IdProviderFactory.getDefaultProvider().paster(), this);
         pasterAdLoader.loadAd();
     }
 

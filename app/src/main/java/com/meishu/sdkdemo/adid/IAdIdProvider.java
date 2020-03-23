@@ -20,7 +20,7 @@ public interface IAdIdProvider {
     /** 纯视频 */
     String video();
     /** 视频暂停贴片 */
-    String videoImg();
+    String paster();
     /** 图片 */
     String image();
     /** 插屏 */

@@ -47,7 +47,7 @@ public class GDTIdProvider implements IAdIdProvider {
     }
 
     @Override
-    public String videoImg() {
+    public String paster() {
         return "100424167";
     }
 
@@ -63,8 +63,7 @@ public class GDTIdProvider implements IAdIdProvider {
 
     @Override
     public String splash() {
-//        return "100424162";
-        return "1110333666"; // 试试
+        return "100424162";
     }
 
     @Override
