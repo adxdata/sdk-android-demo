@@ -3,72 +3,87 @@ package com.meishu.sdkdemo.adid;
 public class GDTIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-        return "100424172";
+        //激励视频-竖版
+        return "73646b0799021991";
     }
 
     @Override
     public String rewardLandscape() {
-        return "100424171";
+        //激励视频-横版
+        return "73646b0799021991";
     }
 
     @Override
     public String feedVideo() {
+        //未调用
         return "100424170";
     }
 
     @Override
     public String feedThreeImgs() {
-        return "100424173";
+        //信息流-三图
+        return "73646b0104021991";
     }
 
     @Override
     public String feedImageVertical() {
-        return "100424168";
+        //信息流-大图 上文下图
+        return "73646b0101021991";
     }
 
     @Override
     public String feedImageHorizon() {
-        return "100424167";
+        //信息流-小图 左图右文
+        return "73646b0103021991";
     }
 
     @Override
     public String feedImageHorizonDesc() {
+        //未调用
         return "100424169";
     }
 
     @Override
     public String feedPreRender() {
-        return "100424321";
+        //信息流-模板渲染
+        return "73646b0299021991";
     }
 
     @Override
     public String video() {
+        //未调用
         return "100424166";
     }
 
     @Override
     public String paster() {
-        return "100424167";
+        //贴片
+        //return "73646b0699021991";  //素材随机
+        return "73646b0602021991";  //视频
     }
 
     @Override
     public String image() {
-        return "100424164";
+        //未调用 NativeAdSelectActivity -> ImageNotInRecyclerActivity
+        return "100424120";
     }
 
     @Override
     public String insertScreen() {
-        return "100424163";
+        //插屏
+        return "73646b0599021991";
     }
 
     @Override
     public String splash() {
-        return "100424162";
+        //开屏
+        return "73646b0499021991";
     }
 
     @Override
     public String banner() {
-        return "100424161";
+        //BANNER
+        return "73646b0399021991";
     }
 
     @Override

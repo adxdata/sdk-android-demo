@@ -26,7 +26,7 @@ import com.meishu.sdkdemo.adactivity.feed.NativeVideoActivity;
 import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
 import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
 import com.meishu.sdkdemo.adactivity.rewardvideo.RewardVideoActivity;
-import com.meishu.sdkdemo.adactivity.splash.SplashActivity;
+import com.meishu.sdkdemo.adactivity.splash.PrepareSplashActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 import java.util.ArrayList;
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.slashAD:
-                intent.setClass(this, SplashActivity.class);
+                intent.setClass(this, PrepareSplashActivity.class);
                 startActivity(intent);
                 break;
             case R.id.interstitialAD:
