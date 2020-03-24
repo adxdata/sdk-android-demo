@@ -3,7 +3,8 @@ package com.meishu.sdkdemo.adid;
 public class MSIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-        return "100424018";
+//        return "100424034";
+        return "987654902"; // 曝光上报测试
     }
 
     @Override
@@ -23,7 +24,7 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String feedImageVertical() {
-        return "100424017";
+        return "100424034";
     }
 
     @Override
