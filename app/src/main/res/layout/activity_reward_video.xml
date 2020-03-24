@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:enabled="false"
             android:text="展示1" />
-        
+
         <Button
             android:id="@+id/show2"
             android:layout_width="match_parent"

@@ -20,7 +20,7 @@ import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adactivity.banner.BannerAdActivity;
-import com.meishu.sdkdemo.adactivity.draw.VideoFeedActivity;
+import com.meishu.sdkdemo.adactivity.draw.PrepareVideoFeedActivity;
 import com.meishu.sdkdemo.adactivity.feed.NativeRecyclerListSelectActivity;
 import com.meishu.sdkdemo.adactivity.feed.NativeVideoActivity;
 import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                intent.setClass(this, VideoFeedActivity.class);
+                intent.setClass(this, PrepareVideoFeedActivity.class);
                 startActivity(intent);
                 break;
             case R.id.open_popupwindow:
