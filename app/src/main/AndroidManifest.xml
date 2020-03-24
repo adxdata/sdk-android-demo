@@ -26,6 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".adactivity.splash.PrepareSplashActivity"></activity>
         <activity android:name=".adactivity.draw.PrepareVideoFeedActivity"></activity>
         <activity android:name=".adactivity.paster.PasterActivity" />
         <activity android:name=".adactivity.rewardvideo.RewardVideoActivity" />

@@ -1,15 +1,10 @@
 package com.meishu.sdkdemo.adactivity.splash;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
 import com.meishu.sdk.core.ad.splash.ISplashAd;
 import com.meishu.sdk.core.ad.splash.SplashAdListener;
@@ -28,39 +23,19 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ViewGroup adContainer = findViewById(R.id.splash_container);
 
-        ((EditText) findViewById(R.id.alternativeSplashAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().splash());
-        findViewById(R.id.loadSplashAd).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm != null) {
-                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
-                }
+        String pid  = getIntent().getStringExtra("alternativePlaceId");
+        if (TextUtils.isEmpty(pid)) {
+            pid = IdProviderFactory.getDefaultProvider().splash();
+        }
 
-                String pid  = ((EditText) findViewById(R.id.alternativeSplashAdPlaceID)).getText().toString().trim();
-                if (TextUtils.isEmpty(pid)) {
-                    pid = IdProviderFactory.getDefaultProvider().splash();
-                }
-
-                ViewGroup adContainer = findViewById(R.id.splash_container);
-                SplashAdLoader splashAdLoader = new SplashAdLoader(SplashActivity.this, adContainer, pid, SplashActivity.this, 3000);
-                splashAdLoader.loadAd();
-            }
-        });
-
-        //ViewGroup adContainer = findViewById(R.id.splash_container);
-        //SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, IdProviderFactory.getDefaultProvider().splash(), SplashActivity.this, 3000);
-        //splashAdLoader.loadAd();
+        SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
+        splashAdLoader.loadAd();
     }
 
     @Override
     public void onAdLoaded(ISplashAd splashAd) {
-        try {
-            getSupportActionBar().hide();
-        } catch (Exception e) {}
-        findViewById(R.id.splash_container).setVisibility(View.VISIBLE);
-
         Log.d(TAG, "onAdLoaded: 开屏广告填充");
         this.splashAd = splashAd;
         splashAd.setInteractionListener(new InteractionListener() {
@@ -79,19 +54,12 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdClosed() {
-        try {
-            getSupportActionBar().show();
-        } catch (Exception e) {}
-        findViewById(R.id.splash_container).setVisibility(View.GONE);
-
         Log.d(TAG, "onAdClosed: 开屏广告被关闭");
 
-        findViewById(R.id.splash_container).setVisibility(View.GONE);
-
-        //if (canJump) {
-        //    next();
-        //}
-        //canJump = true;
+        if (canJump) {
+            next();
+        }
+        canJump = true;
     }
 
     @Override
