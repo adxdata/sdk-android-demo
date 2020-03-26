@@ -2,16 +2,16 @@ apply plugin: 'com.android.application'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 24
-    demoVersionName = "1.0.23"
+    demoVersionCode = 25
+    demoVersionName = "1.0.24"
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.meishu.meishu_sdk_demo"
         minSdkVersion 17
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
         versionName getProject().ext.demoVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -33,8 +33,8 @@ android {
 }
 
 dependencies {
-    implementation project(':sdk-android-lib') // 调试用
-//    implementation(name: 'meishu-sdk_0.6.6_release', ext: 'aar')
+//    implementation project(':sdk-android-lib') // 调试用
+    implementation(name: 'meishu-sdk_0.6.7_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-v5.83', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.4.176.1046', ext: 'aar') // 广点通
@@ -46,7 +46,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.googlecode.android-query:android-query:0.25.9'
 
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
