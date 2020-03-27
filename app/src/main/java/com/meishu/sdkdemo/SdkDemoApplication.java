@@ -30,5 +30,8 @@ public class SdkDemoApplication extends Application {
 //        AdSdk.setAge(18);
 //        AdSdk.setGender(AdSdk.GENDER_MALE);
 //        AdSdk.setKeywords("food,game");
+
+        // 设置广点通自渲染版本，默认 2.0
+//        AdSdk.setGdtRecyclerVersion(AdSdk.GDT_1);
     }
 }
