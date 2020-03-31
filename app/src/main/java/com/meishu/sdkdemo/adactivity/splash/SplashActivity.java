@@ -67,7 +67,6 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     protected void onPause() {
         Log.d(TAG, "onPause: 暂停");
         super.onPause();
-        canJump = false;
     }
 
     @Override
@@ -97,5 +96,10 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         Log.d(TAG, "onError: 没有加载到广告");
         Toast.makeText(this, "没有加载到广告", Toast.LENGTH_SHORT).show();
         this.finish();
+    }
+
+    @Override
+    public void onAdPresent(ISplashAd splashAd) {
+        Log.d(TAG, "onAdPresent: 广告已显示");
     }
 }
