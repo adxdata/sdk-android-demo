@@ -4,22 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adactivity.banner.BannerAdActivity">
-    <FrameLayout
-        android:id="@+id/bannerContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bannerContainer"
-        android:text="我是内容" />
+    tools:context=".adactivity.draw.PrepareVideoFeedActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,16 +23,17 @@
                 android:gravity="right"
                 android:text="广告位ID：" />
             <EditText
-                android:id="@+id/alternativeBannerAdPlaceID"
+                android:id="@+id/alternativeSplashAdPlaceID"
                 android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
         <Button
-            android:id="@+id/loadBannerAd"
+            android:id="@+id/loadSplashAd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="加载广告"/>
     </LinearLayout>
+
 </RelativeLayout>

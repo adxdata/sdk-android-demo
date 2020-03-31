@@ -39,7 +39,13 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_recycler_list);
         initView();
-        recyclerAdLoader = new RecyclerAdLoader(this, IdProviderFactory.getDefaultProvider().feedImageHorizon(), 2,this);//信息流
+
+        String pid  = getIntent().getStringExtra("alternativePlaceId");
+        if (TextUtils.isEmpty(pid)) {
+            pid = IdProviderFactory.getDefaultProvider().feedImageHorizon();
+        }
+
+        recyclerAdLoader = new RecyclerAdLoader(this, pid, 2,this);//信息流
         recyclerAdLoader.loadAd();
     }
 

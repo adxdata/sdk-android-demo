@@ -3,77 +3,93 @@ package com.meishu.sdkdemo.adid;
 public class CSJIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-        return "100424157";
+        //激励视频-竖版
+        return "73646b0799011991";
     }
 
     @Override
     public String rewardLandscape() {
-        return "100424156";
+        //激励视频-横版
+        return "73646b0799011991";
     }
 
     @Override
     public String feedVideo() {
+        //未调用
         return "100424155";
     }
 
     @Override
     public String feedThreeImgs() {
-        return "100424158";
+        //信息流-三图
+        return "73646b0104011991";
     }
 
     @Override
     public String feedImageVertical() {
-        return "100424153";
+        //信息流-大图 上文下图
+        return "73646b0101011991";
     }
 
     @Override
     public String feedImageHorizon() {
-        return "100424152";
+        //信息流-小图 左图右文
+        return "73646b0103011991";
     }
 
     @Override
     public String feedImageHorizonDesc() {
+        //未调用
         return "100424154";
     }
 
     @Override
     public String feedPreRender() {
-        return "100424194";
+        //信息流-模板渲染
+        return "73646b0299011991";
     }
 
     @Override
     public String video() {
+        //未调用
         return "100424151";
     }
 
     @Override
     public String paster() {
-        return "100424150";
+        //贴片
+        //return "73646b0699011991";  //素材随机
+        return "73646b0602011991";  //视频
     }
 
     @Override
     public String image() {
-        return "100424149";
+        //未调用 NativeAdSelectActivity -> ImageNotInRecyclerActivity
+        return "100424120";
     }
 
     @Override
     public String insertScreen() {
-        return "100424148";
+        //插屏
+        return "73646b0599011991";
     }
 
     @Override
     public String splash() {
-        return "100424147";
+        //开屏
+        return "73646b0499011991";
     }
 
     @Override
     public String banner() {
-        return "100424146";
+        //BANNER
+        return "73646b0399011991";
     }
 
     @Override
     public String videoFeed() {
-        return "100424305";
+        //DRAW信息流
+        return "73646b0899011991";
     }
 
     @Override

@@ -20,13 +20,13 @@ import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adactivity.banner.BannerAdActivity;
-import com.meishu.sdkdemo.adactivity.draw.VideoFeedActivity;
+import com.meishu.sdkdemo.adactivity.draw.PrepareVideoFeedActivity;
 import com.meishu.sdkdemo.adactivity.feed.NativeRecyclerListSelectActivity;
 import com.meishu.sdkdemo.adactivity.feed.NativeVideoActivity;
 import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
 import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
 import com.meishu.sdkdemo.adactivity.rewardvideo.RewardVideoActivity;
-import com.meishu.sdkdemo.adactivity.splash.SplashActivity;
+import com.meishu.sdkdemo.adactivity.splash.PrepareSplashActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 import java.util.ArrayList;
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String packageName = getPackageName();
             PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
             TextView txtVersion = findViewById(R.id.txt_version);
-            txtVersion.setText(String.format("Demo 版本：%s\n美数 SDK 版本：%s\n穿山甲 SDK 版本：%s\n百度 SDK 版本：%s\n广点通 SDK 版本：%s\noaid: %s",
-                    packageInfo.versionName, AdSdk.getVersionName(), AdSdk.getCSJVersionName(), AdSdk.getBDVersionName(), AdSdk.getGDTVersionName(), AdSdk.getOaid()));
+            txtVersion.setText(String.format("Demo 版本：%s\n美数 SDK 版本：%s\n穿山甲 SDK 版本：%s\n百度 SDK 版本：%s\n广点通 SDK 版本：%s\noaid: %s\n包名: %s",
+                    packageInfo.versionName, AdSdk.getVersionName(), AdSdk.getCSJVersionName(), AdSdk.getBDVersionName(), AdSdk.getGDTVersionName(), AdSdk.getOaid(), getPackageName()));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.slashAD:
-                intent.setClass(this, SplashActivity.class);
+                intent.setClass(this, PrepareSplashActivity.class);
                 startActivity(intent);
                 break;
             case R.id.interstitialAD:
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                intent.setClass(this, VideoFeedActivity.class);
+                intent.setClass(this, PrepareVideoFeedActivity.class);
                 startActivity(intent);
                 break;
             case R.id.open_popupwindow:

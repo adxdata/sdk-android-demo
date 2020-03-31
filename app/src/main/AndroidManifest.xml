@@ -21,11 +21,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".adactivity.splash.PrepareSplashActivity"></activity>
+        <activity android:name=".adactivity.draw.PrepareVideoFeedActivity"></activity>
         <activity android:name=".adactivity.paster.PasterActivity" />
         <activity android:name=".adactivity.rewardvideo.RewardVideoActivity" />
         <activity android:name=".adactivity.feed.NativeRecyclerListSelectActivity" />
@@ -40,27 +42,32 @@
         <activity android:name=".adactivity.draw.VideoFeedActivity" />
         <activity android:name=".adactivity.interstitial.InterstitialAdActivity" />
         <activity android:name=".adactivity.interstitial.InterstitialAdNewActivity" />
-        <activity android:name=".adactivity.splash.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".adactivity.splash.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".adactivity.splash.SplashAdActivity" />
         <activity android:name=".adactivity.banner.BannerAdActivity" />
-        <activity android:name=".adactivity.DeeplinkActivity"
+        <activity
+            android:name=".adactivity.DeeplinkActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="meishudemo" android:host="deeplink" />
+
+                <data
+                    android:host="deeplink"
+                    android:scheme="meishudemo" />
             </intent-filter>
         </activity>
         <activity android:name=".adactivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 美数 begin -->
+        </activity> <!-- 美数 begin -->
         <provider
             android:name="com.meishu.sdk.core.service.MeishuFileProvider"
             android:authorities="${applicationId}.MeishuFileProvider"
@@ -69,8 +76,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/meishu_file_path" />
-        </provider>
-        <!-- 美数 end -->
+        </provider> <!-- 美数 end -->
         <!-- 穿山甲 begin -->
         <provider
             android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
@@ -84,13 +90,13 @@
         <provider
             android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
             android:authorities="${applicationId}.TTMultiProvider"
-            android:exported="false" />
-        <!-- 穿山甲 end -->
+            android:exported="false" /> <!-- 穿山甲 end -->
         <!-- 百度 begin -->
         <activity
             android:name="com.baidu.mobads.AppActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <provider
             android:name="com.baidu.mobads.openad.FileProvider"
             android:authorities="${applicationId}.bd.provider"
@@ -99,13 +105,11 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/bd_file_path" />
-        </provider>
-        <!-- 百度 end -->
+        </provider> <!-- 百度 end -->
         <!-- 广点通 begin -->
         <service
             android:name="com.qq.e.comm.DownloadService"
-            android:exported="false" />
-        <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
+            android:exported="false" /> <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
         <activity
             android:name="com.qq.e.ads.ADActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
@@ -117,6 +121,7 @@
             android:name="com.qq.e.ads.LandscapeADActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -126,7 +131,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/gdt_file_path" />
         </provider>
-        <!-- 广点通 end -->
     </application>
 
 </manifest>

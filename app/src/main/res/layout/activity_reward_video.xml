@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,30 +7,54 @@
     android:orientation="vertical"
     tools:context=".adactivity.rewardvideo.RewardVideoActivity">
 
-    <Button
-        android:id="@+id/change_orientation"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="横竖屏切换" />
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="广告位ID：" />
+            <EditText
+                android:id="@+id/alternativeRewardVideoAdPlaceID"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/load_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="加载两个视频" />
+        <Button
+            android:id="@+id/load_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载两个视频" />
 
-    <Button
-        android:id="@+id/show1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="展示1" />
+        <Button
+            android:id="@+id/change_orientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="横竖屏切换" />
 
-    <Button
-        android:id="@+id/show2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="展示2" />
+        <Button
+            android:id="@+id/show1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="展示1" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/show2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="展示2" />
+    </LinearLayout>
+</RelativeLayout>
+
