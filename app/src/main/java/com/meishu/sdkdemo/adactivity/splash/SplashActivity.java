@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.meishu.sdk.core.ad.splash.ISplashAd;
 import com.meishu.sdk.core.ad.splash.SplashAdListener;
@@ -94,5 +95,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     @Override
     public void onAdError() {
         Log.d(TAG, "onError: 没有加载到广告");
+        Toast.makeText(this, "没有加载到广告", Toast.LENGTH_SHORT).show();
+        this.finish();
     }
 }
