@@ -124,22 +124,6 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (pasterAd != null) {
-            pasterAd.onResume();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (pasterAd != null) {
-            pasterAd.onPause();
-        }
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (pasterAdLoader != null) {
