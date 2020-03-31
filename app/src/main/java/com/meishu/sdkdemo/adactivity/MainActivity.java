@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String packageName = getPackageName();
             PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
             TextView txtVersion = findViewById(R.id.txt_version);
-            txtVersion.setText(String.format("Demo 版本：%s\n美数 SDK 版本：%s\n穿山甲 SDK 版本：%s\n百度 SDK 版本：%s\n广点通 SDK 版本：%s\noaid: %s",
-                    packageInfo.versionName, AdSdk.getVersionName(), AdSdk.getCSJVersionName(), AdSdk.getBDVersionName(), AdSdk.getGDTVersionName(), AdSdk.getOaid()));
+            txtVersion.setText(String.format("Demo 版本：%s\n美数 SDK 版本：%s\n穿山甲 SDK 版本：%s\n百度 SDK 版本：%s\n广点通 SDK 版本：%s\noaid: %s\n包名: %s",
+                    packageInfo.versionName, AdSdk.getVersionName(), AdSdk.getCSJVersionName(), AdSdk.getBDVersionName(), AdSdk.getGDTVersionName(), AdSdk.getOaid(), getPackageName()));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
