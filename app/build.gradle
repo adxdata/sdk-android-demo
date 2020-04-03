@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 28
-    demoVersionName = "1.0.27"
+    demoVersionCode = 29
+    demoVersionName = "1.0.28"
 }
 
 android {
@@ -34,7 +36,9 @@ android {
 
 dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
-    implementation(name: 'meishu-sdk_0.6.12_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.14_release', ext: 'aar')
+//    implementation project(':sdk-android-lib-ext') // 调试用
+//    implementation(name: 'meishu-sdk-ext_0.0.1_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-v5.83', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.4.176.1046', ext: 'aar') // 广点通
