@@ -28,7 +28,6 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.googlecode.android-query:android-query:0.25.9'
