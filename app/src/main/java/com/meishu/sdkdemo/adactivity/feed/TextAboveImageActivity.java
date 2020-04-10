@@ -67,6 +67,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
 //        recyclerAdLoader = new RecyclerAdLoader(this, posId, 2,this, MsAdPatternType.IMAGE, 0, true);//信息流
         recyclerAdLoader = new RecyclerAdLoader(this, posId, 2,this, true);//信息流
+//        recyclerAdLoader = new RecyclerAdExtLoader(this, posId, 2,this, true);//信息流
         recyclerAdLoader.loadAd();
     }
 
@@ -312,6 +313,14 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                         }
 
                     });
+//            if (ad instanceof RecyclerAdExtData) {
+//                ((RecyclerAdExtData) ad).setOnAdExposureListener(new AdExposureListener() {
+//                    @Override
+//                    public void onAdExposure() {
+//                        Log.d(TAG, "onAdExposure: 广告曝光 2");
+//                    }
+//                });
+//            }
 
             setAdListener(holder, ad);
 
