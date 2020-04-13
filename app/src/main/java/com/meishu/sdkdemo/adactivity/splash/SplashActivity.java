@@ -102,4 +102,14 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     public void onAdPresent(ISplashAd splashAd) {
         Log.d(TAG, "onAdPresent: 广告已显示");
     }
+
+    @Override
+    public void onAdSkip(ISplashAd splashAd) {
+        Log.d(TAG, "onAdSkip: 广告已跳过");
+    }
+
+    @Override
+    public void onAdTimeOver(ISplashAd splashAd) {
+        Log.d(TAG, "onAdTimeOver: 广告倒计时已结束");
+    }
 }
