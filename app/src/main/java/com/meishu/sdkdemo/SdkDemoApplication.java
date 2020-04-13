@@ -1,6 +1,8 @@
 package com.meishu.sdkdemo;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.meishu.sdk.core.AdSdk;
 
@@ -33,5 +35,10 @@ public class SdkDemoApplication extends Application {
 
         // 设置广点通自渲染版本，默认 2.0
 //        AdSdk.setGdtRecyclerVersion(AdSdk.GDT_1);
+    }
+
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
     }
 }
