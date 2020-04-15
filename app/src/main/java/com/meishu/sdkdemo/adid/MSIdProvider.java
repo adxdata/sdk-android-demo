@@ -16,7 +16,7 @@ public class MSIdProvider implements IAdIdProvider {
     @Override
     public String feedVideo() {
         //未调用
-        return "100424126";
+        return "73646b0102001991";
     }
 
     @Override

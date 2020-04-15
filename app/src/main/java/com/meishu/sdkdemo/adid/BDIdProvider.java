@@ -16,7 +16,7 @@ public class BDIdProvider implements IAdIdProvider {
     @Override
     public String feedVideo() {
         //未调用
-        return "100424185";
+        return "73646b0102031991";
     }
 
     @Override

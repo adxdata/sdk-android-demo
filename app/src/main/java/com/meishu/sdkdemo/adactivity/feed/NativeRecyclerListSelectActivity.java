@@ -23,6 +23,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
         findViewById(R.id.three_img).setOnClickListener(this);
         findViewById(R.id.pre_render).setOnClickListener(this);
         findViewById(R.id.single).setOnClickListener(this);
+        findViewById(R.id.feed_video).setOnClickListener(this);
 
         ((EditText) findViewById(R.id.alternativeImageTextButtonAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageHorizon());
         ((EditText) findViewById(R.id.alternativeImageTextAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageHorizon());
@@ -30,6 +31,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
         ((EditText) findViewById(R.id.alternativeThreeImageAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedThreeImgs());
         ((EditText) findViewById(R.id.alternativePreRenderAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedPreRender());
         ((EditText) findViewById(R.id.alternativeSingleAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedImageVertical());
+        ((EditText) findViewById(R.id.alternativeFeedVideoAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().feedVideo());
     }
 
     @Override
@@ -76,6 +78,13 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 intent = new Intent(this, SingleRecyclerActivity.class);
                 intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeSingleAdPlaceID)).getText().toString().trim());
                 startActivity(intent);
+                break;
+            case R.id.feed_video:
+                intent = new Intent(this, TextAboveImageActivity.class);
+                intent.putExtra(TextAboveImageActivity.EXTRA_PATTERN, MsAdPatternType.LARGE_IMAGE);
+                intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeFeedVideoAdPlaceID)).getText().toString().trim());
+                startActivity(intent);
+                break;
         }
     }
 }

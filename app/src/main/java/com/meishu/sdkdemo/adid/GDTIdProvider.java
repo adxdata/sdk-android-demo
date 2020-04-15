@@ -16,7 +16,7 @@ public class GDTIdProvider implements IAdIdProvider {
     @Override
     public String feedVideo() {
         //未调用
-        return "100424170";
+        return "73646b0102021991";
     }
 
     @Override
