@@ -26,6 +26,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
         <activity android:name=".adactivity.splash.PrepareSplashActivity"></activity>
         <activity android:name=".adactivity.draw.PrepareVideoFeedActivity"></activity>
         <activity android:name=".adactivity.paster.PasterActivity" />
@@ -44,7 +47,7 @@
         <activity android:name=".adactivity.interstitial.InterstitialAdNewActivity" />
         <activity
             android:name=".adactivity.splash.SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity android:name=".adactivity.splash.SplashAdActivity" />
         <activity android:name=".adactivity.banner.BannerAdActivity" />
         <activity
