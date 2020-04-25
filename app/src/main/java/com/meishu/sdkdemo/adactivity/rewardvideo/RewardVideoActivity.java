@@ -116,40 +116,40 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
         ad.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
-                Log.d(TAG, "onAdClicked: ");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
         });
         ad.setMediaListener(new RewardAdMediaListener() {
             @Override
             public void onVideoCompleted() {
-                Log.d(TAG, "onVideoCompleted: ");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
         });
     }
 
     @Override
     public void onVideoCached() {
-        Log.d(TAG, "onVideoCached: ");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: ");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onReward() {
-        Log.d(TAG, "onReward: ");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        Log.d(TAG, "onAdClosed: ");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onAdError: ");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override

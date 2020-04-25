@@ -130,16 +130,16 @@ public class SingleRecyclerActivity extends AppCompatActivity implements Recycle
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onAdError: 没有加载到广告");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: 广告曝光");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        Log.d(TAG, "onAdClosed: 广告被关闭");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 }

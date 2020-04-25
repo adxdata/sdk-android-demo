@@ -119,17 +119,17 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: 广告曝光");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        Log.d(TAG, "onAdClosed: 广告被关闭");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onAdError: 没有加载到广告");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.mIsLoading = false;
     }
 
@@ -309,7 +309,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                     clickableViews, new RecylcerAdInteractionListener() {
                         @Override
                         public void onAdClicked() {
-                            Log.d(TAG, "onAdClicked: 广告被点击");
+                            Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                         }
 
                     });
@@ -333,22 +333,22 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
                     @Override
                     public void onVideoLoaded() {
-                        Log.d(TAG, "onVideoLoaded: 视频加载完成");
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                     }
 
                     @Override
                     public void onVideoStart() {
-                        Log.d(TAG, "onVideoStart: 视频开始播放");
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                     }
 
                     @Override
                     public void onVideoPause() {
-                        Log.d(TAG, "onVideoPause: 视频暂停");
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                     }
 
                     @Override
                     public void onVideoCompleted() {
-                        Log.d(TAG, "onVideoCompleted: 视频结束");
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                         holder.replay.setEnabled(true);
                     }
 

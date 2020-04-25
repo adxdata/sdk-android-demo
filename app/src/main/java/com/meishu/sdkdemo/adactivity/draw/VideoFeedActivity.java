@@ -108,7 +108,7 @@ public class VideoFeedActivity extends AppCompatActivity implements DrawAdListen
 
     @Override
     public void onAdLoaded(IDrawAd ad) {
-        LogUtil.d(TAG, "onAdLoaded");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         ItemData data = new ItemData();
         data.ad = ad;
         data.type = ItemData.ITEM_TYPE_AD;
@@ -119,17 +119,17 @@ public class VideoFeedActivity extends AppCompatActivity implements DrawAdListen
 
     @Override
     public void onAdError() {
-        LogUtil.d(TAG, "onAdError");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdExposure() {
-        LogUtil.d(TAG, "onAdExposure");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        LogUtil.d(TAG, "onAdClosed");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     class ItemData {

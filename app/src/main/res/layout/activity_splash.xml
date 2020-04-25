@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".adactivity.splash.SplashActivity">
-
 
     <ImageView
         android:id="@+id/splash_holder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@android:color/darker_gray" />
+        android:layout_height="120dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitCenter"
+        android:background="#ffffff"
+        android:src="@drawable/logo" />
 
     <RelativeLayout
         android:id="@+id/splash_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="120dp"
+        android:background="#009fc3" />
 
 </RelativeLayout>

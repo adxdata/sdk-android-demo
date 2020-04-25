@@ -86,18 +86,18 @@ public class NativeVideoActivity extends AppCompatActivity {
 
             @Override
             public void onVideoLoaded(NativeMediaAdData mediaAdData) {
-                Log.d(TAG, "onVideoLoaded: 广告视频被加载");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                 bindMediaView();
             }
 
             @Override
             public void onAdClicked(NativeMediaAdData mediaAdData) {
-                Log.d(TAG, "onAdClicked: 广告被点击");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
 
             @Override
             public void onAdExposure() {
-                Log.d(TAG, "onAdExposure: 广告曝光");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
 
             @Override

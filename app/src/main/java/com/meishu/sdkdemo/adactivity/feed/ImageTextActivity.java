@@ -97,17 +97,17 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: 广告曝光");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        Log.d(TAG, "onAdClosed: 广告被关闭");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onAdError: 没有加载到广告");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.mIsLoading = false;
     }
 
@@ -203,10 +203,10 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
             final RecyclerAdData ad = (RecyclerAdData) mData.get(position);
             AQuery logoAQ = holder.logoAQ;
             String iconUrl = null;
-            if (!TextUtils.isEmpty(ad.getIconUrl())) {
-                iconUrl = ad.getIconUrl();
-            } else if (ad.getImgUrls() != null && ad.getImgUrls().length > 0) {
+            if (ad.getImgUrls() != null && ad.getImgUrls().length > 0) {
                 iconUrl = ad.getImgUrls()[0];
+            } else if (!TextUtils.isEmpty(ad.getIconUrl())) {
+                iconUrl = ad.getIconUrl();
             }
             if (!TextUtils.isEmpty(iconUrl)) {
                 logoAQ.id(R.id.small_img).image(iconUrl, false, true);
@@ -225,7 +225,7 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
                     clickableViews, new RecylcerAdInteractionListener() {
                         @Override
                         public void onAdClicked() {
-                            Log.d(TAG, "onAdClicked: 广告被点击");
+                            Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
                         }
 
                     });

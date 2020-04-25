@@ -56,28 +56,29 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onAdLoaded(IBannerAd bannerAd) {
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         ((ViewGroup) findViewById(R.id.bannerContainer)).addView(bannerAd.getAdView());
         bannerAd.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {
-                Log.d(TAG, "onAdClicked: 广告被点击");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
         });
     }
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: 广告曝光");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        Log.d(TAG, "onAdClosed: 广告关闭");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onError: 没有加载到广告");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override

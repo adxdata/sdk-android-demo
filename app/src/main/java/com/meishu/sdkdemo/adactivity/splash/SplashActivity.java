@@ -43,25 +43,25 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdLoaded(ISplashAd splashAd) {
-        Log.d(TAG, "onAdLoaded: 开屏广告填充");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.splashAd = splashAd;
         splashAd.setInteractionListener(new InteractionListener() {
 
             @Override
             public void onAdClicked() {
-                Log.d(TAG, "onAdClicked: 开屏广告被点击");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
         });
     }
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: 开屏广告曝光");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdClosed() {
-        Log.d(TAG, "onAdClosed: 开屏广告被关闭");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
 
         if (canJump) {
             next();
@@ -99,23 +99,23 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onError: 没有加载到广告");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         Toast.makeText(this, "没有加载到广告", Toast.LENGTH_SHORT).show();
         this.finish();
     }
 
     @Override
     public void onAdPresent(ISplashAd splashAd) {
-        Log.d(TAG, "onAdPresent: 广告已显示");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdSkip(ISplashAd splashAd) {
-        Log.d(TAG, "onAdSkip: 广告已跳过");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdTimeOver(ISplashAd splashAd) {
-        Log.d(TAG, "onAdTimeOver: 广告倒计时已结束");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 }

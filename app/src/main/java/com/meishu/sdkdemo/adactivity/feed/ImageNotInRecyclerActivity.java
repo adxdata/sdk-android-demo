@@ -70,7 +70,7 @@ public class ImageNotInRecyclerActivity extends AppCompatActivity implements Ima
 
     @Override
     public void onAdExposure() {
-        Log.d(TAG, "onAdExposure: 广告曝光");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ImageNotInRecyclerActivity extends AppCompatActivity implements Ima
 
     @Override
     public void onAdError() {
-        Log.d(TAG, "onAdError: 没有加载到广告");
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     private void initAd(final ImageAdData ad) {
@@ -93,7 +93,7 @@ public class ImageNotInRecyclerActivity extends AppCompatActivity implements Ima
 
             @Override
             public void onAdClicked() {
-                Log.d(TAG, "onAdClicked: 广告被点击");
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
 
         });
