@@ -14,12 +14,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView android:id="@+id/ad_info_container_top_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+
             <!-- 原生广告的标题 -->
             <TextView
                 android:id="@+id/ad_info_container_top_text_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/ad_info_container_top_icon"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:textColor="#e0000000" />
@@ -30,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ad_info_container_top_text_title"
+                android:layout_toRightOf="@+id/ad_info_container_top_icon"
                 android:layout_marginLeft="6dp"
                 android:layout_marginRight="6dp"
                 android:ellipsize="end"

@@ -1,7 +1,6 @@
 package com.meishu.sdkdemo.adactivity.feed;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,8 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
-import com.androidquery.callback.AjaxStatus;
-import com.androidquery.callback.BitmapAjaxCallback;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
@@ -229,81 +226,47 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
             List<View> clickableViews = new ArrayList<>();
             clickableViews.add(holder.container);
             // 视频广告
+            hideAll(holder);
             if (ad.getAdPatternType() == MsAdPatternType.VIDEO) {
                 showVideo(holder);
                 showTop(logoAQ);
             } else if (ad.getAdPatternType() == MsAdPatternType.IMAGE
-                    || ad.getAdPatternType() == MsAdPatternType.LARGE_IMAGE
-                    || ad.getAdPatternType() == MsAdPatternType.SMALL_IMAGE) {
+                    || ad.getAdPatternType() == MsAdPatternType.LARGE_IMAGE) {
                 showPoster(holder);
-                logoAQ.id(R.id.img_poster).image(ad.getImgUrls()[0], false, true, 0, 0,
-                        new BitmapAjaxCallback() {
-                            @Override
-                            protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
-                                if (iv.getVisibility() == View.VISIBLE) {
-                                    iv.setImageBitmap(bm);
-                                }
-                            }
-                        });
+                logoAQ.id(R.id.img_poster).image(ad.getImgUrls()[0]);
+                showTop(logoAQ);
+            } else if (ad.getAdPatternType() == MsAdPatternType.SMALL_IMAGE) {
                 showTop(logoAQ);
             } else if (ad.getAdPatternType() == MsAdPatternType.THREE_IMAGE) {
                 String[] imgs = ad.getImgUrls();
                 if (imgs != null && imgs.length == 1) {
                     showPoster(holder);
-                    logoAQ.id(R.id.img_poster).image(ad.getImgUrls()[0], false, true, 0, 0,
-                            new BitmapAjaxCallback() {
-                                @Override
-                                protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
-                                    if (iv.getVisibility() == View.VISIBLE) {
-                                        iv.setImageBitmap(bm);
-                                    }
-                                }
-                            });
+                    logoAQ.id(R.id.img_poster).image(ad.getImgUrls()[0]);
                     showTop(logoAQ);
                 } else if (imgs != null && imgs.length > 1) {
-                    hideAll(holder);
                     logoAQ.id(R.id.ad_info_container_bottom_text_title).text(ad.getTitle());
                     logoAQ.id(R.id.ad_info_container_bottom_text_desc).text(ad.getDesc());
                     if (imgs.length > 0 && !TextUtils.isEmpty(imgs[0])) {
                         holder.img1.setVisibility(View.VISIBLE);
-                        logoAQ.id(R.id.img_1).image(ad.getImgUrls()[0], false, true, 0, 0,
-                                new BitmapAjaxCallback() {
-                                    @Override
-                                    protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
-                                        if (iv.getVisibility() == View.VISIBLE) {
-                                            iv.setImageBitmap(bm);
-                                        }
-                                    }
-                                });
+                        logoAQ.id(R.id.img_1).image(ad.getImgUrls()[0]);
                         showBottom(logoAQ);
                     }
                     if (imgs.length > 1 && !TextUtils.isEmpty(imgs[1])) {
                         holder.img2.setVisibility(View.VISIBLE);
-                        logoAQ.id(R.id.img_2).image(ad.getImgUrls()[1], false, true, 0, 0,
-                                new BitmapAjaxCallback() {
-                                    @Override
-                                    protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
-                                        if (iv.getVisibility() == View.VISIBLE) {
-                                            iv.setImageBitmap(bm);
-                                        }
-                                    }
-                                });
+                        logoAQ.id(R.id.img_2).image(ad.getImgUrls()[1]);
                     }
                     if (imgs.length > 2 && !TextUtils.isEmpty(imgs[2])) {
                         holder.img3.setVisibility(View.VISIBLE);
-                        logoAQ.id(R.id.img_3).image(ad.getImgUrls()[2], false, true, 0, 0,
-                                new BitmapAjaxCallback() {
-                                    @Override
-                                    protected void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status) {
-                                        if (iv.getVisibility() == View.VISIBLE) {
-                                            iv.setImageBitmap(bm);
-                                        }
-                                    }
-                                });
+                        logoAQ.id(R.id.img_3).image(ad.getImgUrls()[2]);
                     }
                 } else {
 
                 }
+            }
+            if (ad.getIconUrl() != null) {
+                logoAQ.id(R.id.ad_info_container_top_icon).image(ad.getIconUrl());
+            } else {
+                logoAQ.id(R.id.ad_info_container_top_icon).gone();
             }
             ad.bindAdToView(holder.container.getContext(), holder.container,
                     clickableViews, new RecylcerAdInteractionListener() {
@@ -387,6 +350,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
     private void showVideo(CustomHolder holder) {
         holder.poster.setVisibility(View.INVISIBLE);
+        holder.icon.setVisibility(View.GONE);
         holder.img1.setVisibility(View.GONE);
         holder.img2.setVisibility(View.GONE);
         holder.img3.setVisibility(View.GONE);
@@ -396,6 +360,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
     private void showPoster(CustomHolder holder) {
         holder.poster.setVisibility(View.VISIBLE);
+        holder.icon.setVisibility(View.GONE);
         holder.img1.setVisibility(View.GONE);
         holder.img2.setVisibility(View.GONE);
         holder.img3.setVisibility(View.GONE);
@@ -404,6 +369,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
     private void showTop(AQuery logoAQ) {
         logoAQ.id(R.id.ad_info_container_top).visibility(VISIBLE);
+        logoAQ.id(R.id.ad_info_container_top_icon).visibility(VISIBLE);
         logoAQ.id(R.id.ad_info_container_top_text_title).visibility(VISIBLE);
         logoAQ.id(R.id.ad_info_container_top_text_desc).visibility(VISIBLE);
         logoAQ.id(R.id.ad_info_container_bottom).visibility(GONE);
@@ -413,6 +379,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
 
     private void showBottom(AQuery logoAQ) {
         logoAQ.id(R.id.ad_info_container_top).visibility(GONE);
+        logoAQ.id(R.id.ad_info_container_top_icon).visibility(VISIBLE);
         logoAQ.id(R.id.ad_info_container_top_text_title).visibility(GONE);
         logoAQ.id(R.id.ad_info_container_top_text_desc).visibility(GONE);
         logoAQ.id(R.id.ad_info_container_bottom).visibility(VISIBLE);
@@ -421,11 +388,13 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
     }
 
     private void hideAll(CustomHolder holder) {
-        holder.poster.setVisibility(View.INVISIBLE);
+        holder.topAdInfoContainer.setVisibility(View.GONE);
+        holder.bottomAdInfoContainer.setVisibility(View.GONE);
+        holder.poster.setVisibility(View.GONE);
         holder.img1.setVisibility(View.GONE);
         holder.img2.setVisibility(View.GONE);
         holder.img3.setVisibility(View.GONE);
-        holder.mediaView.setVisibility(View.INVISIBLE);
+        holder.mediaView.setVisibility(View.GONE);
     }
 
     class CustomHolder extends RecyclerView.ViewHolder {
@@ -436,6 +405,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
         public ViewGroup bottomAdInfoContainer;
         public TextView title_top;
         public TextView desc_top;
+        public ImageView icon;
         public ImageView poster;
         public ImageView img1;
         public ImageView img2;
@@ -454,6 +424,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                     mediaView = itemView.findViewById(R.id.api_media_view);
                     topAdInfoContainer = itemView.findViewById(R.id.ad_info_container_top);
                     bottomAdInfoContainer = itemView.findViewById(R.id.ad_info_container_bottom);
+                    icon = itemView.findViewById(R.id.ad_info_container_top_icon);
                     poster = itemView.findViewById(R.id.img_poster);
                     img1 = itemView.findViewById(R.id.img_1);
                     img2 = itemView.findViewById(R.id.img_2);
