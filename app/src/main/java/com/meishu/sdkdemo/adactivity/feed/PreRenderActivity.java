@@ -203,7 +203,9 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
             if (ad.getAdPatternType() == MsAdPatternType.PRE_RENDER) {
                 adView = ad.getAdView();
                 if (adView == null) {
-                    holder.title.setText("渲染未完成或失败");
+                    TextView tv = new TextView(PreRenderActivity.this);
+                    tv.setText("渲染未完成或失败");
+                    holder.container.addView(tv);
                     return;
                 }
             } else {

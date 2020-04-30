@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 31
-    demoVersionName = "1.0.30"
+    demoVersionCode = 32
+    demoVersionName = "1.0.31"
 }
 
 android {
@@ -37,7 +37,7 @@ android {
 
 dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
-    implementation(name: 'meishu-sdk_0.6.33_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.34_release', ext: 'aar')
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
