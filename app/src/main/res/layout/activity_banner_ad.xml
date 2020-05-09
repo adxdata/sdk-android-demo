@@ -42,5 +42,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="加载广告"/>
+        <Button
+            android:id="@+id/loadBannerAdWithoutCloseBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载广告（不显示关闭按钮）"/>
     </LinearLayout>
 </RelativeLayout>

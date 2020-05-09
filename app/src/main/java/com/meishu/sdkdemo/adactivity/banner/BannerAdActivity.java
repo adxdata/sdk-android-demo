@@ -23,12 +23,15 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
 
     private BannerAdLoader bannerLoader;
 
+    private boolean showCloseButton = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner_ad);
         Button bannerAD = findViewById(R.id.loadBannerAd);
         bannerAD.setOnClickListener(this);
+        findViewById(R.id.loadBannerAdWithoutCloseBtn).setOnClickListener(this);
 
         ((EditText) findViewById(R.id.alternativeBannerAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().banner());
     }
@@ -37,6 +40,9 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.loadBannerAd:
+            case R.id.loadBannerAdWithoutCloseBtn:
+                showCloseButton = v.getId() == R.id.loadBannerAd;
+
                 InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (imm != null) {
                     imm.hideSoftInputFromWindow(v.getWindowToken(),0);
@@ -57,6 +63,7 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onAdLoaded(IBannerAd bannerAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+        bannerAd.setCloseButtonVisible(showCloseButton);
         ((ViewGroup) findViewById(R.id.bannerContainer)).addView(bannerAd.getAdView());
         bannerAd.setInteractionListener(new InteractionListener() {
             @Override
