@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.meishu.sdk.core.ad.banner.BannerAdListener;
 import com.meishu.sdk.core.ad.banner.BannerAdLoader;
@@ -22,6 +24,7 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     private static final String TAG = "BannerADActivity";
 
     private BannerAdLoader bannerLoader;
+    private ViewGroup bannerContainer;
 
     private boolean showCloseButton = true;
 
@@ -29,6 +32,8 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner_ad);
+
+        bannerContainer = findViewById(R.id.bannerContainer);
         Button bannerAD = findViewById(R.id.loadBannerAd);
         bannerAD.setOnClickListener(this);
         findViewById(R.id.loadBannerAdWithoutCloseBtn).setOnClickListener(this);
@@ -53,7 +58,7 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
                     pid = IdProviderFactory.getDefaultProvider().banner();
                 }
 
-                ((ViewGroup) findViewById(R.id.bannerContainer)).removeAllViews();
+                bannerContainer.removeAllViews();
                 bannerLoader = new BannerAdLoader(this, pid, this);
                 bannerLoader.loadAd();
                 break;
@@ -63,8 +68,11 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onAdLoaded(IBannerAd bannerAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+        // 不显示关闭按钮，仅限美数
         bannerAd.setCloseButtonVisible(showCloseButton);
-        ((ViewGroup) findViewById(R.id.bannerContainer)).addView(bannerAd.getAdView());
+        // 适应 container 的大小需要设置宽高，仅限美数
+        bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
+        bannerContainer.addView(bannerAd.getAdView());
         bannerAd.setInteractionListener(new InteractionListener() {
             @Override
             public void onAdClicked() {

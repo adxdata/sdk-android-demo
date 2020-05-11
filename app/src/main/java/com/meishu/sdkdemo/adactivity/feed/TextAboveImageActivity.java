@@ -395,6 +395,7 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
         holder.img2.setVisibility(View.GONE);
         holder.img3.setVisibility(View.GONE);
         holder.mediaView.setVisibility(View.GONE);
+        holder.layoutVideo.setVisibility(View.GONE);
     }
 
     class CustomHolder extends RecyclerView.ViewHolder {
