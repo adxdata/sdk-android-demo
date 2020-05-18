@@ -6,6 +6,7 @@ ext {
     // 目前更新 sdk 时需要手动修改版本号
     demoVersionCode = 33
     demoVersionName = "1.0.32"
+    baichuanVersion = '4.9.2.0'
 }
 
 android {
@@ -18,6 +19,14 @@ android {
         versionName getProject().ext.demoVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+    }
+    signingConfigs {
+        debug {
+            storeFile file('../key')
+            storePassword '123456'
+            keyAlias = 'key0'
+            keyPassword '123456'
+        }
     }
     buildTypes {
         debug {
@@ -36,8 +45,8 @@ android {
 }
 
 dependencies {
-//    implementation project(':sdk-android-lib') // 调试用
-    implementation(name: 'meishu-sdk_0.6.37_release', ext: 'aar')
+    implementation project(':sdk-android-lib') // 调试用
+//    implementation(name: 'meishu-sdk_0.6.36_release', ext: 'aar')
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
@@ -50,6 +59,19 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.googlecode.android-query:android-query:0.25.9'
+
+    // 阿里百川直播间
+    implementation "com.alibaba.baichuan.sdk:alibclogin:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcapplink:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcad:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibctriver:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibctriver_live:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcwebview:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibctradecommon:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcnbtrade:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcprotocol:$baichuanVersion"
+    implementation "llvm.stl:cpp_shared:0.0.3@aar"
+    implementation 'com.alibaba:fastjson:1.2.61'
 
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
