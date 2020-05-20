@@ -83,7 +83,7 @@ public class MSIdProvider implements IAdIdProvider {
     @Override
     public String banner() {
         //BANNER
-        return "73646b0399001991";
+        return "987654997";
     }
 
     @Override
