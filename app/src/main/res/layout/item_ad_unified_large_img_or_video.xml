@@ -150,4 +150,12 @@
                 android:textColor="#a0000000" />
         </RelativeLayout>
     </LinearLayout>
+<!-- 测试自渲染覆盖问题 -->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:text="最上" />-->
+
 </RelativeLayout>
