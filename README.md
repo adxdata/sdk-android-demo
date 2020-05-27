@@ -156,9 +156,11 @@ sdk 内置了 oaid 获取的功能，必须添加 oaid 包，版本最好大于�
 请在您的 Application 初始化 sdk，代码如下，更多选项及设置详见 demo 代码
 ```java
 // 一定要在 Application 中初始化 sdk，否则无法正常使用sdk
-// appId 是在美数注册的 appId
-// testModeEnabled 表示是否开启测试模式，测试模式无法用于生产环境
-AdSdk.init(context, "101629", true);
+// 参数1: 使用 Application Context
+// 参数2: appId 是在美数注册的 appId
+// 参数3: isTest 表示是否开启测试模式，测试模式无法用于生产环境
+// 参数4: getOaid 表示是否获取 oaid，填写 true 获取，0.6.38 之前的版本不填不自动获取
+AdSdk.init(context, "101629", true, true);
 // 设置下载提示类型，默认不提示 AdSdk.DOWNLOAD_MODE_DIRECTLY
 AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
 // 设置是否 debug 模式，debug 模式会打印内部 log，默认不打印
