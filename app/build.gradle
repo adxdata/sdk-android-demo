@@ -46,7 +46,7 @@ android {
 
 dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
-    implementation(name: 'meishu-sdk_0.6.39_baichuan_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.40_baichuan_release', ext: 'aar')
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_2.9.0.0', ext: 'aar') // 穿山甲
