@@ -16,10 +16,8 @@ import android.widget.Toast;
 import com.meishu.sdk.core.ad.paster.PasterAd;
 import com.meishu.sdk.core.ad.paster.PasterAdListener;
 import com.meishu.sdk.core.ad.paster.PasterAdLoader;
-import com.meishu.sdk.core.ad.splash.SplashAdLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
-import com.meishu.sdkdemo.adactivity.splash.SplashActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 /**
@@ -99,6 +97,12 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
                 }
 
                 videoContainer = findViewById(R.id.video_container);
+
+                if (pasterAd != null) {
+                    pasterAd.destroy();
+                    videoContainer.removeAllViews();
+                }
+
                 pasterAdLoader = new PasterAdLoader(PasterActivity.this, videoContainer, pid, PasterActivity.this);
                 pasterAdLoader.loadAd();
             }
@@ -151,8 +155,8 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (pasterAdLoader != null) {
-            pasterAdLoader.destroy();
+        if (pasterAd != null) {
+            pasterAd.destroy();
         }
     }
 }
