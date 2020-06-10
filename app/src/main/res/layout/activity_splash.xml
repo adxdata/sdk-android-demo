@@ -24,4 +24,12 @@
         android:layout_marginBottom="120dp"
         android:background="#009fc3" />
 
+    <Button android:id="@+id/btn_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:enabled="false"
+        android:text="显示"/>
+
 </RelativeLayout>

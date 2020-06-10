@@ -29,11 +29,19 @@
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/loadAndShowSplashAd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载并显示广告"/>
+
         <Button
             android:id="@+id/loadSplashAd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="加载广告"/>
+            android:text="只加载广告，手动展示"/>
+
     </LinearLayout>
 
 </RelativeLayout>

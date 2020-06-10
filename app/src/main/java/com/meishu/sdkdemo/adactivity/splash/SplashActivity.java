@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.meishu.sdk.core.ad.splash.ISplashAd;
@@ -20,7 +20,9 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     private static final String TAG = "SplashActivity";
 
     private ISplashAd splashAd;
-    private volatile boolean canJump = true;
+    private boolean canJump = true;
+    private Button btnShow;
+    private boolean autoShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +39,40 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
             pid = IdProviderFactory.getDefaultProvider().splash();
         }
 
+        btnShow = findViewById(R.id.btn_show);
         SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
-        splashAdLoader.loadAd();
+        Integer id = getIntent().getIntExtra("id", -1);
+        switch (id) {
+            case R.id.loadSplashAd:
+                // 不传参数默认是 true
+                autoShow = false;
+                splashAdLoader.loadAd(false);
+                btnShow.setVisibility(View.VISIBLE);
+                break;
+            case R.id.loadAndShowSplashAd:
+                autoShow = true;
+                splashAdLoader.loadAd();
+                btnShow.setVisibility(View.GONE);
+                break;
+        }
+
+        findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (splashAd != null) {
+                    splashAd.showAd();
+                }
+            }
+        });
     }
 
     @Override
     public void onAdLoaded(ISplashAd splashAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.splashAd = splashAd;
+        if (!autoShow) {
+            btnShow.setEnabled(true);
+        }
         splashAd.setInteractionListener(new InteractionListener() {
 
             @Override
