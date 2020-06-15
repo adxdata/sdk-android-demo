@@ -154,9 +154,18 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onDestroy() {
-        if (this.ad != null) {
-            this.ad.destroy();
-        }
         super.onDestroy();
+        // 单独销毁广告对象
+//        if (ad != null) {
+//            ad.destroy();
+//        }
+//        if (ad2 != null) {
+//            ad2.destroy();
+//        }
+        // 销毁 loader 会销毁已加载的所有广告，建议使用此方法，而不是每个广告单独销毁
+        // 一定要调用此方法，否则会产生内存泄漏
+        if (rewardVideoLoader != null) {
+            rewardVideoLoader.destroy();
+        }
     }
 }
