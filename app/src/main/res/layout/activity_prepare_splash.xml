@@ -42,6 +42,12 @@
             android:layout_height="wrap_content"
             android:text="只加载广告，手动展示"/>
 
+        <Button
+            android:id="@+id/customSkipSplashAd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义跳过按钮" />
+
     </LinearLayout>
 
 </RelativeLayout>

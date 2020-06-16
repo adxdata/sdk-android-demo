@@ -26,6 +26,11 @@ public class PrepareSplashActivity extends AppCompatActivity {
                     Toast.makeText(PrepareSplashActivity.this, "百度不支持", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (v.getId() == R.id.customSkipSplashAd
+                        && (IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_BD) || IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_CSJ))) {
+                    Toast.makeText(PrepareSplashActivity.this, "百度穿山甲不支持", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
                 intent.putExtra("id", v.getId());
                 intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeSplashAdPlaceID)).getText().toString().trim());
@@ -34,5 +39,6 @@ public class PrepareSplashActivity extends AppCompatActivity {
         };
         findViewById(R.id.loadSplashAd).setOnClickListener(clickListener);
         findViewById(R.id.loadAndShowSplashAd).setOnClickListener(clickListener);
+        findViewById(R.id.customSkipSplashAd).setOnClickListener(clickListener);
     }
 }

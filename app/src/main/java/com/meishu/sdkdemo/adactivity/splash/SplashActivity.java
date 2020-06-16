@@ -22,7 +22,8 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     private ISplashAd splashAd;
     private boolean canJump = true;
     private Button btnShow;
-    private boolean autoShow;
+    private Button btnSkip;
+    private boolean autoShow = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,21 +41,28 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         }
 
         btnShow = findViewById(R.id.btn_show);
-        SplashAdLoader splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
+        btnSkip = findViewById(R.id.btn_skip);
+
+        SplashAdLoader splashAdLoader;
         Integer id = getIntent().getIntExtra("id", -1);
         switch (id) {
             case R.id.loadSplashAd:
-                // 不传参数默认是 true
-                autoShow = false;
-                splashAdLoader.loadAd(false);
+                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
                 btnShow.setVisibility(View.VISIBLE);
                 break;
             case R.id.loadAndShowSplashAd:
                 autoShow = true;
-                splashAdLoader.loadAd();
-                btnShow.setVisibility(View.GONE);
+                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
                 break;
+            case R.id.customSkipSplashAd:
+                autoShow = true;
+                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000, btnSkip);
+                btnSkip.setVisibility(View.VISIBLE);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + id);
         }
+        splashAdLoader.loadAd(autoShow);
 
         findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +152,14 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdTimeOver(ISplashAd splashAd) {
+        // 仅支持美数和穿山甲，倒计时结束时回调
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdTick(long leftMilliseconds) {
+        // 仅支持美数和广点通，回调剩余时间
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + leftMilliseconds);
+        btnSkip.setText(leftMilliseconds + "");
     }
 }
