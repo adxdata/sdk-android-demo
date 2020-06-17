@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     private boolean canJump = true;
     private Button btnShow;
     private Button btnSkip;
-    private boolean autoShow = false;
+    private boolean autoShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE);
         setContentView(R.layout.activity_splash);
-        ViewGroup adContainer = findViewById(R.id.splash_container);
+        final ViewGroup adContainer = findViewById(R.id.splash_container);
 
         String pid  = getIntent().getStringExtra("alternativePlaceId");
         if (TextUtils.isEmpty(pid)) {
@@ -46,29 +46,32 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         SplashAdLoader splashAdLoader;
         Integer id = getIntent().getIntExtra("id", -1);
         switch (id) {
-            case R.id.loadSplashAd:
-                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
-                btnShow.setVisibility(View.VISIBLE);
-                break;
             case R.id.loadAndShowSplashAd:
-                autoShow = true;
                 splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
+                splashAdLoader.loadAd();
+                autoShow = true;
+                break;
+            case R.id.loadSplashAd:
+                splashAdLoader = new SplashAdLoader(this, pid, SplashActivity.this, 3000);
+                btnShow.setVisibility(View.VISIBLE);
+                splashAdLoader.loadAdOnly();
+                autoShow = false;
                 break;
             case R.id.customSkipSplashAd:
-                autoShow = true;
                 splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000, btnSkip);
                 btnSkip.setVisibility(View.VISIBLE);
+                splashAdLoader.loadAd();
+                autoShow = true;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + id);
         }
-        splashAdLoader.loadAd(autoShow);
 
         findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (splashAd != null) {
-                    splashAd.showAd();
+                    splashAd.showAd(adContainer);
                 }
             }
         });
