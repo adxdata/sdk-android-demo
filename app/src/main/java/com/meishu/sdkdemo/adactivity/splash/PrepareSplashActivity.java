@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.meishu.sdkdemo.R;
-import com.meishu.sdkdemo.adactivity.draw.VideoFeedActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class PrepareSplashActivity extends AppCompatActivity {
@@ -23,13 +22,11 @@ public class PrepareSplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.loadSplashAd && IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_BD)) {
-                    Toast.makeText(PrepareSplashActivity.this, "百度不支持", Toast.LENGTH_SHORT).show();
-                    return;
+                    Toast.makeText(PrepareSplashActivity.this, "百度不支持此特性，显示兜底广告", Toast.LENGTH_LONG).show();
                 }
                 if (v.getId() == R.id.customSkipSplashAd
                         && (IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_BD) || IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_CSJ))) {
-                    Toast.makeText(PrepareSplashActivity.this, "百度穿山甲不支持", Toast.LENGTH_SHORT).show();
-                    return;
+//                    Toast.makeText(PrepareSplashActivity.this, "百度穿山甲不支持此特性，显示兜底广告", Toast.LENGTH_LONG).show();
                 }
                 Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
                 intent.putExtra("id", v.getId());

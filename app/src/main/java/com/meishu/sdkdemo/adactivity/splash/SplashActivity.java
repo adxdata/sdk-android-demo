@@ -58,9 +58,9 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
                 autoShow = false;
                 break;
             case R.id.customSkipSplashAd:
-                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000, btnSkip);
+                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
                 btnSkip.setVisibility(View.VISIBLE);
-                splashAdLoader.loadAd();
+                splashAdLoader.loadAd(btnSkip);
                 autoShow = true;
                 break;
             default:
