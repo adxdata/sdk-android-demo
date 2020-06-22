@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +46,10 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
             pid = IdProviderFactory.getDefaultProvider().feedPreRender();
         }
 
-        // 不指定宽度，默认使用屏幕宽度
-        preRenderAdLoader = new PreRenderAdLoader(this, pid, 2,this);
+        // 穿山甲需要指定容器宽度，不指定默认屏宽，40 是 item 的 margin
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        float adContainerWidth = dm.widthPixels / dm.density - 40 * 2;
+        preRenderAdLoader = new PreRenderAdLoader(this, pid, 2, this, adContainerWidth);
         preRenderAdLoader.loadAd();
     }
 
@@ -241,7 +244,7 @@ public class PreRenderActivity extends AppCompatActivity implements RecyclerAdLi
             super(itemView);
             switch (adType) {
                 case TYPE_AD:
-                    container = (ViewGroup) itemView;
+                    container = itemView.findViewById(R.id.container);
                 case TYPE_DATA:
                     title = itemView.findViewById(R.id.title);
                     break;
