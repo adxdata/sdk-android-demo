@@ -3,3 +3,5 @@ include ':sdk-android-lib'
 project(':sdk-android-lib').projectDir = new File(settingsDir,'../sdk-android-lib/lib/')
 //include ':sdk-android-lib-ext'
 //project(':sdk-android-lib-ext').projectDir = new File(settingsDir,'../sdk-android-lib/lib-ext/')
+include ':sdk-android-lib-live-baichuan'
+project(':sdk-android-lib-live-baichuan').projectDir = new File(settingsDir,'../sdk-android-lib/lib-live-baichuan/')

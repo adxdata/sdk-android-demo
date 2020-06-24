@@ -6,6 +6,7 @@ ext {
     // 目前更新 sdk 时需要手动修改版本号
     demoVersionCode = 33
     demoVersionName = "1.0.32"
+    baichuanVersion = '4.9.2.0'
 }
 
 android {
@@ -18,6 +19,14 @@ android {
         versionName getProject().ext.demoVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+    }
+    signingConfigs {
+        debug {
+            storeFile file('../key')
+            storePassword '123456'
+            keyAlias = 'key0'
+            keyPassword '123456'
+        }
     }
     buildTypes {
         debug {
@@ -37,12 +46,14 @@ android {
 
 dependencies {
     implementation project(':sdk-android-lib') // 调试用
-//    implementation(name: 'meishu-sdk_0.6.41_release', ext: 'aar')
 //    implementation project(':sdk-android-lib-ext') // 调试用
+    implementation project(':sdk-android-lib-live-baichuan') // 调试用
+//    implementation(name: 'meishu-sdk_0.6.41_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
+//    implementation(name: 'meishu-sdk-live-baichuan_0.0.1_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.1.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.86', ext: 'aar') // 百度
-    implementation(name: 'GDTSDK.unionNormal.4.230.1100', ext: 'aar') // 广点通
+    implementation(name: 'GDTSDK.unionNormal.4.232.1102', ext: 'aar') // 广点通
     implementation(name: 'msa_mdid_1.0.13', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
@@ -52,6 +63,19 @@ dependencies {
     implementation 'com.googlecode.android-query:android-query:0.25.9'
     implementation 'com.danikula:videocache:2.7.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
+    // 阿里百川直播间
+    implementation "com.alibaba.baichuan.sdk:alibclogin:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcapplink:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcad:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibctriver:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibctriver_live:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcwebview:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibctradecommon:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcnbtrade:$baichuanVersion"
+    implementation "com.alibaba.baichuan.sdk:alibcprotocol:$baichuanVersion"
+    implementation "llvm.stl:cpp_shared:0.0.3@aar"
+    implementation 'com.alibaba:fastjson:1.1.71.android'
 
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
