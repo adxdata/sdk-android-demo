@@ -47,10 +47,10 @@ android {
 dependencies {
     implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
-//    implementation project(':sdk-android-lib-live') // 调试用
+    implementation project(':sdk-android-lib-live') // 调试用
 //    implementation(name: 'meishu-sdk_0.6.41_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
-    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
+//    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.1.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.86', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.4.232.1102', ext: 'aar') // 广点通
