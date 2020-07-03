@@ -48,3 +48,6 @@
 }
 -keep class com.baidu.mobads.** { *; }
 -keep class com.baidu.mobad.** { *; }
+
+# OAID
+-keep class com.bun.miitmdid.core.** {*;}
