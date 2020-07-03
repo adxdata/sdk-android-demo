@@ -10,4 +10,16 @@
      <cache-path
          name="gdt_sdk_download_path2"
          path="com_qq_e_download" />
+     <root-path
+         name="root"
+         path="." />
+     <cache-path
+         name="cache"
+         path="." />
+     <external-path
+         name="external"
+         path="." />
+     <external-cache-path
+         name="external_cache_path"
+         path="." />
 </paths>
