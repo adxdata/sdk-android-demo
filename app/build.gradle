@@ -12,7 +12,7 @@ ext {
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.meishu.meishu_sdk_demo"
+        applicationId "gov.pianzong.androidnga"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
@@ -54,6 +54,7 @@ dependencies {
     implementation(name: 'open_ad_sdk_3.1.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.86', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.4.232.1102', ext: 'aar') // 广点通
+    implementation(name: 'donewsSDK4.94', ext: 'aar') // 多牛
     implementation(name: 'msa_mdid_1.0.13', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
