@@ -46,7 +46,13 @@ dependencies {
 
 ## manifest配置
 
-要注意 provider 中的 android:authorities 不能有重复，xxx_file_path 文件可以从 demo 程序中获取
+在application中添加如下代码
+
+```xml
+android:requestLegacyExternalStorage="true"
+```
+
+添加provider，要注意 provider 中的 android:authorities 不能有重复，xxx_file_path 文件可以从 demo 程序中获取
 
 穿山甲、百度、广点通三个包可选，不接入可以不添加
 
@@ -129,6 +135,7 @@ dependencies {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
