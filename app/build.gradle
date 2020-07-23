@@ -42,10 +42,14 @@ android {
             dirs 'libs'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-//    implementation project(':sdk-android-lib') // 调试用
+    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
     implementation(name: 'meishu-sdk_0.6.43_release', ext: 'aar')
@@ -54,6 +58,7 @@ dependencies {
     implementation(name: 'open_ad_sdk_3.1.0.0', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.86', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.4.232.1102', ext: 'aar') // 广点通
+    implementation(name: 'ks_adsdk-all-3.1.0-publishRelease', ext: 'aar') // 快手
     implementation(name: 'msa_mdid_1.0.13', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
@@ -82,5 +87,6 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
 }

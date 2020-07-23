@@ -51,3 +51,8 @@
 
 # OAID
 -keep class com.bun.miitmdid.core.** {*;}
+
+#快手
+-keep class com.kwad.sdk.** { *;}
+-keep class com.ksad.download.** { *;}
+-keep class com.kwai.filedownloader.** { *;}
