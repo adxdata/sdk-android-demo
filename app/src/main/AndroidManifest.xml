@@ -137,6 +137,22 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/gdt_file_path" />
         </provider>
+        <!-- 广点通 end -->
+        <!-- OPPO begin -->
+        <provider
+            android:name="com.opos.mobad.provider.MobAdGlobalProvider"
+            android:authorities="${applicationId}.MobAdGlobalProvider"
+            android:exported="false" />
+        <provider
+            android:name="com.heytap.msp.mobad.api.MobFileProvider"
+            android:authorities="${applicationId}.MobFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/mobad_provider_path" />
+        </provider>
+        <!-- OPPO end -->
     </application>
 
 </manifest>

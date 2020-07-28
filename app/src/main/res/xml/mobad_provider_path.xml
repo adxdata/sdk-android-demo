@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="mobad_file_download"
+        path="MobDownload" />
+    <external-files-path
+        name="mobad_internal_file_download"
+        path="MobDownload" />
+</paths>
