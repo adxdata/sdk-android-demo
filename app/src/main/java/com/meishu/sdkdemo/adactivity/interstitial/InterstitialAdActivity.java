@@ -84,6 +84,7 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     private InterstitialAdListener interstitialAdListener1 = new InterstitialAdListener() {
         @Override
         public void onAdLoaded(InterstitialAd interstitialAd) {
+            Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             interstitialAdLoader2 = new InterstitialAdLoader(InterstitialAdActivity.this, IdProviderFactory.getDefaultProvider().insertScreen(), interstitialAdListener2);
             interstitialAdLoader2.loadAd();
             Log.d(TAG, "onAdLoaded: ");
