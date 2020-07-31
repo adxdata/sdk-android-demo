@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".adactivity.MainActivity">
+
+    <include layout="@layout/layout_ad_provider" />
+
     <Button
         android:id="@+id/bannerAD"
         android:layout_width="match_parent"

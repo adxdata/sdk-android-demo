@@ -7,7 +7,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -65,22 +64,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String packageName = getPackageName();
             PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
             TextView txtVersion = findViewById(R.id.txt_version);
-            txtVersion.setText(String.format("Demo 版本：%s\n美数 SDK 版本：%s\n穿山甲 SDK 版本：%s\n百度 SDK 版本：%s\n广点通 SDK 版本：%s\noaid: %s\n包名: %s",
-                    packageInfo.versionName, AdSdk.getVersionName(), AdSdk.getCSJVersionName(), AdSdk.getBDVersionName(), AdSdk.getGDTVersionName(), AdSdk.getOaid(), getPackageName()));
+            txtVersion.setText(String.format("Demo 版本：%s\n" +
+                            "美数 SDK 版本：%s\n" +
+                            "穿山甲 SDK 版本：%s\n" +
+                            "百度 SDK 版本：%s\n" +
+                            "广点通 SDK 版本：%s\n" +
+                            "快手 SDK 版本：%s\n" +
+                            "OPPO SDK 版本：%s\n" +
+                            "oaid: %s\n" +
+                            "包名: %s",
+                    packageInfo.versionName,
+                    AdSdk.getVersionName(),
+                    AdSdk.getCSJVersionName(),
+                    AdSdk.getBDVersionName(),
+                    AdSdk.getGDTVersionName(),
+                    AdSdk.getKSVersionName(),
+                    AdSdk.getOPPOVersionName(),
+                    AdSdk.getOaid(),
+                    getPackageName()));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     private void initAdProvider() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null) {
-            return;
-        }
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar == null) {
+//            return;
+//        }
+//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        actionBar.setCustomView(R.layout.layout_ad_provider);
         // 修改默认的广告提供者
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setCustomView(R.layout.layout_ad_provider);
         RadioGroup rgd = findViewById(R.id.rdg_ad_provider);
+        if ("OPPO".equals(Build.MANUFACTURER)) {
+            rgd.findViewById(R.id.rb_ad_provider_oppo).setVisibility(View.VISIBLE);
+        }
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -96,6 +114,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case R.id.rb_ad_provider_gdt:
                         IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_GDT);
+                        break;
+                    case R.id.rb_ad_provider_ks:
+                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_KS);
+                        break;
+                    case R.id.rb_ad_provider_oppo:
+                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_OPPO);
                         break;
                 }
             }

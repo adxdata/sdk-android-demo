@@ -94,6 +94,6 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "meishu";
+        return IdProviderFactory.PLATFORM_MS;
     }
 }

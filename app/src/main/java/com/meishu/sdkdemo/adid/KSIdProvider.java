@@ -1,45 +1,44 @@
 package com.meishu.sdkdemo.adid;
 
-class OPPOIdProvider implements IAdIdProvider {
-
+public class KSIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-        return "73646b0799061991";
+        return null;
     }
 
     @Override
     public String rewardLandscape() {
-        return "73646b0799061991";
+        return null;
     }
 
     @Override
     public String feedVideo() {
-        return "73646b0102061991";
+        return "73646b0199051991";
     }
 
     @Override
     public String feedThreeImgs() {
-        return "73646b0104061991";
+        return "73646b0199051991";
     }
 
     @Override
     public String feedImageVertical() {
-        return "73646b0101061991";
+        return "73646b0199051991";
     }
 
     @Override
     public String feedImageHorizon() {
-        return "73646b0103061991";
+        return "73646b0199051991";
     }
 
     @Override
     public String feedImageHorizonDesc() {
-        return "73646b0103061991";
+        return "73646b0199051991";
     }
 
     @Override
     public String feedPreRender() {
-        return "73646b0203061991";
+        return "73646b0499051991";
     }
 
     @Override
@@ -59,26 +58,26 @@ class OPPOIdProvider implements IAdIdProvider {
 
     @Override
     public String insertScreen() {
-        return "73646b0599061991";
+        return null;
     }
 
     @Override
     public String splash() {
-        return "73646b0499061991";
+        return "73646b0499051991";
     }
 
     @Override
     public String banner() {
-        return "73646b0399061991";
+        return null;
     }
 
     @Override
     public String videoFeed() {
-        return "73646b0102061991";
+        return null;
     }
 
     @Override
     public String platformName() {
-        return IdProviderFactory.PLATFORM_OPPO;
+        return IdProviderFactory.PLATFORM_KS;
     }
 }
