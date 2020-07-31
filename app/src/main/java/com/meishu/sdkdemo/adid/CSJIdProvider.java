@@ -94,6 +94,6 @@ public class CSJIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "csj";
+        return IdProviderFactory.PLATFORM_CSJ;
     }
 }

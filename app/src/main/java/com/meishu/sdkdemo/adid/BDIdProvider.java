@@ -93,6 +93,6 @@ public class BDIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "bd";
+        return IdProviderFactory.PLATFORM_BD;
     }
 }

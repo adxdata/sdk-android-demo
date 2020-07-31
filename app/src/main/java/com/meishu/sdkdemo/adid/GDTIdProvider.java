@@ -93,6 +93,6 @@ public class GDTIdProvider implements IAdIdProvider {
 
     @Override
     public String platformName() {
-        return "gdt";
+        return IdProviderFactory.PLATFORM_GDT;
     }
 }
