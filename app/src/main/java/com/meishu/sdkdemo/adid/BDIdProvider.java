@@ -92,6 +92,11 @@ public class BDIdProvider implements IAdIdProvider {
     }
 
     @Override
+    public String fullScreenVideo() {
+        return "";
+    }
+
+    @Override
     public String platformName() {
         return IdProviderFactory.PLATFORM_BD;
     }

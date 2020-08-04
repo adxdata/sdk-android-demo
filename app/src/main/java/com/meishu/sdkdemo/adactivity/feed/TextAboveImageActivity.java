@@ -155,6 +155,9 @@ public class TextAboveImageActivity extends AppCompatActivity implements Recycle
                 adData.destroy();
             }
         }
+        if (recyclerAdLoader != null) {
+            recyclerAdLoader.destroy();
+        }
     }
 
     private static final int TYPE_AD = 1;

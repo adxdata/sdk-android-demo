@@ -31,5 +31,7 @@ public interface IAdIdProvider {
     String banner();
     /** videoFeed (穿山甲 draw 信息流) */
     String videoFeed();
+    /** 全屏视频 */
+    String fullScreenVideo();
     String platformName();
 }

@@ -92,6 +92,11 @@ public class GDTIdProvider implements IAdIdProvider {
     }
 
     @Override
+    public String fullScreenVideo() {
+        return "";
+    }
+
+    @Override
     public String platformName() {
         return IdProviderFactory.PLATFORM_GDT;
     }

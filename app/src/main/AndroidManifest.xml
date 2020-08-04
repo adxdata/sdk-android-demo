@@ -50,6 +50,7 @@
         <activity android:name=".adactivity.draw.VideoFeedActivity" />
         <activity android:name=".adactivity.interstitial.InterstitialAdActivity" />
         <activity android:name=".adactivity.interstitial.InterstitialAdNewActivity" />
+        <activity android:name=".adactivity.fullscreenvideo.FullScreenVideoActivity" />
         <activity
             android:name=".adactivity.splash.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />

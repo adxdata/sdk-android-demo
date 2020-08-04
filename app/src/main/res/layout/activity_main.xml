@@ -59,6 +59,12 @@
         android:text="激励视频" />
 
     <Button
+        android:id="@+id/full_screen_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="全屏视频" />
+
+    <Button
         android:id="@+id/open_popupwindow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

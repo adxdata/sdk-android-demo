@@ -78,6 +78,11 @@ class OPPOIdProvider implements IAdIdProvider {
     }
 
     @Override
+    public String fullScreenVideo() {
+        return "73646b0902061991";
+    }
+
+    @Override
     public String platformName() {
         return IdProviderFactory.PLATFORM_OPPO;
     }
