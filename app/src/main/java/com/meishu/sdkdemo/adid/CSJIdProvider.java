@@ -94,7 +94,7 @@ public class CSJIdProvider implements IAdIdProvider {
 
     @Override
     public String fullScreenVideo() {
-        return "";
+        return "73646b0999011991";
     }
 
     @Override

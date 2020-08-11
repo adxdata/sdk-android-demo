@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.meishu.sdk.core.ad.fullscreenvideo.FullScreenVideoAd;
 import com.meishu.sdk.core.ad.fullscreenvideo.FullScreenVideoAdListener;
 import com.meishu.sdk.core.ad.fullscreenvideo.FullScreenVideoAdLoader;
+import com.meishu.sdk.core.ad.fullscreenvideo.IFullScreenVideoAd;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -19,7 +20,7 @@ public class FullScreenVideoActivity extends Activity implements FullScreenVideo
 
     private final static String TAG = "FullScreenVideoActivity";
     private FullScreenVideoAdLoader fullScreenVideoAdLoader;
-    private FullScreenVideoAd fullScreenVideoAd;
+    private IFullScreenVideoAd fullScreenVideoAd;
 
     private Button btnLoad;
     private Button btnShow;
@@ -56,7 +57,7 @@ public class FullScreenVideoActivity extends Activity implements FullScreenVideo
     }
 
     @Override
-    public void onAdLoaded(FullScreenVideoAd fullScreenVideoAd) {
+    public void onAdLoaded(IFullScreenVideoAd fullScreenVideoAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         btnShow.setEnabled(true);
         this.fullScreenVideoAd = fullScreenVideoAd;
@@ -81,5 +82,13 @@ public class FullScreenVideoActivity extends Activity implements FullScreenVideo
     @Override
     public void onAdClosed() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (fullScreenVideoAdLoader != null) {
+            fullScreenVideoAdLoader.destroy();
+        }
     }
 }

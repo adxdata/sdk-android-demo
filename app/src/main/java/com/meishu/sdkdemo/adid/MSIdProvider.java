@@ -94,7 +94,7 @@ public class MSIdProvider implements IAdIdProvider {
 
     @Override
     public String fullScreenVideo() {
-        return "";
+        return "73646b0799001991";
     }
 
     @Override

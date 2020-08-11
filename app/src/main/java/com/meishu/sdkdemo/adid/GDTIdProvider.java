@@ -93,7 +93,7 @@ public class GDTIdProvider implements IAdIdProvider {
 
     @Override
     public String fullScreenVideo() {
-        return "";
+        return "73646b0999021991";
     }
 
     @Override
