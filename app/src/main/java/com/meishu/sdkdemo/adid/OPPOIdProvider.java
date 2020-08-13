@@ -79,7 +79,7 @@ class OPPOIdProvider implements IAdIdProvider {
 
     @Override
     public String fullScreenVideo() {
-        return "73646b0902061991";
+        return "73646b0999061991";
     }
 
     @Override
