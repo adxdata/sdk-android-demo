@@ -8,6 +8,7 @@ import android.view.View;
 import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
 import com.meishu.sdkdemo.R;
 
+@Deprecated
 public class NativeAdSelectActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override

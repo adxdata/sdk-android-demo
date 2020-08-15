@@ -24,6 +24,7 @@ import com.meishu.sdkdemo.R;
 
 import java.util.List;
 
+@Deprecated
 public class NativeVideoActivity extends AppCompatActivity {
     private static final String TAG = "NativeVedioActivity";
 

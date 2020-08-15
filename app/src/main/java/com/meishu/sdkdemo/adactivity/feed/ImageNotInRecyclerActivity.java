@@ -24,6 +24,7 @@ import com.meishu.sdkdemo.adid.IdProviderFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class ImageNotInRecyclerActivity extends AppCompatActivity implements ImageAdListener {
     private static final String TAG = "ImageNotInRecyclerActiv";
     private AQuery mAQuery;
