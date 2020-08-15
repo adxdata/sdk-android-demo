@@ -16,7 +16,7 @@ import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
-public class SplashActivity extends AppCompatActivity implements SplashAdListener {
+public class SplashActivity extends AppCompatActivity {
     private static final String TAG = "SplashActivity";
 
     private ISplashAd splashAd;
@@ -43,22 +43,86 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         btnShow = findViewById(R.id.btn_show);
         btnSkip = findViewById(R.id.btn_skip);
 
+        SplashAdListener splashAdListener   = new SplashAdListener() {
+
+            @Override
+            public void onAdLoaded(ISplashAd splashAd) {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                splashAd = splashAd;
+                if (!autoShow) {
+                    btnShow.setEnabled(true);
+                }
+                splashAd.setInteractionListener(new InteractionListener() {
+
+                    @Override
+                    public void onAdClicked() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+                });
+            }
+
+            @Override
+            public void onAdExposure() {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+            }
+
+            @Override
+            public void onAdClosed() {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+
+                if (canJump) {
+                    next();
+                }
+                canJump = true;
+            }
+
+            @Override
+            public void onAdError() {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                Toast.makeText(SplashActivity.this, "没有加载到广告", Toast.LENGTH_SHORT).show();
+                SplashActivity.this.finish();
+            }
+
+            @Override
+            public void onAdPresent(ISplashAd splashAd) {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+            }
+
+            @Override
+            public void onAdSkip(ISplashAd splashAd) {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+            }
+
+            @Override
+            public void onAdTimeOver(ISplashAd splashAd) {
+                // 仅支持美数和穿山甲，倒计时结束时回调
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+            }
+
+            @Override
+            public void onAdTick(long leftMilliseconds) {
+                // 仅支持美数和广点通，回调剩余时间
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + leftMilliseconds);
+                btnSkip.setText(leftMilliseconds + "");
+            }
+        };
+
         SplashAdLoader splashAdLoader;
         Integer id = getIntent().getIntExtra("id", -1);
         switch (id) {
             case R.id.loadAndShowSplashAd:
-                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
+                splashAdLoader = new SplashAdLoader(this, adContainer, pid, splashAdListener, 3000);
                 splashAdLoader.loadAd();
                 autoShow = true;
                 break;
             case R.id.loadSplashAd:
-                splashAdLoader = new SplashAdLoader(this, pid, SplashActivity.this, 3000);
+                splashAdLoader = new SplashAdLoader(this, pid, splashAdListener, 3000);
                 btnShow.setVisibility(View.VISIBLE);
                 splashAdLoader.loadAdOnly();
                 autoShow = false;
                 break;
             case R.id.customSkipSplashAd:
-                splashAdLoader = new SplashAdLoader(this, adContainer, pid, SplashActivity.this, 3000);
+                splashAdLoader = new SplashAdLoader(this, adContainer, pid, splashAdListener, 3000);
                 btnSkip.setVisibility(View.VISIBLE);
                 splashAdLoader.loadAd(btnSkip);
                 autoShow = true;
@@ -75,37 +139,6 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
                 }
             }
         });
-    }
-
-    @Override
-    public void onAdLoaded(ISplashAd splashAd) {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        this.splashAd = splashAd;
-        if (!autoShow) {
-            btnShow.setEnabled(true);
-        }
-        splashAd.setInteractionListener(new InteractionListener() {
-
-            @Override
-            public void onAdClicked() {
-                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-            }
-        });
-    }
-
-    @Override
-    public void onAdExposure() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdClosed() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-
-        if (canJump) {
-            next();
-        }
-        canJump = true;
     }
 
     @Override
@@ -136,33 +169,4 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         canJump = true;
     }
 
-    @Override
-    public void onAdError() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        Toast.makeText(this, "没有加载到广告", Toast.LENGTH_SHORT).show();
-        this.finish();
-    }
-
-    @Override
-    public void onAdPresent(ISplashAd splashAd) {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdSkip(ISplashAd splashAd) {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdTimeOver(ISplashAd splashAd) {
-        // 仅支持美数和穿山甲，倒计时结束时回调
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdTick(long leftMilliseconds) {
-        // 仅支持美数和广点通，回调剩余时间
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + leftMilliseconds);
-        btnSkip.setText(leftMilliseconds + "");
-    }
 }
