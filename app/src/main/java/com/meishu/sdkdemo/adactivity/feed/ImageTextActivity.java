@@ -210,6 +210,8 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
             }
             if (!TextUtils.isEmpty(iconUrl)) {
                 logoAQ.id(R.id.small_img).image(iconUrl, false, true);
+            } else {
+                logoAQ.id(R.id.small_img).clear();
             }
             holder.name.setText("title: " + ad.getTitle());
             holder.content.setText("content: " + ad.getContent());

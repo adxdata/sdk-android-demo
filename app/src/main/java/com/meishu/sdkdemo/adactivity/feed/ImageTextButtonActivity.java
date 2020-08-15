@@ -213,6 +213,8 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
             }
             if (!TextUtils.isEmpty(iconUrl)) {
                 logoAQ.id(R.id.small_img).image(iconUrl, false, true);
+            } else {
+                logoAQ.id(R.id.small_img).clear();
             }
             holder.name.setText(ad.getTitle());
             holder.desc.setText(ad.getDesc());
