@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 
 import com.meishu.sdk.core.ad.banner.BannerAdListener;
 import com.meishu.sdk.core.ad.banner.BannerAdLoader;
@@ -20,7 +18,7 @@ import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
-public class BannerAdActivity extends AppCompatActivity implements View.OnClickListener, BannerAdListener {
+public class BannerAdActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "BannerADActivity";
 
     private BannerAdLoader bannerLoader;
@@ -59,41 +57,43 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
                 }
 
                 bannerContainer.removeAllViews();
-                bannerLoader = new BannerAdLoader(this, pid, this);
+                bannerLoader = new BannerAdLoader(this, pid, new BannerAdListener() {
+
+                    @Override
+                    public void onAdLoaded(IBannerAd bannerAd) {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                        // 不显示关闭按钮，仅限美数
+                        bannerAd.setCloseButtonVisible(showCloseButton);
+                        // 适应 container 的大小需要设置宽高，仅限美数
+                        bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
+                        bannerContainer.addView(bannerAd.getAdView());
+                        bannerAd.setInteractionListener(new InteractionListener() {
+                            @Override
+                            public void onAdClicked() {
+                                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAdExposure() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+
+                    @Override
+                    public void onAdClosed() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+
+                    @Override
+                    public void onAdError() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+
+                });
                 bannerLoader.loadAd();
                 break;
         }
-    }
-
-    @Override
-    public void onAdLoaded(IBannerAd bannerAd) {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        // 不显示关闭按钮，仅限美数
-        bannerAd.setCloseButtonVisible(showCloseButton);
-        // 适应 container 的大小需要设置宽高，仅限美数
-        bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
-        bannerContainer.addView(bannerAd.getAdView());
-        bannerAd.setInteractionListener(new InteractionListener() {
-            @Override
-            public void onAdClicked() {
-                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-            }
-        });
-    }
-
-    @Override
-    public void onAdExposure() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdClosed() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdError() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override

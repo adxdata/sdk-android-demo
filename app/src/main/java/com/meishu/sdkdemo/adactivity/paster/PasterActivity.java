@@ -23,7 +23,7 @@ import com.meishu.sdkdemo.adid.IdProviderFactory;
 /**
  * 视频贴片
  */
-public class PasterActivity extends AppCompatActivity implements PasterAdListener {
+public class PasterActivity extends AppCompatActivity {
 
     private static final String TAG = "PasterActivity";
     private PasterAd pasterAd;
@@ -103,53 +103,57 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
                     videoContainer.removeAllViews();
                 }
 
-                pasterAdLoader = new PasterAdLoader(PasterActivity.this, videoContainer, pid, PasterActivity.this);
+                PasterAdListener pasterAdListener   = new PasterAdListener() {
+
+
+                    @Override
+                    public void onVideoLoaded() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                        pasterAd.start();
+                        Toast.makeText(PasterActivity.this, "开始播放", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onVideoComplete() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                        Toast.makeText(PasterActivity.this, "视频播放完毕", Toast.LENGTH_SHORT).show();
+                        pasterAdLoader.destroy();
+                    }
+
+                    @Override
+                    public void onAdLoaded(final PasterAd ad) {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                        pasterAd = ad;
+                        ad.setInteractionListener(new InteractionListener() {
+                            @Override
+                            public void onAdClicked() {
+                                // 点击时可以把广告关掉
+//                pasterAdLoader.destroy();
+                                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAdExposure() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+
+                    @Override
+                    public void onAdClosed() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+
+                    @Override
+                    public void onAdError() {
+                        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+                    }
+                };
+
+                pasterAdLoader = new PasterAdLoader(PasterActivity.this, videoContainer, pid, pasterAdListener);
                 pasterAdLoader.loadAd();
             }
         });
-    }
-
-    @Override
-    public void onVideoLoaded() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        pasterAd.start();
-        Toast.makeText(PasterActivity.this, "开始播放", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onVideoComplete() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        Toast.makeText(PasterActivity.this, "视频播放完毕", Toast.LENGTH_SHORT).show();
-        pasterAdLoader.destroy();
-    }
-
-    @Override
-    public void onAdLoaded(final PasterAd ad) {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        pasterAd = ad;
-        ad.setInteractionListener(new InteractionListener() {
-            @Override
-            public void onAdClicked() {
-                // 点击时可以把广告关掉
-//                pasterAdLoader.destroy();
-                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-            }
-        });
-    }
-
-    @Override
-    public void onAdExposure() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdClosed() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-    }
-
-    @Override
-    public void onAdError() {
-        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
