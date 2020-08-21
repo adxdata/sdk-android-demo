@@ -23,7 +23,7 @@ public class SdkDemoApplication extends Application {
         AdSdk.init(this, "101629", true, true);
 
         // 设置下载提示类型，默认不提示 AdSdk.DOWNLOAD_MODE_DIRECTLY
-        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
+        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_WIFI_DIRECTLY);
 
         // 设置请求广告的 secure 参数，一般不需要设置，默认 SECURE_ALL
 //        AdSdk.setSecure(AdSdk.SECURE_HTTP);

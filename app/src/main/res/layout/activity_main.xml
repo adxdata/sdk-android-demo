@@ -71,6 +71,8 @@
         android:visibility="gone"
         android:text="弹窗" />
 
+    <include layout="@layout/layout_ad_download_mode" />
+
     <TextView
         android:id="@+id/txt_version"
         android:layout_width="match_parent"

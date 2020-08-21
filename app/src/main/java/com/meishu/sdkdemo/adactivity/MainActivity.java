@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initAdProvider();
 
+        initAdDownloadMode();
+
         initVersionName();
     }
 
@@ -127,6 +129,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         rgd.check(R.id.rb_ad_provider_ms);
+    }
+
+    private void initAdDownloadMode() {
+        RadioGroup rgd = findViewById(R.id.rdg_ad_download_mode);
+
+        rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_ad_download_mode_directly:
+                        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_DIRECTLY);
+                        break;
+                    case R.id.rb_ad_download_mode_notify:
+                        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
+                        break;
+                    case R.id.rb_ad_download_mode_wifi_directly:
+                        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_WIFI_DIRECTLY);
+                        break;
+                }
+            }
+        });
+        rgd.check(R.id.rb_ad_download_mode_wifi_directly);
     }
 
 //    public void showPopupWindow(Activity context, View parent){
