@@ -81,7 +81,7 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
                 }
             }
         });
-        
+
         ((EditText) findViewById(R.id.alternativePasterAdPlaceID)).setText(IdProviderFactory.getDefaultProvider().paster());
         findViewById(R.id.loadPasterAd).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +90,7 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
                 if (imm != null) {
                     imm.hideSoftInputFromWindow(v.getWindowToken(),0);
                 }
-                
+
                 String pid  = ((EditText) findViewById(R.id.alternativePasterAdPlaceID)).getText().toString().trim();
                 if (TextUtils.isEmpty(pid)) {
                     pid = IdProviderFactory.getDefaultProvider().paster();
