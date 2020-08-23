@@ -15,7 +15,7 @@ import com.meishu.sdk.core.ad.reward.RewardVideoAd;
 import com.meishu.sdk.core.ad.reward.RewardVideoAdListener;
 import com.meishu.sdk.core.ad.reward.RewardVideoLoader;
 import com.meishu.sdk.core.loader.ShareInfo;
-import com.meishu.sdk.core.loader.ShareListener;
+import com.meishu.sdk.core.loader.ShareInteractionListener;
 import com.meishu.sdk.core.utils.LogUtil;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -121,7 +121,7 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
 //                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
 //            }
 //        });
-        ad.setInteractionListener(new ShareListener() {
+        ad.setInteractionListener(new ShareInteractionListener() {
             @Override
             public void onShareButtonClicked(ShareInfo shareInfo) {
                 Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + shareInfo);
