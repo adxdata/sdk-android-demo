@@ -52,7 +52,7 @@ public class DeeplinkActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(DeeplinkActivity.this, "上报失败", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DeeplinkActivity.this.getApplicationContext(), "上报失败", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -61,7 +61,7 @@ public class DeeplinkActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(DeeplinkActivity.this, "上报成功", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DeeplinkActivity.this.getApplicationContext(), "上报成功", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }

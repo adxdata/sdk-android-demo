@@ -113,13 +113,13 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
     public void onVideoLoaded() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         pasterAd.start();
-        Toast.makeText(PasterActivity.this, "开始播放", Toast.LENGTH_SHORT).show();
+        Toast.makeText(PasterActivity.this.getApplicationContext(), "开始播放", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onVideoComplete() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        Toast.makeText(PasterActivity.this, "视频播放完毕", Toast.LENGTH_SHORT).show();
+        Toast.makeText(PasterActivity.this.getApplicationContext(), "视频播放完毕", Toast.LENGTH_SHORT).show();
         pasterAdLoader.destroy();
     }
 

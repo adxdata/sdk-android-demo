@@ -114,7 +114,7 @@ public class VideoFeedActivity extends AppCompatActivity implements DrawAdListen
         data.type = ItemData.ITEM_TYPE_AD;
         adAdapter.addData(selectedPos + 1, data);
         adAdapter.notifyDataSetChanged();
-        Toast.makeText(this, "广告已加载", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "广告已加载", Toast.LENGTH_SHORT).show();
     }
 
     @Override

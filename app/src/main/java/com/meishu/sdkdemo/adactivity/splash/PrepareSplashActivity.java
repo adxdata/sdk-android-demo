@@ -22,7 +22,7 @@ public class PrepareSplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.loadSplashAd && IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_BD)) {
-                    Toast.makeText(PrepareSplashActivity.this, "百度不支持此特性，显示兜底广告", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PrepareSplashActivity.this.getApplicationContext(), "百度不支持此特性，显示兜底广告", Toast.LENGTH_LONG).show();
                 }
                 if (v.getId() == R.id.customSkipSplashAd
                         && (IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_BD) || IdProviderFactory.getDefaultProvider().platformName().equals(IdProviderFactory.PLATFORM_CSJ))) {

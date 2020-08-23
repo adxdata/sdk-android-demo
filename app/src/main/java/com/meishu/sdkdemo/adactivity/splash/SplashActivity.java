@@ -139,7 +139,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     @Override
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        Toast.makeText(this, "没有加载到广告", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getApplicationContext(), "没有加载到广告", Toast.LENGTH_SHORT).show();
         this.finish();
     }
 

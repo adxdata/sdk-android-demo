@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.videoFeedAd:
                 if (!IdProviderFactory.PLATFORM_CSJ.equals(IdProviderFactory.getDefaultProvider().platformName())) {
-                    Toast.makeText(this, "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 intent.setClass(this, PrepareVideoFeedActivity.class);

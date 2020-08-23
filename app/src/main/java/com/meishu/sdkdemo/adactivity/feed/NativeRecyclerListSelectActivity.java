@@ -63,7 +63,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 break;
             case R.id.pre_render:
                 if (IdProviderFactory.PLATFORM_MS.equals(name)) {
-                    Toast.makeText(this, "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 intent = new Intent(this, PreRenderActivity.class);
@@ -72,7 +72,7 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 break;
             case R.id.single:
                 if (!IdProviderFactory.PLATFORM_MS.equals(name)) {
-                    Toast.makeText(this, "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 intent = new Intent(this, SingleRecyclerActivity.class);
