@@ -50,7 +50,12 @@
 -keep class com.baidu.mobad.** { *; }
 
 # OAID
--keep class com.bun.miitmdid.core.** {*;}
+-keep class com.bun.miitmdid.** {*;}
+-keep class com.bun.lib.** {*;}
+-keep class com.asus.msa.** {*;}
+-keep class com.huawei.hms.ads.identifier.** {*;}
+-keep class com.netease.nis.sdkwrapper.** {*;}
+-keep class com.samsung.android.deviceidservice.** {*;}
 
 #快手
 -keep class com.kwad.sdk.** { *;}
