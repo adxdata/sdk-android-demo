@@ -17,6 +17,8 @@ import com.meishu.sdk.core.ad.banner.BannerAdListener;
 import com.meishu.sdk.core.ad.banner.BannerAdLoader;
 import com.meishu.sdk.core.ad.banner.IBannerAd;
 import com.meishu.sdk.core.loader.InteractionListener;
+import com.meishu.sdk.core.loader.ShareInfo;
+import com.meishu.sdk.core.loader.ShareInteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
@@ -73,7 +75,13 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
         // 适应 container 的大小需要设置宽高，仅限美数
         bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
         bannerContainer.addView(bannerAd.getAdView());
-        bannerAd.setInteractionListener(new InteractionListener() {
+        bannerAd.setInteractionListener(new ShareInteractionListener() {
+
+            @Override
+            public void onShareButtonClicked(ShareInfo shareInfo) {
+                Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + shareInfo);
+            }
+
             @Override
             public void onAdClicked() {
                 Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
