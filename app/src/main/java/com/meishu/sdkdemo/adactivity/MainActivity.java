@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             "广点通 SDK 版本：%s\n" +
                             "快手 SDK 版本：%s\n" +
                             "OPPO SDK 版本：%s\n" +
+                            "小米 SDK 版本：%s\n" +
                             "oaid: %s\n" +
                             "包名: %s",
                     packageInfo.versionName,
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     AdSdk.getGDTVersionName(),
                     AdSdk.getKSVersionName(),
                     AdSdk.getOPPOVersionName(),
+                    AdSdk.getMimoVersionName(),
                     AdSdk.getOaid(),
                     getPackageName()));
         } catch (PackageManager.NameNotFoundException e) {
@@ -102,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RadioGroup rgd = findViewById(R.id.rdg_ad_provider);
         if ("OPPO".equals(Build.MANUFACTURER)) {
             rgd.findViewById(R.id.rb_ad_provider_oppo).setVisibility(View.VISIBLE);
+        } else if ("Xiaomi".equals(Build.MANUFACTURER)) {
+            rgd.findViewById(R.id.rb_ad_provider_mimo).setVisibility(View.VISIBLE);
         }
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -124,6 +128,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case R.id.rb_ad_provider_oppo:
                         IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_OPPO);
+                        break;
+                    case R.id.rb_ad_provider_mimo:
+                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MIMO);
                         break;
                 }
             }

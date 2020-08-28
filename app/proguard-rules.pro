@@ -77,3 +77,12 @@
 #skip IAB classes
 -keep class com.iab.** {*;}
 -dontwarn com.iab.**
+
+# mimo SDK
+-keep class com.miui.zeus.mimo.sdk.** { *; }
+-keep class com.miui.analytics.** { *; }
+-keep class com.xiaomi.analytics.* { public protected *; } -keep class * extends android.os.IInterface{ *; }
+# gson
+-keep class com.google.gson.examples.android.model.** { <fields>; } -keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
