@@ -57,7 +57,6 @@
 -keep class com.netease.nis.sdkwrapper.** {*;}
 -keep class com.samsung.android.deviceidservice.** {*;}
 
-
 #快手
 -keep class com.kwad.sdk.** { *;}
 -keep class com.ksad.download.** { *;}
