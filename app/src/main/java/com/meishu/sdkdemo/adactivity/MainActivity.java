@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -16,6 +17,7 @@ import android.provider.Settings;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -81,8 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean isEnabled = manager.areNotificationsEnabled();
         if (!isEnabled){
             AlertDialog dialog = new AlertDialog.Builder(this)
-                    .setTitle("需要开启通知权限")
-                    .setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    .setTitle("提示")
+                    .setMessage("通知功能未开启，无法在通知栏显示下载状态，去开启吧～")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             try {
@@ -110,9 +113,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         }
                     })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
                     .create();
             dialog.show();
 
+            WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+
+            lp.width    = (int) (((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() * 0.7);
+            dialog.getWindow().setAttributes(lp);
 
         }
     }
