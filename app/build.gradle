@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 36
-    demoVersionName = "1.0.35"
+    demoVersionCode = 10038
+    demoVersionName = "1.0.38"
     baichuanVersion = '4.9.2.0'
 }
 
@@ -52,7 +52,7 @@ dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
-    implementation(name: 'meishu-sdk_0.6.48_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.50_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
@@ -70,7 +70,8 @@ dependencies {
     implementation 'com.googlecode.android-query:android-query:0.25.9'
     implementation 'com.danikula:videocache:2.7.1'
     implementation 'com.squareup.wire:wire-runtime:2.2.0' // oppo 使用必加
-    implementation 'com.squareup.picasso:picasso:2.71828' // InMobi 使用必加
+    implementation 'com.squareup.picasso:picasso:2.71828'
+//    implementation project(path: ':lib-live') // InMobi 使用必加
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
     // 阿里百川直播间

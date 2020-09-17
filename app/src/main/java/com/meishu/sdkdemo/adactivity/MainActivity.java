@@ -2,13 +2,22 @@ package com.meishu.sdkdemo.adactivity;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -31,6 +40,9 @@ import com.meishu.sdkdemo.adid.IdProviderFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.provider.Settings.EXTRA_APP_PACKAGE;
+import static android.provider.Settings.EXTRA_CHANNEL_ID;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
 
@@ -51,15 +63,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 如果targetSDKVersion >= 23，就要申请好权限。如果您的App没有适配到Android6.0（即targetSDKVersion < 23），那么只需要在这里直接调用fetchSplashAD接口。
         if (Build.VERSION.SDK_INT >= 23) {
             checkAndRequestPermission();
+            checkNotifationPermission();
         }
 
+
         findViewById(R.id.open_popupwindow).setOnClickListener(this);
+
+
 
         initAdProvider();
 
         initAdDownloadMode();
 
         initVersionName();
+    }
+
+    private void checkNotifationPermission() {
+        NotificationManagerCompat manager = NotificationManagerCompat.from(this);
+        boolean isEnabled = manager.areNotificationsEnabled();
+        if (!isEnabled){
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("通知功能未开启，无法在通知栏显示下载状态，去开启吧～")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                Intent intent = new Intent();
+                                intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                                if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+                                    //这种方案适用于 API 26, 即8.0（含8.0）以上可以用
+                                    intent.putExtra(EXTRA_APP_PACKAGE, getPackageName());
+                                    intent.putExtra(EXTRA_CHANNEL_ID, getApplicationInfo().uid);
+                                }else {
+                                    //5.0-7.1 21-25
+                                    intent.putExtra("app_package", getPackageName());
+                                    intent.putExtra("app_uid", getApplicationInfo().uid);
+                                }
+
+                                startActivity(intent);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                //直接跳转到当前应用的设置界面
+                                Intent intent = new Intent();
+                                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                                intent.setData(uri);
+                                startActivity(intent);
+                            }
+                        }
+                    })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .create();
+            dialog.show();
+
+            WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+
+            lp.width    = (int) (((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() * 0.7);
+            dialog.getWindow().setAttributes(lp);
+
+        }
     }
 
     private void initVersionName() {

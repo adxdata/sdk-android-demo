@@ -23,6 +23,8 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
     private InterstitialAd interstitialAd1;
     private InterstitialAd interstitialAd2;
 
+    private String placeId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,12 +60,12 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
                     imm.hideSoftInputFromWindow(v.getWindowToken(),0);
                 }
 
-                String pid  = ((EditText) findViewById(R.id.alternativeInterstitailADPlaceID)).getText().toString().trim();
-                if (TextUtils.isEmpty(pid)) {
-                    pid = IdProviderFactory.getDefaultProvider().insertScreen();
+                placeId = ((EditText) findViewById(R.id.alternativeInterstitailADPlaceID)).getText().toString().trim();
+                if (TextUtils.isEmpty(placeId)) {
+                    placeId = IdProviderFactory.getDefaultProvider().insertScreen();
                 }
 
-                interstitialAdLoader1 = new InterstitialAdLoader(this, pid, interstitialAdListener1);
+                interstitialAdLoader1 = new InterstitialAdLoader(this, placeId, interstitialAdListener1);
                 interstitialAdLoader1.loadAd();
                 break;
             case R.id.showInterstitailAD1:
@@ -85,7 +87,7 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
         @Override
         public void onAdLoaded(InterstitialAd interstitialAd) {
             Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-            interstitialAdLoader2 = new InterstitialAdLoader(InterstitialAdActivity.this, IdProviderFactory.getDefaultProvider().insertScreen(), interstitialAdListener2);
+            interstitialAdLoader2 = new InterstitialAdLoader(InterstitialAdActivity.this, placeId, interstitialAdListener2);
             interstitialAdLoader2.loadAd();
             Log.d(TAG, "onAdLoaded: ");
             interstitialAd1 = interstitialAd;
