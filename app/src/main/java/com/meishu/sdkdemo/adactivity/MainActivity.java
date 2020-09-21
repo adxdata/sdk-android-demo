@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        actionBar.setCustomView(R.layout.layout_ad_provider);
         // 修改默认的广告提供者
         RadioGroup rgd = findViewById(R.id.rdg_ad_provider);
-        if ("OPPO".equals(Build.MANUFACTURER)) {
+        if (null != AdSdk.getOPPOVersionName()) {
             rgd.findViewById(R.id.rb_ad_provider_oppo).setVisibility(View.VISIBLE);
         }
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -207,13 +207,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_ad_download_mode_directly:
-                        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_DIRECTLY);
+                        //AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_DIRECTLY);
                         break;
                     case R.id.rb_ad_download_mode_notify:
-                        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
+                        //AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
                         break;
                     case R.id.rb_ad_download_mode_wifi_directly:
-                        AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_WIFI_DIRECTLY);
+                        //AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_WIFI_DIRECTLY);
                         break;
                 }
             }

@@ -23,44 +23,79 @@
 # 美数
 -keep class com.meishu.sdk.** { *; }
 
-# 广点通
--keep class com.qq.e.** {
-    public protected *;
-}
--keep class android.support.v4.**{ *;}
--keep class com.tencent.smtt.** { *; }
--dontwarn dalvik.**
--dontwarn com.tencent.smtt.**
-
-# 穿山甲
--keep class com.bytedance.sdk.openadsdk.** { *; }
--keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
--keep class com.pgl.sys.ces.* {*;}
--keep class com.ss.** { *; }
+# OAID
+-keep class com.bun.miitmdid.** { *; }
+-keep class com.bun.lib.** { *; }
+-keep class com.asus.msa.** { *; }
+-keep class com.huawei.hms.ads.identifier.** { *; }
+-keep class com.netease.nis.sdkwrapper.** { *; }
+-keep class com.samsung.android.deviceidservice.** { *; }
+-keep class a.** { *; }
+-keep class XI.** { *; }
 
 # 百度
--keepclassmembers class * extends android.app.Activity {
-    public void *(android.view.View);
-}
+-keepclassmembers class * extends android.app.Activity { public void *(android.view.View); }
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
 -keep class com.baidu.mobads.** { *; }
 -keep class com.baidu.mobad.** { *; }
+-keep class com.bun.miitmdid.core.** { *; }
 
-# OAID
--keep class com.bun.miitmdid.** {*;}
--keep class com.bun.lib.** {*;}
--keep class com.asus.msa.** {*;}
--keep class com.huawei.hms.ads.identifier.** {*;}
--keep class com.netease.nis.sdkwrapper.** {*;}
--keep class com.samsung.android.deviceidservice.** {*;}
+# 穿山甲
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep public interface com.bytedance.sdk.openadsdk.downloadnew.** { *; }
+-keep class com.pgl.sys.ces.* { *; }
 
-#快手
--keep class com.kwad.sdk.** { *;}
--keep class com.ksad.download.** { *;}
--keep class com.kwai.filedownloader.** { *;}
+# 广点通
+-keep class android.support.v4.** { public *; }
+-keep class android.support.v7.** { public *; }
+-keep class * extends java.lang.annotation.Annotation { *; }
+-keep interface * extends java.lang.annotation.Annotation { *; }
+-keepclasseswithmembers,includedescriptorclasses class * { native <methods>; }
+-keep class com.qq.e.** { public protected *; }
+-keep class yaq.gdtadv { *; }
+-keep class com.qq.e.** { *; }
+-keep class com.tencent.** { *; }
+-keep class cn.mmachina.JniClient { *; }
+-keep class c.t.m.li.tsa.** { *; }
+-keep, allowobfuscation class com.qq.e.comm.plugin.services.SDKServerService { *; }
+-keepclassmembers, allowobfuscation class com.qq.e.comm.plugin.net.SecurePackager { public *; }
+-keep class * extends com.qq.e.mediation.interfaces.BaseNativeUnifiedAd { *; }
+-keep class * extends com.qq.e.mediation.interfaces.BaseSplashAd { *; }
+-keep class * extends com.qq.e.mediation.interfaces.BaseRewardAd { *; }
+
+# 快手
+-keep class com.kwad.sdk.** { *; }
+-keep class com.ksad.download.** { *; }
+-keep class com.kwai.filedownloader.** { *; }
+-keep class org.chromium.** { *; }
+-keep class aegon.chrome.** { *; }
+-keep class com.kwai.**{ *; }
+-dontwarn com.kwai.**
+-dontwarn com.kwad.**
+-dontwarn com.ksad.**
+-dontwarn aegon.chrome.**
+
+# 小米
+-keep class com.miui.zeus.mimo.sdk.** { *; }
+-keep class com.miui.analytics.** { *; }
+-keep class com.xiaomi.analytics.* { public protected *; }
+-keep class * extends android.os.IInterface{ *; }
+
+-keep class com.google.gson.examples.android.model.** { <fields>; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# OPPO
+-keep class com.androidquery.callback.** { *; }
+-keep class com.opos.** { *; }
+-keep class com.heytap.msp.mobad.api.** { *; }
+-keep class com.heytap.openid.** { *; }
+-keep class android.support.v4.** { public *; }
+-keep class android.support.v7.** { public *; }
 
 # inmobi
 -keepattributes SourceFile,LineNumberTable
