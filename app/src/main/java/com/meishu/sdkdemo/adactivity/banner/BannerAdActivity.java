@@ -74,7 +74,7 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
         bannerAd.setCloseButtonVisible(showCloseButton);
         // 适应 container 的大小需要设置宽高，仅限美数
         bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
-        bannerContainer.addView(bannerAd.getAdView());
+        //bannerContainer.addView(bannerAd.getAdView());
         bannerAd.setInteractionListener(new ShareInteractionListener() {
 
             @Override
@@ -87,6 +87,8 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
                 Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
             }
         });
+
+        bannerAd.showAd(bannerContainer);
     }
 
     @Override

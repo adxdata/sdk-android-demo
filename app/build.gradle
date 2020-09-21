@@ -13,7 +13,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.meishu.meishu_sdk_demo"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
         versionName getProject().ext.demoVersionName
@@ -61,6 +61,7 @@ dependencies {
     implementation(name: 'GDTSDK.unionNoPlugin.4.251.1121', ext: 'aar') // 广点通
     implementation(name: 'mobad_normal_pub_354_2020_05_19', ext: 'aar') // OPPO
     implementation(name: 'ks_adsdk-ad-3.3.2-publishRelease', ext: 'aar') // 快手
+    implementation(name: 'mimo-ad-sdk_5.0.3', ext: 'aar') // 小米
     implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告

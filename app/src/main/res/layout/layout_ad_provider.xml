@@ -42,4 +42,11 @@
         android:text="OPPO"
         android:visibility="gone"/>
 
+    <RadioButton android:id="@+id/rb_ad_provider_mimo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/ad_provider_text_size"
+        android:text="小米"
+        android:visibility="gone"/>
+
 </RadioGroup>
