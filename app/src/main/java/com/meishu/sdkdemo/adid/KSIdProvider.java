@@ -3,12 +3,12 @@ package com.meishu.sdkdemo.adid;
 public class KSIdProvider implements IAdIdProvider {
     @Override
     public String rewardPortrait() {
-        return null;
+        return "73646b0702051991";
     }
 
     @Override
     public String rewardLandscape() {
-        return null;
+        return "73646b0702051991";
     }
 
     @Override
