@@ -52,7 +52,7 @@ dependencies {
 //    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
-    implementation(name: 'meishu-sdk_0.6.50_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.51_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
