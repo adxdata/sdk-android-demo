@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.meishu.sdk.core.AdSdk;
+import com.meishu.sdk.core.MSAdConfig;
 import com.meishu.sdk.meishu_ad.interstitial.Popup;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adactivity.banner.BannerAdActivity;
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RadioGroup rgd = findViewById(R.id.rdg_ad_provider);
         if (null != AdSdk.getOPPOVersionName()) {
             rgd.findViewById(R.id.rb_ad_provider_oppo).setVisibility(View.VISIBLE);
-        } else if ("Xiaomi".equals(Build.MANUFACTURER)) {
+        } else if (null != AdSdk.getMimoVersionName()) {
             rgd.findViewById(R.id.rb_ad_provider_mimo).setVisibility(View.VISIBLE);
         }
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -214,13 +215,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_ad_download_mode_directly:
-                        //AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_DIRECTLY);
+                        AdSdk.adConfig().downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_NEVER);
                         break;
                     case R.id.rb_ad_download_mode_notify:
-                        //AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
+                        AdSdk.adConfig().downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_ALWAYS);
                         break;
                     case R.id.rb_ad_download_mode_wifi_directly:
-                        //AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_WIFI_DIRECTLY);
+                        AdSdk.adConfig().downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_AUTO);
                         break;
                 }
             }

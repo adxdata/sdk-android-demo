@@ -16,7 +16,7 @@ public class SdkDemoApplication extends Application {
                 .appId("101629")
                 .isTest(true)       //测试环境
                 .enableDebug(true)  //开启DEBUG模式，打印内部LOG
-
+                .downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_AUTO)
                 .build();
 
         AdSdk.init(this, sdkConfig);
