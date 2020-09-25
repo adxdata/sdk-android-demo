@@ -49,11 +49,11 @@ android {
 }
 
 dependencies {
-    implementation project(':sdk-android-lib') // 调试用
+    //implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
 
-//    implementation(name: 'meishu-sdk_0.6.50_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.6.52_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
@@ -62,7 +62,7 @@ dependencies {
     implementation(name: 'mobad_normal_pub_354_2020_05_19', ext: 'aar') // OPPO
     implementation(name: 'ks_adsdk-all-3.1.0-publishRelease', ext: 'aar') // 快手
     implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
-    implementation(name: 'oaid_sdk_1.0.22', ext: 'aar') // oaid
+    implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
     implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
