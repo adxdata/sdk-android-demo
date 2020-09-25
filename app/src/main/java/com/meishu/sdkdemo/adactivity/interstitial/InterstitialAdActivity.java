@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAd;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAdListener;
 import com.meishu.sdk.core.ad.interstitial.InterstitialAdLoader;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -113,6 +114,11 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
         public void onAdError() {
             Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         }
+
+        @Override
+        public void onAdPlatformError(AdPlatformError e) {
+
+        }
     };
 
     private InterstitialAdListener interstitialAdListener2 = new InterstitialAdListener() {
@@ -139,6 +145,11 @@ public class InterstitialAdActivity extends AppCompatActivity implements View.On
         @Override
         public void onAdError() {
             Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+        }
+
+        @Override
+        public void onAdPlatformError(AdPlatformError e) {
+
         }
     };
 

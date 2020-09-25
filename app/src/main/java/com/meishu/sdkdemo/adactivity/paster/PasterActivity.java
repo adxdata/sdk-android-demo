@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.meishu.sdk.core.ad.paster.PasterAd;
 import com.meishu.sdk.core.ad.paster.PasterAdListener;
 import com.meishu.sdk.core.ad.paster.PasterAdLoader;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -150,6 +151,11 @@ public class PasterActivity extends AppCompatActivity implements PasterAdListene
     @Override
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+
     }
 
     @Override

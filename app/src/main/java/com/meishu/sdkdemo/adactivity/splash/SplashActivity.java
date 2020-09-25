@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.meishu.sdk.core.ad.splash.ISplashAd;
 import com.meishu.sdk.core.ad.splash.SplashAdListener;
 import com.meishu.sdk.core.ad.splash.SplashAdLoader;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -141,6 +142,11 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         Toast.makeText(this.getApplicationContext(), "没有加载到广告", Toast.LENGTH_SHORT).show();
         this.finish();
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + e);
     }
 
     @Override

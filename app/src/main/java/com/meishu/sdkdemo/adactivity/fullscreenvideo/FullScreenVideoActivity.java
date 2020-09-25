@@ -12,6 +12,7 @@ import com.meishu.sdk.core.ad.fullscreenvideo.FullScreenVideoAd;
 import com.meishu.sdk.core.ad.fullscreenvideo.FullScreenVideoAdListener;
 import com.meishu.sdk.core.ad.fullscreenvideo.FullScreenVideoAdLoader;
 import com.meishu.sdk.core.ad.fullscreenvideo.IFullScreenVideoAd;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -72,6 +73,11 @@ public class FullScreenVideoActivity extends Activity implements FullScreenVideo
     @Override
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+
     }
 
     @Override

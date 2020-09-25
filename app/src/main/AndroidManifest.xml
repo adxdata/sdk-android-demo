@@ -42,9 +42,6 @@
         <activity android:name=".adactivity.feed.ImageTextButtonActivity" />
         <activity android:name=".adactivity.feed.ImageTextActivity" />
         <activity android:name=".adactivity.feed.TextAboveImageActivity" />
-        <activity android:name=".adactivity.feed.NativeVideoActivity" />
-        <activity android:name=".adactivity.feed.ImageNotInRecyclerActivity" />
-        <activity android:name=".adactivity.feed.NativeAdSelectActivity" />
         <activity android:name=".adactivity.feed.PreRenderActivity" />
         <activity android:name=".adactivity.feed.SingleRecyclerActivity" />
         <activity android:name=".adactivity.draw.VideoFeedActivity" />

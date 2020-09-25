@@ -30,7 +30,6 @@ import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adactivity.banner.BannerAdActivity;
 import com.meishu.sdkdemo.adactivity.draw.PrepareVideoFeedActivity;
 import com.meishu.sdkdemo.adactivity.feed.NativeRecyclerListSelectActivity;
-import com.meishu.sdkdemo.adactivity.feed.NativeVideoActivity;
 import com.meishu.sdkdemo.adactivity.fullscreenvideo.FullScreenVideoActivity;
 import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
 import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
@@ -56,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.slashAD).setOnClickListener(this);
         findViewById(R.id.interstitialAD).setOnClickListener(this);
         findViewById(R.id.pasterAD).setOnClickListener(this);
-        findViewById(R.id.nativeMediaAD).setOnClickListener(this);
         findViewById(R.id.nativeRecyclerAD).setOnClickListener(this);
         findViewById(R.id.rewardVideoAd).setOnClickListener(this);
         findViewById(R.id.videoFeedAd).setOnClickListener(this);
@@ -309,10 +307,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.pasterAD:
                 intent.setClass(this, PasterActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.nativeMediaAD:
-                intent.setClass(this, NativeVideoActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nativeRecyclerAD:

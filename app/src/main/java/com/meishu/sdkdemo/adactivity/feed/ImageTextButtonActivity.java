@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.utils.MsInteractionType;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
@@ -112,6 +113,11 @@ public class ImageTextButtonActivity extends AppCompatActivity implements Recycl
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.mIsLoading = false;
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+
     }
 
     class NormalItem {

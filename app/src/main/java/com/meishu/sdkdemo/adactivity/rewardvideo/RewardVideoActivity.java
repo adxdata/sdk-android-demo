@@ -14,6 +14,7 @@ import com.meishu.sdk.core.ad.reward.RewardAdMediaListener;
 import com.meishu.sdk.core.ad.reward.RewardVideoAd;
 import com.meishu.sdk.core.ad.reward.RewardVideoAdListener;
 import com.meishu.sdk.core.ad.reward.RewardVideoLoader;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdk.core.utils.LogUtil;
 import com.meishu.sdkdemo.R;
@@ -157,6 +158,11 @@ public class RewardVideoActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+
     }
 
     @Override

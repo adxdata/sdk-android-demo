@@ -23,6 +23,7 @@ import com.dingmouren.layoutmanagergroup.viewpager.ViewPagerLayoutManager;
 import com.meishu.sdk.core.ad.draw.DrawAdListener;
 import com.meishu.sdk.core.ad.draw.DrawAdLoader;
 import com.meishu.sdk.core.ad.draw.IDrawAd;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.utils.LogUtil;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -120,6 +121,11 @@ public class VideoFeedActivity extends AppCompatActivity implements DrawAdListen
     @Override
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + e);
     }
 
     @Override

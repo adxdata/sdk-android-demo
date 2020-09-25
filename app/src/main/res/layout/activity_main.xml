@@ -34,13 +34,6 @@
         android:text="视频贴片广告" />
 
     <Button
-        android:id="@+id/nativeMediaAD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="原生视频广告" />
-
-    <Button
         android:id="@+id/nativeRecyclerAD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

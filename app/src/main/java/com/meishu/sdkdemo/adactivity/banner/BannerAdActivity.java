@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import com.meishu.sdk.core.ad.banner.BannerAdListener;
 import com.meishu.sdk.core.ad.banner.BannerAdLoader;
 import com.meishu.sdk.core.ad.banner.IBannerAd;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdk.core.loader.ShareInfo;
 import com.meishu.sdk.core.loader.ShareInteractionListener;
@@ -104,6 +105,11 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + e);
     }
 
     @Override

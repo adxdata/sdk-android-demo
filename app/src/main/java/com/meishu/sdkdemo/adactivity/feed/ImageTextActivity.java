@@ -21,6 +21,7 @@ import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
 import com.meishu.sdk.core.ad.recycler.RecylcerAdInteractionListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
+import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
@@ -109,6 +110,11 @@ public class ImageTextActivity extends AppCompatActivity implements RecyclerAdLi
     public void onAdError() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.mIsLoading = false;
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError e) {
+
     }
 
     class NormalItem {
