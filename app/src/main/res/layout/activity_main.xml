@@ -69,7 +69,7 @@
                 android:text="全屏视频" />
 
             <LinearLayout
-                android:layout_marginHorizontal="3dp"
+                android:layout_marginHorizontal="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -266,6 +266,27 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:id="@+id/main_info_oaid" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="包名" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_package" />
                 </LinearLayout>
 
             </LinearLayout>

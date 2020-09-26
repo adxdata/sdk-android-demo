@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ((TextView) findViewById(R.id.main_info_ks)).setText(AdSdk.getKSVersionName());
             ((TextView) findViewById(R.id.main_info_oppo)).setText(AdSdk.getOPPOVersionName());
             ((TextView) findViewById(R.id.main_info_mimo)).setText(AdSdk.getMimoVersionName());
+            ((TextView) findViewById(R.id.main_info_package)).setText(getPackageName());
 
             if (null != AdSdk.getOPPOVersionName()) {
                 ((View) findViewById(R.id.main_info_oppo).getParent()).setVisibility(View.VISIBLE);
