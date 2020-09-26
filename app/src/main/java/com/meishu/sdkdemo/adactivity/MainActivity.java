@@ -3,8 +3,6 @@ package com.meishu.sdkdemo.adactivity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +14,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -24,12 +23,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.meishu.sdk.core.AdSdk;
-import com.meishu.sdk.meishu_ad.interstitial.Popup;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adactivity.banner.BannerAdActivity;
 import com.meishu.sdkdemo.adactivity.draw.PrepareVideoFeedActivity;
 import com.meishu.sdkdemo.adactivity.feed.NativeRecyclerListSelectActivity;
-import com.meishu.sdkdemo.adactivity.feed.NativeVideoActivity;
 import com.meishu.sdkdemo.adactivity.fullscreenvideo.FullScreenVideoActivity;
 import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
 import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.slashAD).setOnClickListener(this);
         findViewById(R.id.interstitialAD).setOnClickListener(this);
         findViewById(R.id.pasterAD).setOnClickListener(this);
-        findViewById(R.id.nativeMediaAD).setOnClickListener(this);
         findViewById(R.id.nativeRecyclerAD).setOnClickListener(this);
         findViewById(R.id.rewardVideoAd).setOnClickListener(this);
         findViewById(R.id.videoFeedAd).setOnClickListener(this);
@@ -66,15 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             checkNotifationPermission();
         }
 
-
-        findViewById(R.id.open_popupwindow).setOnClickListener(this);
-
-
-
         initAdProvider();
-
         initAdDownloadMode();
-
         initVersionName();
     }
 
@@ -135,40 +124,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PackageManager pm = getPackageManager();
             String packageName = getPackageName();
             PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
-            TextView txtVersion = findViewById(R.id.txt_version);
-            txtVersion.setText(String.format("Demo 版本：%s\n" +
-                            "美数 SDK 版本：%s\n" +
-                            "穿山甲 SDK 版本：%s\n" +
-                            "百度 SDK 版本：%s\n" +
-                            "广点通 SDK 版本：%s\n" +
-                            "快手 SDK 版本：%s\n" +
-                            "OPPO SDK 版本：%s\n" +
-                            "oaid: %s\n" +
-                            "包名: %s",
-                    packageInfo.versionName,
-                    AdSdk.getVersionName(),
-                    AdSdk.getCSJVersionName(),
-                    AdSdk.getBDVersionName(),
-                    AdSdk.getGDTVersionName(),
-                    AdSdk.getKSVersionName(),
-                    AdSdk.getOPPOVersionName(),
-                    AdSdk.getOaid(),
-                    getPackageName()));
+
+            ((TextView) findViewById(R.id.main_info_demo)).setText(packageInfo.versionName);
+            ((TextView) findViewById(R.id.main_info_meishu)).setText(AdSdk.getVersionName());
+            ((TextView) findViewById(R.id.main_info_csj)).setText(AdSdk.getCSJVersionName());
+            ((TextView) findViewById(R.id.main_info_gdt)).setText(AdSdk.getGDTVersionName());
+            ((TextView) findViewById(R.id.main_info_bqt)).setText(AdSdk.getBDVersionName());
+            ((TextView) findViewById(R.id.main_info_ks)).setText(AdSdk.getKSVersionName());
+            ((TextView) findViewById(R.id.main_info_oppo)).setText(AdSdk.getOPPOVersionName());
+            ((TextView) findViewById(R.id.main_info_package)).setText(getPackageName());
+
+            if (null != AdSdk.getOPPOVersionName()) {
+                ((View) findViewById(R.id.main_info_oppo).getParent()).setVisibility(View.VISIBLE);
+            }
+
+            new Thread(() -> {
+                try {
+                    while (true) {
+                        if (!TextUtils.isEmpty(AdSdk.getOaid())) {
+                            ((TextView) findViewById(R.id.main_info_oaid)).setText(AdSdk.getOaid());
+                            break;
+                        }
+                        Thread.sleep(1);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }).start();
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     private void initAdProvider() {
-//        ActionBar actionBar = getSupportActionBar();
-//        if (actionBar == null) {
-//            return;
-//        }
-//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        actionBar.setCustomView(R.layout.layout_ad_provider);
-        // 修改默认的广告提供者
         RadioGroup rgd = findViewById(R.id.rdg_ad_provider);
-        if ("OPPO".equals(Build.MANUFACTURER)) {
+        if (null != AdSdk.getOPPOVersionName()) {
             rgd.findViewById(R.id.rb_ad_provider_oppo).setVisibility(View.VISIBLE);
         }
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -215,73 +205,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.rb_ad_download_mode_wifi_directly:
                         AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_WIFI_DIRECTLY);
                         break;
+
                 }
             }
         });
         rgd.check(R.id.rb_ad_download_mode_wifi_directly);
     }
-
-//    public void showPopupWindow(Activity context, View parent){
-//        LayoutInflater inflater = (LayoutInflater)
-//                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        final View vPopupWindow=inflater.inflate(R.layout.meishu_interstitial_ad_layout, null, false);
-//        final PopupWindow pw= new PopupWindow(vPopupWindow, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,false);
-//
-//        //Cancel按钮及其处理事件
-//        View btnCancel=vPopupWindow.findViewById(R.id.popupwindow_cancel);
-//        btnCancel.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                pw.dismiss();//关闭
-//            }
-//        });
-//        pw.setOutsideTouchable(false);
-//        //显示popupWindow对话框
-//        pw.showAtLocation(parent, Gravity.CENTER, 0, 0);
-//    }
-
-//    private CustomPopWindow pw;
-
-//    public void showPopupWindow(Activity context, View parent) {
-//        LayoutInflater inflater = LayoutInflater.from(context);
-//        final View vPopupWindow = inflater.inflate(R.layout.meishu_interstitial_ad_layout, null);
-//        //Cancel按钮及其处理事件
-//        View btnCancel = vPopupWindow.findViewById(R.id.popupwindow_cancel);
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG, "onClick: ");
-//                pw.dissmiss();
-//            }
-//        });
-//        pw = new CustomPopWindow.PopupWindowBuilder(this)
-//                .setView(vPopupWindow)
-////                .enableBackgroundDark(true) //弹出popWindow时，背景是否变暗
-////                .setBgDarkAlpha(0.7f) // 控制亮度
-//                .enableOutsideTouchableDissmiss(false)
-//                .create();
-//                pw.showAtLocation(parent, Gravity.CENTER, 0, 0);
-//
-//    }
-
-    private Popup pw;
-
-//    private void showPopupWindow(Activity activity, View parent) {
-//
-//        pw = new Popup(activity, 400, 400);
-//        pw.setPopupGravity(Gravity.CENTER)
-//                .setShowAnimation(SimpleAnimationUtils.getTranslateVerticalAnimation(1f, 0, 200))
-//                .setDismissAnimation(SimpleAnimationUtils.getTranslateVerticalAnimation(0, 1f, 200));
-//        pw.setOutSideDismiss(false);
-//        pw.showPopupWindow();
-//        pw.setViewClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG, "onClick: ");
-//                pw.dismiss();
-//            }
-//        }, pw.findViewById(R.id.popupwindow_cancel));
-//    }
 
     @Override
     public void onClick(View v) {
@@ -303,10 +232,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setClass(this, PasterActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nativeMediaAD:
-                intent.setClass(this, NativeVideoActivity.class);
-                startActivity(intent);
-                break;
             case R.id.nativeRecyclerAD:
                 intent.setClass(this, NativeRecyclerListSelectActivity.class);
                 startActivity(intent);
@@ -326,23 +251,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.full_screen_video:
                 intent.setClass(this, FullScreenVideoActivity.class);
                 startActivity(intent);
-                break;
-            case R.id.open_popupwindow:
-//                showPopupWindow(this, this.findViewById(android.R.id.content));
-//                MediaView mediaView = findViewById(R.id.media_video);
-//                final ViewGroup mediaViewContainer = findViewById(R.id.media_video);
-//                MediaView mediaView = new MediaView(this);
-//                mediaView.setVideoListener(new MediaView.VideoListener() {
-//                    @Override
-//                    public void onLoaded(MediaView mediaView) {
-//
-//                    }
-//                });
-//                mediaViewContainer.addView(mediaView);
-//                mediaView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.video_sample_2);
-//                mediaView.setInternetResource("http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-17_17-33-30.mp4");
-//                mediaView.start();
-
                 break;
         }
     }
