@@ -3,8 +3,6 @@ package com.meishu.sdkdemo.adactivity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,8 +12,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -198,6 +196,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case R.id.rb_ad_provider_mimo:
                         IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MIMO);
+                        break;
+                    case R.id.rb_ad_provider_iqiyi:
+                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_IQIYI);
                         break;
                 }
             }

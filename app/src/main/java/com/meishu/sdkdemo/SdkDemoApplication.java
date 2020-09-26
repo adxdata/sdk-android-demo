@@ -2,7 +2,7 @@ package com.meishu.sdkdemo;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 
 import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.core.MSAdConfig;

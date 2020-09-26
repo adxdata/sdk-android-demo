@@ -9,37 +9,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/ad_provider_text_size"
-        android:text="美数"/>
+        android:text="美"/>
 
     <RadioButton android:id="@+id/rb_ad_provider_bd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/ad_provider_text_size"
-        android:text="百度"/>
+        android:text="百"/>
 
     <RadioButton android:id="@+id/rb_ad_provider_csj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/ad_provider_text_size"
-        android:text="穿山甲"/>
+        android:text="穿"/>
 
     <RadioButton android:id="@+id/rb_ad_provider_gdt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/ad_provider_text_size"
-        android:text="广点通"/>
+        android:text="广"/>
 
     <RadioButton android:id="@+id/rb_ad_provider_ks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/ad_provider_text_size"
-        android:text="快手"/>
+        android:text="快"/>
 
     <RadioButton android:id="@+id/rb_ad_provider_oppo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/ad_provider_text_size"
-        android:text="OPPO"
+        android:text="O"
         android:visibility="gone"/>
 
     <RadioButton android:id="@+id/rb_ad_provider_mimo"
@@ -49,4 +49,9 @@
         android:text="小米"
         android:visibility="gone"/>
 
+    <RadioButton android:id="@+id/rb_ad_provider_iqiyi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/ad_provider_text_size"
+        android:text="Q" />
 </RadioGroup>

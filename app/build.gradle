@@ -17,7 +17,7 @@ android {
         targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
         versionName getProject().ext.demoVersionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
     }
     signingConfigs {
@@ -64,6 +64,7 @@ dependencies {
     implementation(name: 'mimo-ad-sdk_5.0.3', ext: 'aar') // 小米
     implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
+    implementation(name: 'iadsdk-release', ext: 'aar') // iqiyi
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用美数插屏广告
     implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
@@ -73,6 +74,7 @@ dependencies {
     implementation 'com.danikula:videocache:2.7.1'
     implementation 'com.squareup.wire:wire-runtime:2.2.0' // oppo 使用必加
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
 //    implementation project(path: ':lib-live') // InMobi 使用必加
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
@@ -90,12 +92,13 @@ dependencies {
 //   implementation 'com.alibaba:fastjson:1.1.71.android'
 
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+//    implementation 'com.android.support:appcompat-v7:28.0.0'
     //noinspection GradleCompatible
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     //noinspection GradleCompatible
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:multidex:1.0.3'
+
     implementation project(path: ':sdk-android-lib')
+//    implementation 'com.android.support:design:28.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
 }

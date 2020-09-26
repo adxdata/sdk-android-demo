@@ -2,16 +2,14 @@ package com.meishu.sdkdemo.adactivity.banner;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 
 import com.meishu.sdk.core.ad.banner.BannerAdListener;
 import com.meishu.sdk.core.ad.banner.BannerAdLoader;
