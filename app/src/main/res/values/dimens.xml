@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="ad_provider_text_size">10sp</dimen>
+    <dimen name="main_info_item_left">72sp</dimen>
+    <dimen name="main_info_item_center">15sp</dimen>
 </resources>

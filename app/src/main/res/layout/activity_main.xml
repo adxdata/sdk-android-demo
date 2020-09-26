@@ -9,153 +9,266 @@
 
     <include layout="@layout/layout_ad_provider" />
 
-    <Button
-        android:id="@+id/bannerAD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Banner广告" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
 
-    <Button
-        android:id="@+id/slashAD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="开屏广告" />
-
-    <Button
-        android:id="@+id/interstitialAD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="插屏广告" />
-
-    <Button
-        android:id="@+id/pasterAD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="视频贴片广告" />
-
-    <Button
-        android:id="@+id/nativeRecyclerAD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="原生信息流广告" />
-
-    <Button
-        android:id="@+id/videoFeedAd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="视频流广告" />
-
-    <Button
-        android:id="@+id/rewardVideoAd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="激励视频" />
-
-    <Button
-        android:id="@+id/full_screen_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="全屏视频" />
-
-    <Button
-        android:id="@+id/open_popupwindow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="弹窗" />
-
-    <include layout="@layout/layout_ad_download_mode" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="DEMO版本："/>
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="1.0.38"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="美数版本："/>
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="1.0.38"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="穿山甲版本："/>
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="1.0.38"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="广点通版本："/>
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="1.0.38"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="百青藤版本："/>
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text="1.0.38"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_version"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
+            <Button
+                android:id="@+id/bannerAD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Banner广告" />
 
-    <RelativeLayout
-        android:id="@+id/media_video"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+            <Button
+                android:id="@+id/slashAD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="开屏广告" />
 
+            <Button
+                android:id="@+id/interstitialAD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="插屏广告" />
+
+            <Button
+                android:id="@+id/pasterAD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="视频贴片广告" />
+
+            <Button
+                android:id="@+id/nativeRecyclerAD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="原生信息流广告" />
+
+            <Button
+                android:id="@+id/videoFeedAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="视频流广告" />
+
+            <Button
+                android:id="@+id/rewardVideoAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="激励视频" />
+
+            <Button
+                android:id="@+id/full_screen_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全屏视频" />
+
+            <LinearLayout
+                android:layout_marginHorizontal="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/layout_ad_download_mode" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="DEMO" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_demo" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="美数SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_meishu" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="穿山甲SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_csj" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="广点通SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_gdt" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="百青藤SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_bqt" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="快手SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_ks" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="OPPOSDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_oppo" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="小米SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_mimo" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="OAID" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_oaid" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
