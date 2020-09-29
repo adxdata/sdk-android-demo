@@ -16,7 +16,13 @@ public class SdkDemoApplication extends Application {
                 .appId("101629")
                 .isTest(true)       //测试环境
                 .enableDebug(true)  //开启DEBUG模式，打印内部LOG
-                .downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_AUTO)
+                .downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_AUTO)  //下载提示模式
+                .customController(new MSAdConfig.CustomController() {
+                    @Override
+                    public String getOaid() {
+                        return null;
+                    }
+                })
                 .build();
 
         AdSdk.init(this, sdkConfig);
