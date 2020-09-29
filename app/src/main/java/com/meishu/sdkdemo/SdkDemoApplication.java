@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.meishu.sdk.activity.NgWebviewActivity;
 import com.meishu.sdk.core.AdSdk;
 import com.meishu.sdk.core.MSAdConfig;
 
@@ -17,6 +18,7 @@ public class SdkDemoApplication extends Application {
                 .isTest(true)       //测试环境
                 .enableDebug(true)  //开启DEBUG模式，打印内部LOG
                 .downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_AUTO)  //下载提示模式
+                .webViewActivity(NgWebviewActivity.class)
                 .customController(new MSAdConfig.CustomController() {
                     @Override
                     public String getOaid() {
