@@ -20,8 +20,18 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# GSON
 -keepattributes Signature
 -keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { <fields>; }
+-keep class com.google.gson.examples.android.model.** { <fields>; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+-keepclassmembers,allowobfuscation class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
 
 # 美数
 -keep class com.meishu.sdk.** { *; }
@@ -75,7 +85,7 @@
 -keep class com.kwai.filedownloader.** { *; }
 -keep class org.chromium.** { *; }
 -keep class aegon.chrome.** { *; }
--keep class com.kwai.**{ *; }
+-keep class com.kwai.** { *; }
 -dontwarn com.kwai.**
 -dontwarn com.kwad.**
 -dontwarn com.ksad.**
@@ -86,11 +96,6 @@
 -keep class com.miui.analytics.** { *; }
 -keep class com.xiaomi.analytics.* { public protected *; }
 -keep class * extends android.os.IInterface{ *; }
-
--keep class com.google.gson.examples.android.model.** { <fields>; }
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
 
 # OPPO
 -keep class com.androidquery.callback.** { *; }
