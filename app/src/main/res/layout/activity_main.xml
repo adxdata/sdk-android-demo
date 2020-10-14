@@ -12,8 +12,8 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scrollbars="vertical"
-        android:fadingEdge="vertical">
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,10 +68,16 @@
                 android:layout_height="wrap_content"
                 android:text="全屏视频" />
 
-            <LinearLayout
-                android:layout_marginHorizontal="5dp"
+            <Button
+                android:id="@+id/baichuanRedPacket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="百川超级红包" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:orientation="vertical">
 
                 <include layout="@layout/layout_ad_download_mode" />
@@ -80,213 +86,252 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="DEMO" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_demo"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_demo" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="美数SDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_meishu"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_meishu" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="穿山甲SDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_csj"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_csj" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="广点通SDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_gdt"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_gdt" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="百青藤SDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_bqt"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_bqt" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="快手SDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_ks"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_ks" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="OPPOSDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_oppo"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_oppo" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="小米SDK" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_mimo"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_mimo" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="OAID" />
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_oaid"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_oaid" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
-                        android:text="包名" />
-                    <TextView
                         android:layout_weight="0"
+                        android:text="包名" />
+
+                    <TextView
                         android:layout_width="@dimen/main_info_item_center"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:text="：" />
+
                     <TextView
-                        android:layout_weight="1"
+                        android:id="@+id/main_info_package"
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:id="@+id/main_info_package" />
+                        android:layout_weight="1"
+                        android:text="" />
                 </LinearLayout>
 
             </LinearLayout>

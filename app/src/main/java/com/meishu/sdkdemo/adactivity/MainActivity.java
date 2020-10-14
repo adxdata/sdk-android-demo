@@ -30,6 +30,7 @@ import com.meishu.sdkdemo.adactivity.feed.NativeRecyclerListSelectActivity;
 import com.meishu.sdkdemo.adactivity.fullscreenvideo.FullScreenVideoActivity;
 import com.meishu.sdkdemo.adactivity.interstitial.InterstitialAdActivity;
 import com.meishu.sdkdemo.adactivity.paster.PasterActivity;
+import com.meishu.sdkdemo.adactivity.redpacket.BaiChuanAdActivity;
 import com.meishu.sdkdemo.adactivity.rewardvideo.RewardVideoActivity;
 import com.meishu.sdkdemo.adactivity.splash.PrepareSplashActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.rewardVideoAd).setOnClickListener(this);
         findViewById(R.id.videoFeedAd).setOnClickListener(this);
         findViewById(R.id.full_screen_video).setOnClickListener(this);
+        findViewById(R.id.baichuanRedPacket).setOnClickListener(this);
         // 如果targetSDKVersion >= 23，就要申请好权限。如果您的App没有适配到Android6.0（即targetSDKVersion < 23），那么只需要在这里直接调用fetchSplashAD接口。
         if (Build.VERSION.SDK_INT >= 23) {
             checkAndRequestPermission();
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkNotifationPermission() {
         NotificationManagerCompat manager = NotificationManagerCompat.from(this);
         boolean isEnabled = manager.areNotificationsEnabled();
-        if (!isEnabled){
+        if (!isEnabled) {
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setTitle("提示")
                     .setMessage("通知功能未开启，无法在通知栏显示下载状态，去开启吧～")
@@ -80,11 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             try {
                                 Intent intent = new Intent();
                                 intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-                                if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                     //这种方案适用于 API 26, 即8.0（含8.0）以上可以用
                                     intent.putExtra(EXTRA_APP_PACKAGE, getPackageName());
                                     intent.putExtra(EXTRA_CHANNEL_ID, getApplicationInfo().uid);
-                                }else {
+                                } else {
                                     //5.0-7.1 21-25
                                     intent.putExtra("app_package", getPackageName());
                                     intent.putExtra("app_uid", getApplicationInfo().uid);
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
 
-            lp.width    = (int) (((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() * 0.7);
+            lp.width = (int) (((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() * 0.7);
             dialog.getWindow().setAttributes(lp);
 
         }
@@ -250,6 +252,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.full_screen_video:
                 intent.setClass(this, FullScreenVideoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.baichuanRedPacket:
+                intent.setClass(this, BaiChuanAdActivity.class);
                 startActivity(intent);
                 break;
         }

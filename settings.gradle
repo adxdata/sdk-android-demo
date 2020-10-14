@@ -5,3 +5,6 @@ project(':sdk-android-lib').projectDir = new File(settingsDir,'../sdk-android-li
 //project(':sdk-android-lib-ext').projectDir = new File(settingsDir,'../sdk-android-lib/lib-ext/')
 include ':sdk-android-lib-live'
 project(':sdk-android-lib-live').projectDir = new File(settingsDir,'../sdk-android-lib/lib-live/')
+
+include ':sdk-android-lib-ecommerce'
+project(':sdk-android-lib-ecommerce').projectDir = new File(settingsDir,'../sdk-android-lib/lib-e-commerce/')
