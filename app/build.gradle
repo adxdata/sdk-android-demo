@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 
 ext {
     // 目前更新 sdk 时需要手动修改版本号
-    demoVersionCode = 10038
-    demoVersionName = "1.0.38"
+    demoVersionCode = 10700
+    demoVersionName = "1.7.0"
     baichuanVersion = '4.9.2.0'
 }
 
@@ -49,19 +49,19 @@ android {
 }
 
 dependencies {
-    implementation project(':sdk-android-lib') // 调试用
+//    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
 
-//    implementation(name: 'meishu-sdk_0.6.50_release', ext: 'aar')
+    implementation(name: 'meishu-sdk_0.7.2_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
-//    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
+//    implementation(name: 'meishu-sdk-live_0.7.0_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.89', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNoPlugin.4.251.1121', ext: 'aar') // 广点通
     implementation(name: 'mobad_normal_pub_354_2020_05_19', ext: 'aar') // OPPO
     implementation(name: 'ks_adsdk-ad-3.3.2-publishRelease', ext: 'aar') // 快手
-    implementation(name: 'mimo-ad-sdk_5.0.3', ext: 'aar') // 小米
+    implementation(name: 'mimo-ad-sdk_5.0.4', ext: 'aar') // 小米
     implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
@@ -97,5 +97,4 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation project(path: ':sdk-android-lib')
 }
