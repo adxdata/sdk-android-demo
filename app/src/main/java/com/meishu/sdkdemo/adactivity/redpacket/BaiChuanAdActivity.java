@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ali.auth.third.core.exception.AlibabaSDKException;
 import com.meishu.sdk.ecommerce.BaichuanSdk;
+import com.meishu.sdk.ecommerce.factory.PidProviderFactory;
 import com.meishu.sdkdemo.R;
 
 public class BaiChuanAdActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,6 +29,6 @@ public class BaiChuanAdActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void getAd() {
-        BaichuanSdk.getInstance().getAd(this);
+        BaichuanSdk.getInstance().getAd(this, PidProviderFactory.getProvider().baichuanAdId());
     }
 }

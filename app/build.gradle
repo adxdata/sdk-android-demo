@@ -19,6 +19,11 @@ android {
         versionName getProject().ext.demoVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        ndk {
+            abiFilters "armeabi-v7a" ,"armeabi" //API level 7及以上版本的SDK
+            // abiFilters "arm64-v8a", "armeabi", "x86"   //API level 6以及低版本的SDK，过滤除 armeabi 和 x86 以外的 so 文件
+        }
     }
     signingConfigs {
         debug {
@@ -27,13 +32,20 @@ android {
             keyAlias = 'key0'
             keyPassword '123456'
         }
+
+//        release {
+//            storeFile file('../key')
+//            storePassword '123456'
+//            keyAlias = 'key0'
+//            keyPassword '123456'
+//        }
     }
     buildTypes {
         debug {
             debuggable true
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles 'proguard-rules.pro', 'proguard-rules.pro'
         }
     }
@@ -57,6 +69,7 @@ dependencies {
 //    implementation(name: 'meishu-sdk_0.6.53_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
 //    implementation(name: 'meishu-sdk-live_0.0.1_release', ext: 'aar')
+//    implementation(name: 'sdk-android-lib-ecommerce-release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.89', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNoPlugin.4.251.1121', ext: 'aar') // 广点通
@@ -97,4 +110,54 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
+
+
+    //登录
+//    implementation(name: 'alibabauth_core-2.0.0.11', ext: 'aar')
+//    implementation(name: 'alibabauth_ui-2.0.0.11', ext: 'aar')
+//    implementation(name: 'alibabauth_ext-2.0.0.11', ext: 'aar')
+//
+//    //安全组件
+//    implementation(name: 'securityguardaar3-5.4.171', ext: 'aar')
+//    implementation(name: 'securitybodyaar3-5.4.99', ext: 'aar')
+//    implementation(name: 'avmpaar3-5.4.36', ext: 'aar')
+//    implementation(name: 'sgmiddletieraar3-5.4.9', ext: 'aar')
+//
+//    //Mtop
+//    implementation(name: 'mtopsdk_allinone_open-3.1.2.5', ext: 'jar')
+//
+//    //applink
+//    implementation(name: 'alibc_link_partner-4.1.15', ext: 'aar')
+//
+//    //ut
+//    implementation(name: 'utdid4all-1.5.2', ext: 'jar')
+//    implementation(name: 'app-monitor-sdk-2.6.4.5_for_bc', ext: 'jar')
+//
+//    //电商基础组件
+//    implementation(name: 'AlibcTradeCommon-4.0.0.19', ext: 'aar')
+//    implementation(name: 'AlibcTradeBiz-4.0.0.19', ext: 'aar')
+//    implementation(name: 'nb_trade-4.0.0.19', ext: 'aar')
+//    implementation(name: 'fastjson-1.2.41', ext: 'jar')
+
+//    //登陆
+//    api 'com.ali.auth.sdk:alibabauth_core:2.0.0.11@aar'
+//    api 'com.ali.auth.sdk:alibabauth_ui:2.0.0.11@aar'
+//    api 'com.ali.auth.sdk:alibabauth_ext:2.0.0.11@aar'
+//    //安全组件
+//    api 'com.taobao.android:securityguardaar3:5.4.171@aar'
+//    api 'com.taobao.android:securitybodyaar3:5.4.99@aar'
+//    api 'com.taobao.android:avmpaar3:5.4.36@aar'
+//    api 'com.taobao.android:sgmiddletieraar3:5.4.9@aar'
+//    //Mtop
+//    api 'com.taobao.android:mtopsdk_allinone_open:3.1.2.5@jar'
+//    //applink
+//    api 'com.alibaba.sdk.android:alibc_link_partner:4.1.15@aar'
+//    //ut
+//    api 'com.taobao.android:utdid4all:1.5.2'
+//    api 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc'
+//    // 电商基础组件
+//    api 'com.alibaba.sdk.android:AlibcTradeCommon:4.0.0.19@aar'
+//    api 'com.alibaba.sdk.android:AlibcTradeBiz:4.0.0.19@aar'
+//    api 'com.alibaba.sdk.android:nb_trade:4.0.0.19@aar'
+//    api 'com.alibaba:fastjson:1.2.41@jar'
 }

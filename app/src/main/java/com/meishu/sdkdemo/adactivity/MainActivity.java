@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -144,7 +145,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     while (true) {
                         if (!TextUtils.isEmpty(AdSdk.getOaid())) {
-                            ((TextView) findViewById(R.id.main_info_oaid)).setText(AdSdk.getOaid());
+                            new Handler(getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ((TextView) findViewById(R.id.main_info_oaid)).setText(AdSdk.getOaid());
+                                }
+                            });
+
                             break;
                         }
                         Thread.sleep(1);
