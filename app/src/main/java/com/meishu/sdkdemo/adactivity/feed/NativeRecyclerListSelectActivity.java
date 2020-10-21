@@ -71,10 +71,10 @@ public class NativeRecyclerListSelectActivity extends AppCompatActivity implemen
                 startActivity(intent);
                 break;
             case R.id.single:
-                if (!IdProviderFactory.PLATFORM_MS.equals(name)) {
+                /*if (!IdProviderFactory.PLATFORM_MS.equals(name)) {
                     Toast.makeText(getApplicationContext(), "此类广告目前不支持，请更改广告提供商", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }*/
                 intent = new Intent(this, SingleRecyclerActivity.class);
                 intent.putExtra("alternativePlaceId", ((EditText) findViewById(R.id.alternativeSingleAdPlaceID)).getText().toString().trim());
                 startActivity(intent);

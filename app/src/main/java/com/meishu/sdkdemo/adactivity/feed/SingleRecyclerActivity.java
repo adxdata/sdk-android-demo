@@ -8,16 +8,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.meishu.sdk.core.ad.recycler.RecyclerAdData;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdListener;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdLoader;
 import com.meishu.sdk.core.ad.recycler.RecyclerAdMediaListener;
+import com.meishu.sdk.core.ad.recycler.RecylcerAdInteractionListener;
 import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.utils.MsAdPatternType;
 import com.meishu.sdkdemo.R;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,9 +112,28 @@ public class SingleRecyclerActivity extends AppCompatActivity implements Recycle
     }
 
     private void showAd(View view) {
+        if (adData1 == null) return;
         ViewGroup container = findViewById(R.id.container);
-        container.removeAllViews();
-        container.addView(view);
+
+        ImageView ivAd = findViewById(R.id.ad_view_image);
+        String imgUrl = adData1.getImgUrls()[0];
+        if(TextUtils.isEmpty(imgUrl)){
+            imgUrl = adData1.getIconUrl();
+        }
+        Picasso.get().load(imgUrl).into(ivAd);
+        ((TextView) findViewById(R.id.ad_view_title)).setText(adData1.getTitle());
+
+        ArrayList<View> views = new ArrayList<>();
+        views.add(ivAd);
+        views.add(findViewById(R.id.ad_view_title));
+        adData1.bindAdToView(this, container, views, new RecylcerAdInteractionListener() {
+            @Override
+            public void onAdClicked() {
+
+            }
+        });
+//        container.removeAllViews();
+//        container.addView(view);
     }
 
     @Override
@@ -135,11 +157,6 @@ public class SingleRecyclerActivity extends AppCompatActivity implements Recycle
     }
 
     @Override
-    public void onAdPlatformError(AdPlatformError e) {
-
-    }
-
-    @Override
     public void onAdExposure() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
@@ -147,5 +164,10 @@ public class SingleRecyclerActivity extends AppCompatActivity implements Recycle
     @Override
     public void onAdClosed() {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
+    }
+
+    @Override
+    public void onAdPlatformError(AdPlatformError error) {
+
     }
 }
