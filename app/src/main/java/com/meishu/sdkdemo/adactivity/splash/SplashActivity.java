@@ -1,5 +1,6 @@
 package com.meishu.sdkdemo.adactivity.splash;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -14,6 +15,7 @@ import com.meishu.sdk.core.ad.splash.SplashAdListener;
 import com.meishu.sdk.core.ad.splash.SplashAdLoader;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
+import com.meishu.sdkdemo.adactivity.redpacket.BaiChuanAdActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class SplashActivity extends AppCompatActivity implements SplashAdListener {
@@ -24,6 +26,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     private Button btnShow;
     private Button btnSkip;
     private boolean autoShow;
+    SplashAdLoader splashAdLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         btnShow = findViewById(R.id.btn_show);
         btnSkip = findViewById(R.id.btn_skip);
 
-        SplashAdLoader splashAdLoader;
+
         Integer id = getIntent().getIntExtra("id", -1);
         switch (id) {
             case R.id.loadAndShowSplashAd:
@@ -79,6 +82,10 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdLoaded(ISplashAd splashAd) {
+        Log.e(TAG, "onAdLoaded:");
+//        Intent intent = new Intent(this, BaiChuanAdActivity.class);
+//        startActivity(intent);
+//        finish();
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.splashAd = splashAd;
         if (!autoShow) {
@@ -95,6 +102,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdExposure() {
+        Log.e(TAG, "onAdExposure:");
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
@@ -143,6 +151,11 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         this.finish();
     }
 
+//    @Override
+//    public void onAdPlatformError(AdPlatformError e) {
+//        Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + e);
+//    }
+
     @Override
     public void onAdPresent(ISplashAd splashAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
@@ -164,5 +177,13 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         // 仅支持美数和广点通，回调剩余时间
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + leftMilliseconds);
         btnSkip.setText(leftMilliseconds + "");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (this.splashAdLoader!=null){
+            this.splashAdLoader.destroy();
+        }
     }
 }
