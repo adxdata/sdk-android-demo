@@ -6,164 +6,179 @@
     android:layout_height="match_parent"
     tools:context=".adactivity.feed.NativeRecyclerListSelectActivity"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativeImageTextButtonAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/img_text_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="左图右文字带按钮" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativeImageTextAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/img_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="左图右文字" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativeLargeImageVideoAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/large_img_or_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="上文字下图" />
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativeThreeImageAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/three_img"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="三图" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativeImageTextButtonAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/img_text_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="左图右文字带按钮" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativeFeedVideoAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/feed_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="信息流视频" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativeImageTextAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/img_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="左图右文字" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativePreRenderAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/pre_render"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="预渲染（穿山甲模板渲染、百度优选等）" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativeLargeImageVideoAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/large_img_or_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="上文字下图" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="广告位ID：" />
-        <EditText
-            android:id="@+id/alternativeSingleAdPlaceID"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/single"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="单独加载" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativeThreeImageAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/three_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="三图" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativeFeedVideoAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/feed_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="信息流视频" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativePreRenderAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/pre_render"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="预渲染（穿山甲模板渲染、百度优选等）" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="广告位ID：" />
+                <EditText
+                    android:id="@+id/alternativeSingleAdPlaceID"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/single"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="单独加载" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
