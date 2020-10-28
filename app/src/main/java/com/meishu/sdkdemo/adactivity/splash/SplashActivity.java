@@ -1,6 +1,8 @@
 package com.meishu.sdkdemo.adactivity.splash;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +17,7 @@ import com.meishu.sdk.core.ad.splash.SplashAdLoader;
 import com.meishu.sdk.core.loader.AdPlatformError;
 import com.meishu.sdk.core.loader.InteractionListener;
 import com.meishu.sdkdemo.R;
+import com.meishu.sdkdemo.adactivity.MainActivity;
 import com.meishu.sdkdemo.adid.IdProviderFactory;
 
 public class SplashActivity extends AppCompatActivity implements SplashAdListener {
@@ -25,6 +28,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     private Button btnShow;
     private Button btnSkip;
     private boolean autoShow;
+    private ViewGroup adContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE);
         setContentView(R.layout.activity_splash);
-        final ViewGroup adContainer = findViewById(R.id.splash_container);
+        adContainer = findViewById(R.id.splash_container);
 
         String pid  = getIntent().getStringExtra("alternativePlaceId");
         if (TextUtils.isEmpty(pid)) {
@@ -82,6 +86,7 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
     public void onAdLoaded(ISplashAd splashAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
         this.splashAd = splashAd;
+
         if (!autoShow) {
             btnShow.setEnabled(true);
         }
@@ -170,5 +175,12 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
         // 仅支持美数和广点通，回调剩余时间
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + leftMilliseconds);
         btnSkip.setText(leftMilliseconds + "");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.d(TAG, "onDestroy: ");
     }
 }

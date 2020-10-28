@@ -1,52 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RadioGroup android:id="@+id/rdg_ad_provider"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
 
-    <RadioButton android:id="@+id/rb_ad_provider_ms"
+
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scrollbars="none"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:id="@+id/rdg_ad_provider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="美数"/>
+        android:orientation="horizontal">
 
-    <RadioButton android:id="@+id/rb_ad_provider_bd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="百度"/>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_ms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="美数"
+            android:textSize="@dimen/ad_provider_text_size" />
 
-    <RadioButton android:id="@+id/rb_ad_provider_csj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="穿山甲"/>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_bd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="百度"
+            android:textSize="@dimen/ad_provider_text_size" />
 
-    <RadioButton android:id="@+id/rb_ad_provider_gdt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="广点通"/>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_csj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="穿山甲"
+            android:textSize="@dimen/ad_provider_text_size" />
 
-    <RadioButton android:id="@+id/rb_ad_provider_ks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="快手"/>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_gdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="广点通"
+            android:textSize="@dimen/ad_provider_text_size" />
 
-    <RadioButton android:id="@+id/rb_ad_provider_oppo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="OPPO"
-        android:visibility="gone"/>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_ks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="快手"
+            android:textSize="@dimen/ad_provider_text_size" />
 
-    <RadioButton android:id="@+id/rb_ad_provider_mimo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="小米"
-        android:visibility="gone"/>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_oppo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPPO"
+            android:textSize="@dimen/ad_provider_text_size"
+            android:visibility="gone" />
 
-</RadioGroup>
+        <RadioButton
+            android:id="@+id/rb_ad_provider_mimo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小米"
+            android:textSize="@dimen/ad_provider_text_size"
+            android:visibility="gone" />
+
+        <RadioButton
+            android:id="@+id/rb_ad_provider_huawei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="华为"
+            android:textSize="@dimen/ad_provider_text_size"
+            android:visibility="visible" />
+    </RadioGroup>
+</HorizontalScrollView>
+
+
