@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class IdProviderFactory {
 
-    public static final String PLATFORM_MS = "meishu";  //美数
+    public static final String PLATFORM_MS = "meishu";  //msad
     public static final String PLATFORM_CSJ = "csj";    //穿山甲
     public static final String PLATFORM_GDT = "gdt";    //广点通
     public static final String PLATFORM_BD = "bd";      //百度

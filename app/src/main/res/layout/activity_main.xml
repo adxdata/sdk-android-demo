@@ -105,7 +105,7 @@
                         android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_left"
                         android:layout_height="wrap_content"
-                        android:text="美数SDK" />
+                        android:text="msadSDK" />
                     <TextView
                         android:layout_weight="0"
                         android:layout_width="@dimen/main_info_item_center"

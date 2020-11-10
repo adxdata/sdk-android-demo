@@ -71,9 +71,9 @@ public class BannerAdActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onAdLoaded(IBannerAd bannerAd) {
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
-        // 不显示关闭按钮，仅限美数
+        // 不显示关闭按钮，仅限msad
         bannerAd.setCloseButtonVisible(showCloseButton);
-        // 适应 container 的大小需要设置宽高，仅限美数
+        // 适应 container 的大小需要设置宽高，仅限msad
         bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
         //bannerContainer.addView(bannerAd.getAdView());
         bannerAd.setInteractionListener(new ShareInteractionListener() {

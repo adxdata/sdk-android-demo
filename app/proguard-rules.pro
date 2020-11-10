@@ -33,7 +33,7 @@
     @com.google.gson.annotations.SerializedName <fields>;
 }
 
-# 美数
+# msad
 -keep class com.meishu.sdk.** { *; }
 
 # OAID

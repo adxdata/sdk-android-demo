@@ -161,13 +161,13 @@ public class SplashActivity extends AppCompatActivity implements SplashAdListene
 
     @Override
     public void onAdTimeOver(ISplashAd splashAd) {
-        // 仅支持美数和穿山甲，倒计时结束时回调
+        // 仅支持msad和穿山甲，倒计时结束时回调
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()));
     }
 
     @Override
     public void onAdTick(long leftMilliseconds) {
-        // 仅支持美数和广点通，回调剩余时间
+        // 仅支持msad和广点通，回调剩余时间
         Log.d(TAG, "DEMO ADEVENT " + (new Throwable().getStackTrace()[0].getMethodName()) + " " + leftMilliseconds);
         btnSkip.setText(leftMilliseconds + "");
     }
