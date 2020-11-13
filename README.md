@@ -29,7 +29,7 @@ repositories{
 }
 
 dependencies {
-    implementation(name: 'meishu-sdk_xxx_release', ext: 'aar') // didilink
+    implementation(name: 'ms-sdk_xxx_release', ext: 'aar') // ms
     implementation(name: 'open_ad_sdk_xxx', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-xxx', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.xxx', ext: 'aar') // 广点通
@@ -61,7 +61,7 @@ android:requestLegacyExternalStorage="true"
 权限也需要添加，代码如下
 
 ```xml
-<!-- didilink begin -->
+<!-- ms begin -->
 <provider
     android:name="com.meishu.sdk.core.service.MeishuFileProvider"
     android:authorities="${applicationId}.MeishuFileProvider"
@@ -71,7 +71,7 @@ android:requestLegacyExternalStorage="true"
         android:name="android.support.FILE_PROVIDER_PATHS"
         android:resource="@xml/meishu_file_path" />
 </provider>
-<!-- didilink end -->
+<!-- ms end -->
 <!-- 穿山甲 begin -->
 <provider
     android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
@@ -145,7 +145,7 @@ android:requestLegacyExternalStorage="true"
 
 ```java
 // 一定要在 Application 中初始化 sdk，第一个参数需要填入 Application，否则无法正常使用 sdk
-// appId 是在didilink注册的 appId
+// appId 是在ms注册的 appId
 // isTest 表示是否开启测试模式，测试模式无法用于生产环境
 // getOaid 表示是否获取 oaid，建议填 true
 AdSdk.init(this, "101629", true, true);
@@ -229,9 +229,9 @@ BannerAdListener listener = new BannerAdListener() {
 
     @Override
     public void onAdLoaded(IBannerAd iBannerAd) {
-        // 不显示关闭按钮，仅限didilink
+        // 不显示关闭按钮，仅限ms
         bannerAd.setCloseButtonVisible(showCloseButton);
-        // 适应 container 的大小需要设置宽高，仅限didilink
+        // 适应 container 的大小需要设置宽高，仅限ms
         bannerAd.setWidthAndHeight(bannerContainer.getMeasuredWidth(), bannerContainer.getMeasuredHeight());
         // 将渲染好的广告 view 放入布局的 bannerContainer 中
         bannerContainer.addView(bannerAd.getAdView());
