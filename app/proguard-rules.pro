@@ -34,7 +34,7 @@
 }
 
 # msad
--keep class com.meishu.sdk.** { *; }
+-keep class com.didilink.sdk.** { *; }
 
 # OAID
 -keep class com.bun.miitmdid.** { *; }

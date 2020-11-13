@@ -12,7 +12,7 @@ ext {
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.meishu.meishu_sdk_demo"
+        applicationId "com.didilink.sdkdemo"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
@@ -49,20 +49,8 @@ android {
 }
 
 dependencies {
-//    implementation project(':sdk-android-lib') // 调试用
-//    implementation project(':sdk-android-lib-ext') // 调试用
-//    implementation project(':sdk-android-lib-live') // 调试用
 
-    implementation(name: 'meishu-sdk_0.7.4_release', ext: 'aar')
-//    implementation(name: 'meishu-sdk-ext_0.0.2_release', ext: 'aar')
-//    implementation(name: 'meishu-sdk-live_0.7.0_release', ext: 'aar')
-    implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
-    implementation(name: 'Baidu_MobAds_SDK-release_v5.89', ext: 'aar') // 百度
-    implementation(name: 'GDTSDK.unionNoPlugin.4.251.1121', ext: 'aar') // 广点通
-    implementation(name: 'mobad_normal_pub_354_2020_05_19', ext: 'aar') // OPPO
-    implementation(name: 'ks_adsdk-ad-3.3.2-publishRelease', ext: 'aar') // 快手
-    implementation(name: 'mimo-ad-sdk_5.0.4', ext: 'aar') // 小米
-    implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
+    implementation(name: 'didilink-sdk_0.7.4_release', ext: 'aar')
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用msad插屏广告
@@ -71,23 +59,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.googlecode.android-query:android-query:0.25.9'
     implementation 'com.danikula:videocache:2.7.1'
-    implementation 'com.squareup.wire:wire-runtime:2.2.0' // oppo 使用必加
     implementation 'com.squareup.picasso:picasso:2.71828'
-//    implementation project(path: ':lib-live') // InMobi 使用必加
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
-    // 阿里百川直播间
-//   implementation "com.alibaba.baichuan.sdk:alibclogin:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibcapplink:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibcad:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibctriver:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibctriver_live:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibcwebview:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibctradecommon:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibcnbtrade:$baichuanVersion"
-//   implementation "com.alibaba.baichuan.sdk:alibcprotocol:$baichuanVersion"
-//   implementation "llvm.stl:cpp_shared:0.0.3@aar"
-//   implementation 'com.alibaba:fastjson:1.1.71.android'
 
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'

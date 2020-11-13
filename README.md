@@ -13,7 +13,7 @@
 
 ## 依赖配置
 
-将 sdk-android-demo/app/libs 中的 meishu-sdk_xxx_release.aar、open_ad_sdk_xxx.aar、Baidu_MobAds_SDK-release-xxx.aar、GDTSDK.unionNormal.xxx.aar、oaid_sdk_1.0.23 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
+将 sdk-android-demo/app/libs 中的 DiDiLink-sdk_xxx_release.aar、open_ad_sdk_xxx.aar、Baidu_MobAds_SDK-release-xxx.aar、GDTSDK.unionNormal.xxx.aar、oaid_sdk_1.0.23 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
 
 sdk 依赖一些第三方库，具体如下代码所示
 
@@ -29,7 +29,7 @@ repositories{
 }
 
 dependencies {
-    implementation(name: 'meishu-sdk_xxx_release', ext: 'aar') // didilink
+    implementation(name: 'DiDiLink-sdk_xxx_release', ext: 'aar') // didilink
     implementation(name: 'open_ad_sdk_xxx', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-xxx', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.xxx', ext: 'aar') // 广点通
@@ -63,13 +63,13 @@ android:requestLegacyExternalStorage="true"
 ```xml
 <!-- didilink begin -->
 <provider
-    android:name="com.meishu.sdk.core.service.MeishuFileProvider"
-    android:authorities="${applicationId}.MeishuFileProvider"
+    android:name="com.didilink.sdk.core.service.DiDiLinkFileProvider"
+    android:authorities="${applicationId}.DiDiLinkFileProvider"
     android:exported="false"
     android:grantUriPermissions="true">
     <meta-data
         android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/meishu_file_path" />
+        android:resource="@xml/DiDiLink_file_path" />
 </provider>
 <!-- didilink end -->
 <!-- 穿山甲 begin -->
@@ -423,4 +423,4 @@ if (rewardVideoLoader != null) {
 
 ## 错误排查
 
-初始化时设置 AdSdk.setDebug(true); 日志中搜索 MeishuSdk_ 即可看到 sdk 内部打印的 log，目前包含上报信息，错误信息等
+初始化时设置 AdSdk.setDebug(true); 日志中搜索 DiDiLinkSdk_ 即可看到 sdk 内部打印的 log，目前包含上报信息，错误信息等
