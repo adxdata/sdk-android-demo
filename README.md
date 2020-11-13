@@ -13,7 +13,7 @@
 
 ## 依赖配置
 
-将 sdk-android-demo/app/libs 中的 meishu-sdk_xxx_release.aar、open_ad_sdk_xxx.aar、Baidu_MobAds_SDK-release-xxx.aar、GDTSDK.unionNormal.xxx.aar、msa_mdid_1.0.13 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
+将 sdk-android-demo/app/libs 中的 meishu-sdk_xxx_release.aar、open_ad_sdk_xxx.aar、Baidu_MobAds_SDK-release-xxx.aar、GDTSDK.unionNormal.xxx.aar、oaid_sdk_1.0.23 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
 
 sdk 依赖一些第三方库，具体如下代码所示
 
@@ -33,7 +33,7 @@ dependencies {
     implementation(name: 'open_ad_sdk_xxx', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release-xxx', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.xxx', ext: 'aar') // 广点通
-    implementation(name: 'msa_mdid_xxx', ext: 'aar') // oaid
+    implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.5'
