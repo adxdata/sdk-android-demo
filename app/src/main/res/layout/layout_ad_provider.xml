@@ -11,42 +11,6 @@
         android:textSize="@dimen/ad_provider_text_size"
         android:text="DiDiLink"/>
 
-    <RadioButton android:id="@+id/rb_ad_provider_bd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="百度"/>
 
-    <RadioButton android:id="@+id/rb_ad_provider_csj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="穿山甲"/>
-
-    <RadioButton android:id="@+id/rb_ad_provider_gdt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="广点通"/>
-
-    <RadioButton android:id="@+id/rb_ad_provider_ks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="快手"/>
-
-    <RadioButton android:id="@+id/rb_ad_provider_oppo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="OPPO"
-        android:visibility="gone"/>
-
-    <RadioButton android:id="@+id/rb_ad_provider_mimo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/ad_provider_text_size"
-        android:text="小米"
-        android:visibility="gone"/>
 
 </RadioGroup>

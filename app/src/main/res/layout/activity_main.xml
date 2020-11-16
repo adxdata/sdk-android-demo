@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".adactivity.MainActivity">
 
-    <include layout="@layout/layout_ad_provider" />
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -116,9 +115,10 @@
                         android:layout_width="1dp"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:id="@+id/main_info_meishu" />
+                        android:id="@+id/main_info_didilink" />
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -140,6 +140,7 @@
                         android:id="@+id/main_info_csj" />
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -161,6 +162,7 @@
                         android:id="@+id/main_info_gdt" />
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -182,6 +184,7 @@
                         android:id="@+id/main_info_bqt" />
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">

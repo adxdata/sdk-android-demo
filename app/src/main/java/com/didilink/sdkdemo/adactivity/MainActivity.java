@@ -127,21 +127,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
 
             ((TextView) findViewById(R.id.main_info_demo)).setText(packageInfo.versionName);
-            ((TextView) findViewById(R.id.main_info_meishu)).setText(AdSdk.getVersionName());
-            ((TextView) findViewById(R.id.main_info_csj)).setText(AdSdk.getCSJVersionName());
-            ((TextView) findViewById(R.id.main_info_gdt)).setText(AdSdk.getGDTVersionName());
-            ((TextView) findViewById(R.id.main_info_bqt)).setText(AdSdk.getBDVersionName());
-            ((TextView) findViewById(R.id.main_info_ks)).setText(AdSdk.getKSVersionName());
-            ((TextView) findViewById(R.id.main_info_oppo)).setText(AdSdk.getOPPOVersionName());
-            ((TextView) findViewById(R.id.main_info_mimo)).setText(AdSdk.getMimoVersionName());
+            ((TextView) findViewById(R.id.main_info_didilink)).setText(AdSdk.getVersionName());
             ((TextView) findViewById(R.id.main_info_package)).setText(getPackageName());
 
-            if (null != AdSdk.getOPPOVersionName()) {
-                ((View) findViewById(R.id.main_info_oppo).getParent()).setVisibility(View.VISIBLE);
-            }
-            if (null != AdSdk.getMimoVersionName()) {
-                ((View) findViewById(R.id.main_info_mimo).getParent()).setVisibility(View.VISIBLE);
-            }
 
             new Thread(() -> {
                 try {
@@ -162,41 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initAdProvider() {
-        RadioGroup rgd = findViewById(R.id.rdg_ad_provider);
-        if (null != AdSdk.getOPPOVersionName()) {
-            rgd.findViewById(R.id.rb_ad_provider_oppo).setVisibility(View.VISIBLE);
-        } else if (null != AdSdk.getMimoVersionName()) {
-            rgd.findViewById(R.id.rb_ad_provider_mimo).setVisibility(View.VISIBLE);
-        }
-        rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_ad_provider_ms:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MS);
-                        break;
-                    case R.id.rb_ad_provider_bd:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_BD);
-                        break;
-                    case R.id.rb_ad_provider_csj:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_CSJ);
-                        break;
-                    case R.id.rb_ad_provider_gdt:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_GDT);
-                        break;
-                    case R.id.rb_ad_provider_ks:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_KS);
-                        break;
-                    case R.id.rb_ad_provider_oppo:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_OPPO);
-                        break;
-                    case R.id.rb_ad_provider_mimo:
-                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MIMO);
-                        break;
-                }
-            }
-        });
-        rgd.check(R.id.rb_ad_provider_ms);
+        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MS);
     }
 
     private void initAdDownloadMode() {
@@ -250,10 +204,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.videoFeedAd:
-                if (!IdProviderFactory.PLATFORM_CSJ.equals(IdProviderFactory.getDefaultProvider().platformName())) {
-                    Toast.makeText(getApplicationContext(), "此类广告目前不支持，请修改广告提供商", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 intent.setClass(this, PrepareVideoFeedActivity.class);
                 startActivity(intent);
                 break;
