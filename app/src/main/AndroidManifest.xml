@@ -76,7 +76,7 @@
         </activity> <!-- didilink begin -->
         <provider
             android:name="com.didilink.sdk.core.service.DiDiLinkFileProvider"
-            android:authorities="${applicationId}.MeishuFileProvider"
+            android:authorities="${applicationId}.DiDiLinkFileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

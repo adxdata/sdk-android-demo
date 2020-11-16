@@ -3,5 +3,5 @@ include ':sdk-android-lib'
 project(':sdk-android-lib').projectDir = new File(settingsDir,'../sdk-android-lib/lib/')
 //include ':sdk-android-lib-ext'
 //project(':sdk-android-lib-ext').projectDir = new File(settingsDir,'../sdk-android-lib/lib-ext/')
-include ':sdk-android-lib-live'
-project(':sdk-android-lib-live').projectDir = new File(settingsDir,'../sdk-android-lib/lib-live/')
+//include ':sdk-android-lib-live'
+//project(':sdk-android-lib-live').projectDir = new File(settingsDir,'../sdk-android-lib/lib-live/')
