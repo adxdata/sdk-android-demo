@@ -13,7 +13,7 @@
 
 ## 依赖配置
 
-将 sdk-android-demo/app/libs 中的 DiDiLink-sdk_xxx_release.aar、oaid_sdk_1.0.23 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
+将 sdk-android-demo/app/libs 中的 didilink-sdk_xxx_release.aar、oaid_sdk_1.0.23 拷贝到项目的 libs 下，对应的 build.gradle 文件里面添加如下配置
 
 sdk 依赖一些第三方库，具体如下代码所示
 
@@ -98,7 +98,7 @@ android:requestLegacyExternalStorage="true"
                 .build();
 
         AdSdk.init(this, sdkConfig);
-        ```
+```
 
 ## 广告形式
 ### 开屏
