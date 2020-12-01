@@ -49,11 +49,11 @@ android {
 }
 
 dependencies {
-    implementation project(':sdk-android-lib') // 调试用
+//    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
 
-//    implementation(name: 'ms-sdk_0.7.4_release', ext: 'aar')
+    implementation(name: 'ms-sdk_0.7.4_release', ext: 'aar')
 //    implementation(name: 'ms-sdk-ext_0.0.2_release', ext: 'aar')
 //    implementation(name: 'ms-sdk-live_0.7.0_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.3.0.3', ext: 'aar') // 穿山甲
