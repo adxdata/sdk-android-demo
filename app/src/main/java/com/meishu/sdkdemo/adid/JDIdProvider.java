@@ -38,7 +38,7 @@ public class JDIdProvider implements IAdIdProvider {
 
     @Override
     public String feedPreRender() {
-        return null;
+        return "73646b0299091991";
     }
 
     @Override
@@ -58,17 +58,17 @@ public class JDIdProvider implements IAdIdProvider {
 
     @Override
     public String insertScreen() {
-        return null;
+        return "73646b0599091991";
     }
 
     @Override
     public String splash() {
-        return "73646b0402091191";
+        return "73646b0499091991";
     }
 
     @Override
     public String banner() {
-        return null;
+        return "73646b0399091991";
     }
 
     @Override
