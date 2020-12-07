@@ -50,7 +50,8 @@ android {
 
 dependencies {
 
-    implementation(name: 'didilink-sdk_0.7.4_release', ext: 'aar')
+    implementation project(":sdk-android-lib")
+//    implementation(name: 'didilink-sdk_0.7.4_release', ext: 'aar')
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用msad插屏广告
