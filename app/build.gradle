@@ -12,8 +12,8 @@ ext {
 android {
     compileSdkVersion 29
     defaultConfig {
-//        applicationId "com.meishu.meishu_sdk_demo"
-        applicationId "com.jd.sdkceshiandroid"
+        applicationId "com.meishu.meishu_sdk_demo"
+//        applicationId "com.jd.sdkceshiandroid"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode getProject().ext.demoVersionCode
