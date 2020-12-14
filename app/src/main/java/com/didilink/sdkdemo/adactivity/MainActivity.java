@@ -22,6 +22,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.didilink.sdk.activity.GameCenterWebViewActivity;
+import com.didilink.sdk.activity.GamePlayWebViewActivity;
 import com.didilink.sdk.core.AdSdk;
 import com.didilink.sdk.core.MSAdConfig;
 import com.didilink.sdkdemo.R;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.rewardVideoAd).setOnClickListener(this);
         findViewById(R.id.videoFeedAd).setOnClickListener(this);
         findViewById(R.id.full_screen_video).setOnClickListener(this);
+        findViewById(R.id.enter_game).setOnClickListener(this);
         // 如果targetSDKVersion >= 23，就要申请好权限。如果您的App没有适配到Android6.0（即targetSDKVersion < 23），那么只需要在这里直接调用fetchSplashAD接口。
         if (Build.VERSION.SDK_INT >= 23) {
             checkAndRequestPermission();
@@ -210,6 +213,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.full_screen_video:
                 intent.setClass(this, FullScreenVideoActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.enter_game:
+                GameCenterWebViewActivity.startActivity(this,"","");
+//                GamePlayWebViewActivity.startActivity(this,"",1);
                 break;
         }
     }

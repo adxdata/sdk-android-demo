@@ -67,6 +67,14 @@
                 android:layout_height="wrap_content"
                 android:text="全屏视频" />
 
+            <Button
+                android:id="@+id/enter_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="游戏入口" />
+
+
+
             <LinearLayout
                 android:layout_marginHorizontal="5dp"
                 android:layout_width="match_parent"
