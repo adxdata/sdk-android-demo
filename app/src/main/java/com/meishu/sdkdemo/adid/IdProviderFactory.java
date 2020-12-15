@@ -12,6 +12,7 @@ public class IdProviderFactory {
     public static final String PLATFORM_KS = "ks";      //快手
     public static final String PLATFORM_OPPO = "oppo";  //oppo
     public static final String PLATFORM_MIMO = "mimo";  //小米
+    public static final String PLATFORM_JD = "jd";      //京东
     public static String PLATFORM_DEFAULT = "";
 
     private static final Map<String, IAdIdProvider> providers;
@@ -25,6 +26,7 @@ public class IdProviderFactory {
         providers.put(PLATFORM_KS, new KSIdProvider());
         providers.put(PLATFORM_OPPO, new OPPOIdProvider());
         providers.put(PLATFORM_MIMO, new MimoIdProvider());
+        providers.put(PLATFORM_JD, new JDIdProvider());
     }
 
     public static IAdIdProvider getProvider(String platform) {

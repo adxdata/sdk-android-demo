@@ -119,3 +119,8 @@
 #skip IAB classes
 -keep class com.iab.** {*;}
 -dontwarn com.iab.**
+
+#jd
+-keep class com.jd.ad.sdk.core.event.CustomAdEvent {*;}
+-keep class com.jd.ad.sdk.imp.splash.CustomSplashEvent {*;}
+-keep class com.jd.ad.sdk.adapter.TT*

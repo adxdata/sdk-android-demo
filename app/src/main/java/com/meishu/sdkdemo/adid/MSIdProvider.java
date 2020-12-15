@@ -84,7 +84,7 @@ public class MSIdProvider implements IAdIdProvider {
     public String banner() {
         //BANNER
         return "73646b0399001991";
-//        return  "987654001";
+//        return  "1016909";
     }
 
     @Override
@@ -96,6 +96,7 @@ public class MSIdProvider implements IAdIdProvider {
     @Override
     public String fullScreenVideo() {
         return "73646b0999001991";
+//        return "1016911";
     }
 
     @Override

@@ -168,6 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (null != AdSdk.getMimoVersionName()) {
             rgd.findViewById(R.id.rb_ad_provider_mimo).setVisibility(View.VISIBLE);
         }
+        if (null != AdSdk.getJDVersionName()){
+            rgd.findViewById(R.id.rb_ad_provider_jd).setVisibility(View.VISIBLE);
+        }
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -192,6 +195,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case R.id.rb_ad_provider_mimo:
                         IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MIMO);
+                        break;
+                    case R.id.rb_ad_provider_jd:
+                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_JD);
                         break;
                 }
             }

@@ -33,7 +33,7 @@ android {
             debuggable true
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -49,7 +49,7 @@ android {
 }
 
 dependencies {
-//    implementation project(':sdk-android-lib') // 调试用
+    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
 
@@ -64,6 +64,7 @@ dependencies {
     implementation(name: 'mimo-ad-sdk_5.0.4', ext: 'aar') // 小米
     implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
+    implementation(name: 'jad_yun_sdk_v1.1.0', ext: 'aar')//京东
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6' // 需要添加此包，否则无法正常使用穿山甲开屏广告
     implementation 'com.github.razerdp:BasePopup:2.2.1' // 需要添加此包，否则无法正常使用msad插屏广告
     implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
@@ -74,7 +75,7 @@ dependencies {
     implementation 'com.squareup.wire:wire-runtime:2.2.0' // oppo 使用必加
     implementation 'com.squareup.picasso:picasso:2.71828'
 //    implementation project(path: ':lib-live') // InMobi 使用必加
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
     // 阿里百川直播间
 //   implementation "com.alibaba.baichuan.sdk:alibclogin:$baichuanVersion"
