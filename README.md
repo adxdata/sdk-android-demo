@@ -34,6 +34,7 @@ dependencies {
     implementation(name: 'Baidu_MobAds_SDK-release-xxx', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNormal.xxx', ext: 'aar') // 广点通
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
+    implementation(name: 'jad_yun_sdk_v1.1.0', ext: 'aar')//京东
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -61,6 +62,7 @@ android:requestLegacyExternalStorage="true"
 权限也需要添加，代码如下
 
 ```xml
+<!--广点通升级后，LandscapeADActivity属性修改为screenOrientation="sensorLandscape"-->
 <!-- ms begin -->
 <provider
     android:name="com.meishu.sdk.core.service.MeishuFileProvider"
@@ -113,10 +115,11 @@ android:requestLegacyExternalStorage="true"
     android:name="com.qq.e.ads.PortraitADActivity"
     android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
     android:screenOrientation="portrait" />
+
 <activity
     android:name="com.qq.e.ads.LandscapeADActivity"
     android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-    android:screenOrientation="landscape" />
+    android:screenOrientation="sensorLandscape" />
 <provider
     android:name="android.support.v4.content.FileProvider"
     android:authorities="${applicationId}.fileprovider"
@@ -148,21 +151,19 @@ android:requestLegacyExternalStorage="true"
 // appId 是在ms注册的 appId
 // isTest 表示是否开启测试模式，测试模式无法用于生产环境
 // getOaid 表示是否获取 oaid，建议填 true
-AdSdk.init(this, "101629", true, true);
+        MSAdConfig sdkConfig = new MSAdConfig.Builder()
+                .appId("101629")
+                .isTest(true)       //测试环境
+                .enableDebug(true)  //开启DEBUG模式，打印内部LOG
+                .downloadConfirm(MSAdConfig.DOWNLOAD_CONFIRM_AUTO)  //下载提示模式
+//                .userId("123456")                   //设置用户ID
+//                .userType(1)                        //设置用户类型
+//                .userGender(MSAdConfig.GENDER_MALE) //设置用户性别
+//                .userAge(18)                        //设置用户年龄
+//                .userKeywords("汽车,漫画")          //设置用户关键词
+                .build();
 
-// 设置下载提示类型，默认不提示 AdSdk.DOWNLOAD_MODE_DIRECTLY
-AdSdk.setDownloadMode(AdSdk.DOWNLOAD_MODE_NOTIFY);
-
-// 设置是否 debug 模式，debug 模式会打印内部 log，默认不打印，需要排查错误一定要设置 true
-AdSdk.setDebug(true);
-
-// 设置用户标签，什么时候获取到，什么时候设置就可以了
-// AdSdk.setAge(18);
-// AdSdk.setGender(AdSdk.GENDER_MALE);
-// AdSdk.setKeywords("food,game");
-
-// 设置广点通自渲染版本，默认 2.0。这是为老版本做的兼容，一般不需要设置
-// AdSdk.setGdtRecyclerVersion(AdSdk.GDT_1);
+        AdSdk.init(this, sdkConfig);
 ```
 
 ## 广告形式
