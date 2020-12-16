@@ -49,11 +49,11 @@ android {
 }
 
 dependencies {
-//    implementation project(':sdk-android-lib') // 调试用
+    implementation project(':sdk-android-lib') // 调试用
 //    implementation project(':sdk-android-lib-ext') // 调试用
 //    implementation project(':sdk-android-lib-live') // 调试用
 
-    implementation(name: 'ms-sdk_0.7.8_release', ext: 'aar')
+//    implementation(name: 'ms-sdk_0.7.8_release', ext: 'aar')
 //    implementation(name: 'ms-sdk-ext_0.0.2_release', ext: 'aar')
 //    implementation(name: 'ms-sdk-live_0.7.0_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.3.0.3', ext: 'aar') // 穿山甲
@@ -62,6 +62,10 @@ dependencies {
     implementation(name: 'mobad_normal_pub_354_2020_05_19', ext: 'aar') // OPPO
     implementation(name: 'ks_adsdk-ad-3.3.2-publishRelease', ext: 'aar') // 快手
     implementation(name: 'mimo-ad-sdk_5.0.4', ext: 'aar') // 小米
+    //接入小米需要添加glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
     implementation(name: 'InMobi-7.4.3', ext: 'jar') // InMobi
     implementation(name: 'oaid_sdk_1.0.23', ext: 'aar') // oaid
     implementation(name: 'jad_yun_sdk_v1.1.0', ext: 'aar')//京东
@@ -98,4 +102,6 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
+
+
 }
