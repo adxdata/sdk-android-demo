@@ -78,6 +78,7 @@ public class MSIdProvider implements IAdIdProvider {
     public String splash() {
         //开屏
         return "73646b0499001991";
+//        return "73646b0402001991";
     }
 
     @Override
