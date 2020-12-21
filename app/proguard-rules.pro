@@ -119,3 +119,6 @@
 #skip IAB classes
 -keep class com.iab.** {*;}
 -dontwarn com.iab.**
+
+#Glide
+-keep class com.bumptech.glide.** {*;}

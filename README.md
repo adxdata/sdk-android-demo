@@ -37,6 +37,10 @@ dependencies {
     implementation 'com.github.razerdp:BasePopup:2.2.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
     implementation 'com.danikula:videocache:2.7.1'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 }
 ```
 
@@ -251,6 +255,7 @@ if (interstitialAdLoader != null) {
 
 
 ```java
+
 ```
 
 ### 视频贴片
@@ -356,6 +361,23 @@ if (rewardVideoLoader != null) {
 }
 ```
 
+### 游戏入口
+
+在游戏入口处调用如下方法
+
+```java
+/**
+@params Context context
+@params String gameCenterUrl  游戏中心地址
+**/
+GameCenterWebViewActivity.startActivity(this,gameCenterUrl);
+```
+
+
+
 ## 错误排查
 
 初始化时设置 AdSdk.setDebug(true); 日志中搜索 DiDiLinkSdk_ 即可看到 sdk 内部打印的 log，目前包含上报信息，错误信息等
+
+
+
