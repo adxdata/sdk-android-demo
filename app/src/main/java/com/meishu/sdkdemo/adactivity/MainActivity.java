@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ((TextView) findViewById(R.id.main_info_gdt)).setText(AdSdk.getGDTVersionName());
             ((TextView) findViewById(R.id.main_info_bqt)).setText(AdSdk.getBDVersionName());
             ((TextView) findViewById(R.id.main_info_ks)).setText(AdSdk.getKSVersionName());
+            ((TextView) findViewById(R.id.main_info_jd)).setText(AdSdk.getJDVersionName());
             ((TextView) findViewById(R.id.main_info_oppo)).setText(AdSdk.getOPPOVersionName());
             ((TextView) findViewById(R.id.main_info_mimo)).setText(AdSdk.getMimoVersionName());
             ((TextView) findViewById(R.id.main_info_package)).setText(getPackageName());
@@ -168,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (null != AdSdk.getMimoVersionName()) {
             rgd.findViewById(R.id.rb_ad_provider_mimo).setVisibility(View.VISIBLE);
         }
+
         rgd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -192,6 +194,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case R.id.rb_ad_provider_mimo:
                         IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_MIMO);
+                        break;
+                    case R.id.rb_ad_provider_jd:
+                        IdProviderFactory.setDefaultPlatform(IdProviderFactory.PLATFORM_JD);
                         break;
                 }
             }

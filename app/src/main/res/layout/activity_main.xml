@@ -205,6 +205,27 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_left"
+                        android:layout_height="wrap_content"
+                        android:text="京东SDK" />
+                    <TextView
+                        android:layout_weight="0"
+                        android:layout_width="@dimen/main_info_item_center"
+                        android:layout_height="wrap_content"
+                        android:text="：" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/main_info_jd" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
                     <TextView

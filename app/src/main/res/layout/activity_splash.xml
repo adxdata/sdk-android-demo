@@ -15,7 +15,7 @@
         android:layout_alignParentBottom="true"
         android:scaleType="fitCenter"
         android:background="#ffffff"
-        android:src="@drawable/logo" />
+        android:src="@mipmap/ic_launcher" />
 
     <RelativeLayout
         android:id="@+id/splash_container"

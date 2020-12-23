@@ -73,7 +73,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 美数 begin -->
+        </activity> <!-- msad begin -->
         <provider
             android:name="com.meishu.sdk.core.service.MeishuFileProvider"
             android:authorities="${applicationId}.MeishuFileProvider"
@@ -82,7 +82,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/meishu_file_path" />
-        </provider> <!-- 美数 end -->
+        </provider> <!-- msad end -->
         <!-- 穿山甲 begin -->
         <provider
             android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
@@ -126,7 +126,7 @@
         <activity
             android:name="com.qq.e.ads.LandscapeADActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="sensorLandscape" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

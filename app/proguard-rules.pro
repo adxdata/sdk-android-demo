@@ -105,6 +105,11 @@
 -keep class android.support.v4.** { public *; }
 -keep class android.support.v7.** { public *; }
 
+# 京东
+-keep class com.jd.ad.sdk.core.event.CustomAdEvent {*;}
+-keep class com.jd.ad.sdk.imp.splash.CustomSplashEvent {*;}
+-keep class com.jd.ad.sdk.adapter.TT*
+
 # inmobi
 -keepattributes SourceFile,LineNumberTable
 -keep class com.inmobi.** { *; }
