@@ -368,9 +368,9 @@ if (rewardVideoLoader != null) {
 ```java
 /**
 @params Context context
-@params String gameCenterUrl  游戏中心地址
+@params String appKey
 **/
-GameCenterWebViewActivity.startActivity(this,gameCenterUrl);
+GameCenterWebViewActivity.startActivityWithAppkey(this,"8AE20586249F49A57D");
 ```
 
 

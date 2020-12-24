@@ -215,8 +215,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.enter_game:
-                GameCenterWebViewActivity.startActivity(this,"http://static.adtianshi.cn/game/gamecenter/index.html");
-//                GamePlayWebViewActivity.startActivity(this,"",1);
+                GameCenterWebViewActivity.startActivityWithAppkey(this,"8AE20586249F49A57D");
                 break;
         }
     }

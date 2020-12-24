@@ -50,8 +50,8 @@ android {
 
 dependencies {
 
-    implementation project(":sdk-android-lib")
-//    implementation(name: 'didilink-sdk_0.7.5_release', ext: 'aar')
+//    implementation project(":sdk-android-lib")
+    implementation(name: 'didilink-sdk_0.7.5_release', ext: 'aar')
     implementation(name: 'open_ad_sdk_3.2.0.6', ext: 'aar') // 穿山甲
     implementation(name: 'Baidu_MobAds_SDK-release_v5.89', ext: 'aar') // 百度
     implementation(name: 'GDTSDK.unionNoPlugin.4.251.1121', ext: 'aar') // 广点通
